@@ -17,7 +17,7 @@ class TableUsersAdmin extends Seeder
         $newuser-> surname = ('admin');
         $newuser-> email = ('admin@librando.com');
         $newuser-> password = bcrypt('admin');
-        $newuser-> id_rol = 1;
+        $newuser-> rol_id = 1;
         $newuser->save();
     }
 }
