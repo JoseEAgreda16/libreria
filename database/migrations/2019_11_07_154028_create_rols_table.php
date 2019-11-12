@@ -19,7 +19,6 @@ class CreateRolsTable extends Migration
             $table->unsignedInteger('type_id');
             $table->timestamps();
 
-            $table->foreign('type_id')->references('id')->on('lib.type');
         });
     }
 
