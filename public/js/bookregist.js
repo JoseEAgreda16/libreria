@@ -11,7 +11,7 @@ function save(){
     let autor =$('.author').val();
     let fecha =$('.date').val();
     let cantidad =$('.quantity').val();
-        $.post("./loger.php", {
+        $.post("http://librando.local/login/", {
             title: nombre,
             gender_id: genero,
             date_public: fecha,
@@ -19,6 +19,6 @@ function save(){
             quantity: cantidad,
         })
         .done(function (books) {
-                alert(`el libro ${nombre} se ha registrado con exito`)
+                alert(`el libro ${nombre} se ha registrado con exito`);
         });
     }

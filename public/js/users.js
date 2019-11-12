@@ -19,38 +19,19 @@ function reg(e){
             let email = $(".email").val();
             let ci = $(".ci").val();
             // hay que cambiar la ruta del post
-        $.post("./register.php", {
+        $.post("http://librando.local/register/", {
                 name: usuario,
                 surmane: apellido,
                 password: clave,
                 email: email,
                 id_card: ci,
+                rol_id:1,
             })
             .done(function (ladada) {
                 alert("usuario registrado con exito ahora puede hacer login e ingresar");
-            });   
+            });
  }
 // login
- function logg(e){
-    e.preventDefault();
-            let usuario = $(".usuario").val();
-            let clave = $(".clave").val();
-            let ci = $(".ci").val();
-            // hay que cambiar la ruta a la correcta
-        $.post("./loger.php", {
-                name: usuario,
-                password: clave,
-            })
-            .done(function (ladada) {
-                if(+ladada){
-                alert("bienvenido");
-                window.location='./librando/books.html'
-                }
-                else{
-                    alert('datos incorrectos');
-                }
-            });   
-        }
 
 // activa el formulario login
 function formLogin(e){
@@ -58,17 +39,14 @@ function formLogin(e){
         $(".preview-content").detach();
         $(".regist").detach();
         $(".login").detach();
-    $(".main-container").append(`<form class="login">
+    $(".main-container").append(`<form class="login" method="POST" action="/login">
                                     <div class="form-content">
                                      <h2 class=title-form>Login</h2>
-                                        <input class="user" placeholder="ingrese el nombre"></input>
+                                        <input class="email" placeholder="ingrese el e-mail"></input>
                                         <input class="password" placeholder="ingrese el password"></input>
-                                        <input class="ci" placeholder="ci"></input>
                                         <button class="submit">logear</button>
                                      </div>
                                  </form>`);
-          let logear=$('.submit');
-          logear.click(logg);                      
 }
 // activa el formulario de registro
 function formRegist(e){

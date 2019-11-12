@@ -27,7 +27,6 @@
             display:block;
             margin:auto;
             text-align: center;
-
         }
         .found{
             margin:auto;
@@ -65,7 +64,7 @@
                 <input class="password" type="text" placeholder="password">
                 <input class="ci" type="text" placeholder="ci">
                 <input class="email" type="text" placeholder="email">
-                <button class="regist">registrar</button>
+                <button class="registad">registrar</button>
         </form>
     </div>
         <aside class="reply"></aside>
