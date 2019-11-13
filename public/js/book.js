@@ -12,11 +12,11 @@ let genero = $('.genero').val();
 let fecha = $('.autor').val();
 let autor = $('.autor').val();
 let cantidad = $('.quantity').val();
-$.post("./loger.php", {
+$.post("http://librando.local/books/", {
     title: nombre,
-    genderId: genero,
-    fechPublic: fecha,
-    authorId: autor,
+    geners_id: genero,
+    date_public: fecha,
+    author_id: autor,
     quantity: cantidad,
 })
 .done(function (object) {
@@ -37,9 +37,8 @@ $.post("./loger.php", {
                     </table>`);
                 i++;
                 }
-    
 });
-}  
+}
 // funcion rechazar
 // aceptar
 

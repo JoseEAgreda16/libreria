@@ -1,0 +1,71 @@
+body,html{
+    width:100%;
+    display:inline-block;
+    align-content: center;
+    margin:0;
+    padding:0;
+}
+.login,.regist{
+    margin:auto;
+    justify-content: center;
+    width:400px;
+    border:none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 2px rgb(0,0,0,0.6);
+    margin-top:0;
+    align-items: center;
+    }
+.surname,.email,.ci,.confirm,.user,.password{
+    display:list-item;
+    border-radius:2px;
+    width:125px;
+    height:35px;
+    margin-bottom:15px;
+    margin:auto;
+}
+.submit{
+    width:125px;
+    height:35px;
+    border:none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 2px rgb(0,0,0,0.6);
+    display:block;
+    margin-bottom:10px;
+    margin: auto;
+}
+.form-content{
+    margin:auto;
+    align-content:center;
+    list-style:none;
+    padding:none;
+}
+.preview-content{
+    width:800px;
+    height:300px;
+    display:block;
+    align-content: center;
+    margin:auto;
+}
+.main-container{
+    display:flex;
+    align-items: center;
+    align-content: center;
+    display:block;
+    margin:auto;
+}
+header{
+    align-items: center;
+}
+.title{
+    text-align: center;
+    border-bottom-color: solid rgba(82, 79, 79, 0.6)
+}
+.options{
+    width:900px;
+    margin:auto;
+}
+.title-form{
+    display:block;
+    margin:auto;
+    text-align: center;
+}

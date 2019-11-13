@@ -19,17 +19,17 @@ function reg(e){
             let email = $(".email").val();
             let ci = $(".ci").val();
             // hay que cambiar la ruta del post
-        $.post("http://librando.local/register/", {
+        $.post("http://librando.local/register", {
                 name: usuario,
                 surmane: apellido,
                 password: clave,
                 email: email,
                 id_card: ci,
-                rol_id:1,
             })
             .done(function (ladada) {
                 alert("usuario registrado con exito ahora puede hacer login e ingresar");
             });
+
  }
 // login
 
@@ -39,7 +39,9 @@ function formLogin(e){
         $(".preview-content").detach();
         $(".regist").detach();
         $(".login").detach();
+
     $(".main-container").append(`<form class="login" method="POST" action="/login">
+                                    <input type="hidden" name="_token" value="${$('meta[name="csrf-token"]').attr('content')}">
                                     <div class="form-content">
                                      <h2 class=title-form>Login</h2>
                                         <input class="email" placeholder="ingrese el e-mail"></input>

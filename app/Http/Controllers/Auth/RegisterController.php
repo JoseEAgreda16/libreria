@@ -74,5 +74,4 @@ class RegisterController extends Controller
             'rol_id' => 2,
         ]);
     }
-
 }
