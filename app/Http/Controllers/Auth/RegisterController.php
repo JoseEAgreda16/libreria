@@ -75,5 +75,4 @@ class RegisterController extends Controller
             'rol_id' => $data['rol_id'],
         ]);
     }
-
 }

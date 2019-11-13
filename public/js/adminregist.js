@@ -15,7 +15,6 @@ function save(){
             surname: apellido,
             email: email,
             password: clave,
-            rol_id:2,
         })
         .done(function (books) {
                 alert(`el usuario ${nombre} se ha registrado con exito`);
