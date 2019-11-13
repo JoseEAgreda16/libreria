@@ -27,7 +27,7 @@ function reg(e){
                 id_card: ci,
             })
             .done(function (ladada) {
-                alert("usuario registrado con exito ahora puede hacer login e ingresar");
+                alert(`usuario ${usuario} registrado con exito ahora puede hacer login e ingresar`);
             });
 
  }
@@ -44,11 +44,12 @@ function formLogin(e){
                                     <input type="hidden" name="_token" value="${$('meta[name="csrf-token"]').attr('content')}">
                                     <div class="form-content">
                                      <h2 class=title-form>Login</h2>
-                                        <input class="email" placeholder="ingrese el e-mail"></input>
-                                        <input class="password" placeholder="ingrese el password"></input>
+                                        <input name="email" class="email" placeholder="ingrese el e-mail"></input>
+                                        <input name="password" class="password" placeholder="ingrese el password"></input>
                                         <button class="submit">logear</button>
                                      </div>
                                  </form>`);
+
 }
 // activa el formulario de registro
 function formRegist(e){

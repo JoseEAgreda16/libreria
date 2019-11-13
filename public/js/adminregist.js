@@ -10,7 +10,7 @@ function save(){
     let apellido =$('.surname').val();
     let email =$('.email').val();
     let clave =$('.password').val();
-        $.post("http://librando.local/register/", {
+        $.post("http://librando.local/registeradmin/", {
             title: nombre,
             surname: apellido,
             email: email,

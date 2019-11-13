@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+@extends('layouts.base')
+
+@section('style')
     <style>
         html,body{
             margin:0;
@@ -18,8 +14,8 @@
             height:400px;
         }
     </style>
-</head>
-<body>
+    @endsection
+    @section('content')
     <header>
         <div class="username"></div>
     </header>
@@ -35,8 +31,10 @@
                 <button class="pedir">pedir</button>
         </form>
     </div>
-        <aside class="reply"></aside>
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <div class="reply"></div>
+        @endsection
+
+        @section('js')
     <script src="{{ asset('js/request.js') }}"></script>
-</body>
-</html>
+    @endsection
+

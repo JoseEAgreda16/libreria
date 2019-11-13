@@ -14,6 +14,15 @@
 <body>
     @yield('content')
 
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     @yield('js')
