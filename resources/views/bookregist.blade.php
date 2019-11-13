@@ -30,7 +30,8 @@
                 <button class="register">registrar</button>
         </form>
     </div>
-    @
-    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    @endsection
+    @section('json_decode')
     <script src="{{asset('js/request.js')}}"></script>
+    @endsection
 
