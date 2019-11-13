@@ -8,8 +8,9 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
-class RegisterController extends Controller
+class RegisterAdminController extends Controller
 {
+
     /*
     |--------------------------------------------------------------------------
     | Register Controller
@@ -71,7 +72,7 @@ class RegisterController extends Controller
             'surname' => $data['surname'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'rol_id' => 2,
+            'rol_id' => 1,
         ]);
     }
 
