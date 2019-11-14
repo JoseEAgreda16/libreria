@@ -29,6 +29,11 @@ class BookController extends Controller
         $newuser->save();
     }
 
+    public function AddBooksView()
+    {
+        return view('bookregist');
+    }
+
     public function UpdateBooks(Request $request, $title)
     {
         Book::findOrFail($title)->update($request->all());

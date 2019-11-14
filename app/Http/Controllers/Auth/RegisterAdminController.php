@@ -47,6 +47,12 @@ class RegisterAdminController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+
+    protected function index()
+    {
+        return view('auth.adminregist');
+    }
+
     protected function validator(array $data)
     {
         return Validator::make($data, [

@@ -18,6 +18,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@home')->name('home');
 
     Route::get('/books', 'BookController@index');
+    Route::get('/book/add', 'BookController@AddBooksView');
     Route::post('/book/add', 'BookController@AddBooks');
     Route::post('/book/update/{title}','BookController@UpdateBooks');
     Route::post('/book/delete/{title}/{id_author}', 'BookController@DeleteBooks');
@@ -33,7 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/gender/delete/{name}', 'GenderController@delete');
 
 
-
+    Route::get('/registeradmin', 'Auth\RegisterAdminController@index');
     Route::post('/registeradmin', 'Auth\RegisterAdminController@register');
 });
 
