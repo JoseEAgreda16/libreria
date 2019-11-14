@@ -13,7 +13,7 @@ class CreateGenresTable extends Migration
      */
     public function up()
     {
-        Schema::create('lib.genres', function (Blueprint $table) {
+        Schema::create('genres', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->timestamps();
@@ -27,6 +27,6 @@ class CreateGenresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lib.genres');
+        Schema::dropIfExists('genres');
     }
 }

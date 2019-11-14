@@ -13,7 +13,7 @@ class CreateUserBookTable extends Migration
      */
     public function up()
     {
-        Schema::create('lib.usersbook', function (Blueprint $table) {
+        Schema::create('usersbook', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedInteger('users_id');
             $table->unsignedInteger('book_id');
@@ -21,9 +21,9 @@ class CreateUserBookTable extends Migration
             $table->date('date');
             $table->timestamps();
 
-            $table->foreign('users_id')->references('id')->on('lib.users');
-            $table->foreign('book_id')->references('id')->on('lib.books');
-            $table->foreign('status_id')->references('id')->on('lib.status');
+            $table->foreign('users_id')->references('id')->on('users');
+            $table->foreign('book_id')->references('id')->on('books');
+            $table->foreign('status_id')->references('id')->on('status');
         });
     }
 
@@ -34,6 +34,6 @@ class CreateUserBookTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lib.usersbook');
+        Schema::dropIfExists('usersbook');
     }
 }

@@ -13,7 +13,7 @@ class CreateBooksTable extends Migration
      */
     public function up()
     {
-        Schema::create('lib.books', function (Blueprint $table) {
+        Schema::create('books', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
             $table->unsignedInteger('author_id');
@@ -22,8 +22,8 @@ class CreateBooksTable extends Migration
             $table->string('quantity');
             $table->timestamps();
 
-            $table->foreign('author_id')->references('id')->on('lib.authors');
-            $table->foreign('genres_id')->references('id')->on('lib.genres');
+            $table->foreign('author_id')->references('id')->on('authors');
+            $table->foreign('genres_id')->references('id')->on('genres');
         });
     }
 
@@ -34,6 +34,6 @@ class CreateBooksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lib.books');
+        Schema::dropIfExists('books');
     }
 }

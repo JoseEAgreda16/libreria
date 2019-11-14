@@ -13,7 +13,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('lib.users', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('id_card');
             $table->string('name');
@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
 
-            $table->foreign('roles_id')->references('id')->on('lib.roles');
+            $table->foreign('roles_id')->references('id')->on('roles');
         });
     }
 
@@ -35,6 +35,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lib.users');
+        Schema::dropIfExists('users');
     }
 }

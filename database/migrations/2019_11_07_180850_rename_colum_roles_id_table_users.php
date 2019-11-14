@@ -13,7 +13,7 @@ class RenameColumRolesIdTableUsers extends Migration
      */
     public function up()
     {
-        Schema::table('lib.users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
             $table->renameColumn('roles_id', 'rol_id');
         });
     }
@@ -25,7 +25,7 @@ class RenameColumRolesIdTableUsers extends Migration
      */
     public function down()
     {
-        Schema::table('lib.users', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
 
             $table->renameColumn('rol_id', 'roles_id');
         });

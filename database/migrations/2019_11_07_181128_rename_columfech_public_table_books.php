@@ -13,7 +13,7 @@ class RenameColumfechPublicTableBooks extends Migration
      */
     public function up()
     {
-        Schema::table('lib.books', function (Blueprint $table) {
+        Schema::table('books', function (Blueprint $table) {
             $table->renameColumn('fech_public', 'date_public');
         });
     }
@@ -25,7 +25,7 @@ class RenameColumfechPublicTableBooks extends Migration
      */
     public function down()
     {
-        Schema::table('lib.books', function (Blueprint $table) {
+        Schema::table('books', function (Blueprint $table) {
             $table->renameColumn('date_public', 'fech_public');
         });
     }

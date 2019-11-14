@@ -13,7 +13,7 @@ class CreateRolsTable extends Migration
      */
     public function up()
     {
-        Schema::create('lib.roles', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
             $table->unsignedInteger('type_id');
@@ -29,6 +29,6 @@ class CreateRolsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lib.roles');
+        Schema::dropIfExists('roles');
     }
 }
