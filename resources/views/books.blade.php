@@ -26,15 +26,15 @@
     <header>
         <h2>bienvenido a la gestion de libros</h2>
         <nav>
-        <a class='registro' href="bookregist.html">registro de libros </a>
-        <a class='registadmin' href="adminregist.html">registro de administrador</a>
+        <a class='registro' href="/book/add">registro de libros </a>
+        <a class='registadmin' href="/registeradmin">registro de administrador</a>
         </nav>
         <div class="filter">
-            <input class="name-book" type="text" placeholder="nombre">
-            <input class="genero" type="text" placeholder="genero">
-            <input class="autor" type="text" placeholder="autor">
-            <input class="fecha" type="text" placeholder="fecha">
-            <button class="found">filrar</button>
+            <input name="name" class="name-book" type="text" placeholder="nombre">
+            <input name="genero" class="genero" type="text" placeholder="genero">
+            <input name="autor" class="autor" type="text" placeholder="autor">
+            <input name="fecha" class="fecha" type="text" placeholder="fecha">
+            <button name="found" class="found">filrar</button>
        </div>
        <div class="main-container">
 
@@ -43,6 +43,44 @@
     @endsection
 
     @section('js')
-    <script src="{{ asset('js/book.js') }}"></script>
+    <script>
+        $(document).ready(inicio);
+
+        function inicio(){
+            let consultar = $('.found');
+            consultar.click(request);
+        }
+        function request(){
+            let nombre =$('.title').val();
+            let genero =$('.gender').val();
+            let autor =$('.author').val();
+            let fecha =$('.date').val();
+            let cantidad =$('.quantity').val();
+
+            let params = `?title=${nombre || ''}&genres_id=${genero}&author_id=${autor}&date_public=${fecha}&quantity=${cantidad}`;
+
+            $.get("http://librando.local/books" + params)
+                .done(function (books) {
+                    let i = 0;
+                    for (let book of books) {
+                        $(".main-container").append(`<table class="table">
+                    <tr class="book" Id="${i}">
+                            <td class="name">${book.title}</td>
+                            <td class="gender">${book.genderId}</td>
+                            <td class="date">${book.fechPublic}</td>
+                            <td class="date">${book.authorId}</td>
+                            <td class="">${book.quantity}</td>
+                        <button class="pedir" data-indice="${i}" hidden>pedir</button>
+                        </tr>
+                        </table>`);
+                        if(book.status == 'liberado'){
+                            let tabla =$(this).parent();
+                            tabla.append(`<button class="download" data-indice="${i}" hidden>pedir</button>`)
+                        }
+                        i++;
+                    }
+                });
+        }
+        </script>
     @endsection
 

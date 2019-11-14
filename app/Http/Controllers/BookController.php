@@ -12,13 +12,8 @@ class BookController extends Controller
     {
         $books = Book::all();
 
-        return view('listBook')->with([
-            'title' => $books,
-            'author_id' => $books,
-            'date_public' => $books,
-            'genres_id' => $books,
-            'quantity' => $books
-
+        return response()->json([
+            "data" => $books->toArray()
         ]);
     }
 

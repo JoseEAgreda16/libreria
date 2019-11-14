@@ -12,7 +12,14 @@
     <title>librando</title>
 </head>
 <body>
+@if(Auth::check())
+    <form method="POST" action="/logout">
+        @csrf
+        <button type="submit">cerrar sesion</button>
+    </form>
+@endif
     @yield('content')
+
 
     @if ($errors->any())
         <div class="alert alert-danger">

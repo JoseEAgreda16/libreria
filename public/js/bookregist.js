@@ -1,11 +1,11 @@
-var document =$(document);
-document.ready(inicio);
+$(document).ready(inicio);
 
 function inicio(){
     let registrar = $('.register');
     registrar.click(save);
 }
-function save(){
+function save(e){
+    e.preventDefault();
     let nombre =$('.title').val();
     let genero =$('.gender').val();
     let autor =$('.author').val();

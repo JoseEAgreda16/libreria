@@ -11,8 +11,3 @@
     </div>
 </form>
 @endsection
-@section('js')
-    <script>
-
-    </script>
-@endsection

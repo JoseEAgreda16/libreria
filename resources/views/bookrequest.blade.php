@@ -17,18 +17,18 @@
     @endsection
     @section('content')
     <header>
-        <div class="username"></div>
+        <div class="username">{{}}</div>
     </header>
     <div class="main-container">
         <h1>Pide un libro libro</h1>
         <form class="found">
-                <input class="title" type="text" placeholder="titulo">
-                <input class="gender" type="text"placeholder="genero">
-                <input class="date" type="text" placeholder="fecha">
-                <input class="author" type="text" placeholder="autor">
-                <input class="quantity" type="text" placeholder="cantidad">
-                <button class="consult">consultar</button>
-                <button class="pedir">pedir</button>
+                <input name="title" class="title" type="text" placeholder="titulo">
+                <input name="gender" class="gender" type="text"placeholder="genero">
+                <input name="date" class="date" type="text" placeholder="fecha">
+                <input name="author" class="author" type="text" placeholder="autor">
+                <input name="quantity" class="quantity" type="text" placeholder="cantidad">
+                <button name="consult" class="consult">consultar</button>
+                <button name="pedir" class="pedir">pedir</button>
         </form>
     </div>
         <div class="reply"></div>
