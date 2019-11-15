@@ -35,6 +35,46 @@
         @endsection
 
         @section('js')
-    <script src="{{ asset('js/request.js') }}"></script>
+    <script>
+        $(document).ready(inicio);
+
+        function inicio(){
+            let consultar = $('.found');
+            consultar.click(request);
+        }
+        function request(){
+            let nombre =$('.title').val();
+            let genero =$('.gender').val();
+            let autor =$('.author').val();
+            let fecha =$('.date').val();
+            let cantidad =$('.quantity').val();
+
+            let params = `?title=${nombre || ''}&genres_id=${genero || ''}&author_id=${autor || ''}&date_public=${fecha ||''}&quantity=${cantidad ||''}`;
+
+            $.get("http://librando.local/books" + params)
+                .done(function (books) {
+                    let i = 0;
+                    for (let book of books) {
+                        $(".main-container").append(`<table class="reply">
+                    <tr class="book" Id="${i}">
+                            <td class="name">${book.title}</td>
+                            <td class="gender">${book.genres_id}</td>
+                            <td class="date">${book.datePublic}</td>
+                            <td class="date">${book.author_id}</td>
+                            <td class="">${book.quantity}</td>
+
+                        </tr>
+                        </table>`);
+                        if(book.status == 'liberado'){
+                            let tabla =$(this).parent();
+                            tabla.append(`<button class="download" data-indice="${i}" hidden>tomar</button>`)
+                        }else if(book.status == 'pedido'){
+
+                        }
+                        i++;
+                    }
+                });
+        }
+    </script>
     @endsection
 

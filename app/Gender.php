@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Gender extends Model
 {
-    protected $table = 'genders';
+
+    protected $table = 'genres';
 
     protected $fillable = [
         'name'
