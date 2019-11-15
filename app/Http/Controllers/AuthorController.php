@@ -14,9 +14,8 @@ class AuthorController extends Controller
 
 
         $author = Author::all();
-
-        return view('authors')->with([
-            'name' => $author
+        return response()->json([
+            "data" => $author->toArray()
         ]);
 
     }
