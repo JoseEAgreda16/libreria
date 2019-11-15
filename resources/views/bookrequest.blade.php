@@ -62,12 +62,14 @@
                             <td class="date">${book.datePublic}</td>
                             <td class="date">${book.author_id}</td>
                             <td class="">${book.quantity}</td>
-                        <button class="pedir" data-indice="${i}" hidden>pedir</button>
+
                         </tr>
                         </table>`);
                         if(book.status == 'liberado'){
                             let tabla =$(this).parent();
-                            tabla.append(`<button class="download" data-indice="${i}" hidden>pedir</button>`)
+                            tabla.append(`<button class="download" data-indice="${i}" hidden>tomar</button>`)
+                        }else if(book.status == 'pedido'){
+
                         }
                         i++;
                     }

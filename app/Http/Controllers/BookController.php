@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Author;
 use App\Book;
+use App\Gender;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -18,7 +20,7 @@ class BookController extends Controller
     }
 
 
-    public function  AddBooks(Request $request)
+    public function AddBooks(Request $request)
     {
         $newuser = new Book($request->all());
         $newuser->save();
@@ -26,7 +28,9 @@ class BookController extends Controller
 
     public function AddBooksView()
     {
-        return view('bookregist');
+        $genders = Gender::all();
+        $authors = Author::all();
+        return view('bookregist', ['genders' => $genders, 'authors' => $authors]);
     }
 
     public function UpdateBooks(Request $request, $title)

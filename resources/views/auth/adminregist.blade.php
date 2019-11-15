@@ -19,6 +19,31 @@
     </div>
         <aside class="reply"></aside>
         @section('js')
-    <script src="{{asset('js/adminregist.js')}}"></script>
+    <script>
+    var document =$(document);
+    document.ready(inicio);
+
+    function inicio(){
+    let registraradmin = $('.submit');
+    registraradmin.click(save);
+    }
+    function save(){
+    let nombre =$('.name').val();
+    let apellido =$('.surname').val();
+    let email =$('.email').val();
+    let clave =$('.password').val();
+    let clave2 =$('.confirm').val();
+    $.post("http://librando.local/registeradmin/", {
+    title: nombre,
+    surname: apellido,
+    email: email,
+    password: clave,
+    password_confirm: clave2,
+    })
+    .done(function (books) {
+    alert(`el usuario ${nombre} se ha registrado con exito`);
+    });
+    }
+    </script>
     @endsection
 @endsection

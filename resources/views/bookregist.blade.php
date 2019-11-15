@@ -20,9 +20,17 @@
         <h1>registro de libros</h1>
         <form class="found">
                 <input name="title" class="title" type="text" placeholder="titulo">
-                <input name="gender" class="gender" type="text"placeholder="genero">
+            <select name="generos" id="options" class="gender">
+                @foreach($genders as $option)
+                    <option value="{{ $option->id }}">{{ $option->name }}</option>
+                @endforeach
+            </select>
                 <input name="date" class="date" type="text" placeholder="fecha">
-                <input name="author" class="author" type="text" placeholder="autor">
+            <select name="authors" id="options" class="autor">
+                @foreach($gauthors as $option)
+                    <option value="{{ $option->id }}">{{ $option->name }}</option>
+                @endforeach
+            </select>
                 <input name="quantity" class="quantity" type="text" placeholder="cantidad">
                 <button name="register" class="register">registrar</button>
         </form>
