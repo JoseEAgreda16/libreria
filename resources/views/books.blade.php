@@ -30,8 +30,13 @@
         <a class='registadmin' href="/registeradmin">registro de administrador</a>
         </nav>
         <div class="filter">
-            <input name="name" class="name-book" type="text" placeholder="nombre">
+            <input type="select" name="name" class="name-book" type="text" placeholder="nombre">
             <input name="genero" class="genero" type="text" placeholder="genero">
+            <select name="generos[]" id="options" class="genero" multiple>
+                @foreach($settings->includes->get('optionList') as $option)
+                    <option value="{{ $option->id }}" {{ (collect(old('generos'))->contains($option->id)) ? 'selected':'' }}>{{ $option->name }}</option>
+                @endforeach
+            </select>
             <input name="autor" class="autor" type="text" placeholder="autor">
             <input name="fecha" class="fecha" type="text" placeholder="fecha">
             <button name="found" class="found">filrar</button>
@@ -57,7 +62,7 @@
             let fecha =$('.date').val();
             let cantidad =$('.quantity').val();
 
-            let params = `?title=${nombre || ''}&genres_id=${genero}&author_id=${autor}&date_public=${fecha}&quantity=${cantidad}`;
+            let params = `?title=${nombre || ''}&genres_id=${genero || ''}&author_id=${autor || ''}&date_public=${fecha ||''}&quantity=${cantidad ||''}`;
 
             $.get("http://librando.local/books" + params)
                 .done(function (books) {
@@ -67,10 +72,11 @@
                     <tr class="book" Id="${i}">
                             <td class="name">${book.title}</td>
                             <td class="gender">${book.genderId}</td>
-                            <td class="date">${book.fechPublic}</td>
+                            <td class="date">${book.datePublic}</td>
                             <td class="date">${book.authorId}</td>
                             <td class="">${book.quantity}</td>
-                        <button class="pedir" data-indice="${i}" hidden>pedir</button>
+                            <td class="">${book.status_id}</td>
+                        <button class="pedir" data-indice="${i}" hidden>liberar</button>
                         </tr>
                         </table>`);
                         if(book.status == 'liberado'){
