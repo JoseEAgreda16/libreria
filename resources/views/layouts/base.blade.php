@@ -13,11 +13,24 @@
 </head>
 <body>
 @if(Auth::check())
-    <form method="POST" action="/logout">
-        @csrf
-        <button type="submit">cerrar sesion</button>
-    </form>
+<header>
+    <nav>
+        <ul>
+            <li><a href="/home">home</a></li>
+            <li><a href="/books">libros</a></li>
+            <li><a href="/registeradmin">registro de administrador</a></li>
+        </ul>
+    </nav>
+
+
+        <form method="POST" action="/logout">
+            @csrf
+            <button type="submit">cerrar sesion</button>
+        </form>
+
+</header>
 @endif
+
     @yield('content')
 
 

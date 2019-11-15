@@ -14,9 +14,7 @@ class BookController extends Controller
     {
         $books = Book::all();
 
-        return response()->json([
-            "data" => $books->toArray()
-        ]);
+        return view('book.index', ['books' => $books]);
     }
 
 
@@ -30,7 +28,7 @@ class BookController extends Controller
     {
         $genders = Gender::all();
         $authors = Author::all();
-        return view('bookregist', ['genders' => $genders, 'authors' => $authors]);
+        return view('book.create', ['genders' => $genders, 'authors' => $authors]);
     }
 
     public function UpdateBooks(Request $request, $title)

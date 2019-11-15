@@ -23,28 +23,25 @@
     </style>
     @endsection
 @section('content')
-    <header>
         <h2>bienvenido a la gestion de libros</h2>
-        <nav>
-        <a class='registro' href="/book/add">registro de libros </a>
-        <a class='registadmin' href="/registeradmin">registro de administrador</a>
-        </nav>
         <div class="filter">
             <input type="select" name="name" class="name-book" type="text" placeholder="nombre">
-            <input name="genero" class="genero" type="text" placeholder="genero">
-            <select name="generos[]" id="options" class="genero" multiple>
-                @foreach($settings->includes->get('optionList') as $option)
-                    <option value="{{ $option->id }}" {{ (collect(old('generos'))->contains($option->id)) ? 'selected':'' }}>{{ $option->name }}</option>
+            <select name="generos" id="options" class="gender">
+                @foreach($genders as $option)
+                    <option value="{{ $option->id }}">{{ $option->name }}</option>
                 @endforeach
             </select>
-            <input name="autor" class="autor" type="text" placeholder="autor">
+            <select name="autor" id="options" class="autor">
+                @foreach($authors as $option)
+                    <option value="{{ $option->id }}">{{ $option->name }}</option>
+                @endforeach
+            </select>
             <input name="fecha" class="fecha" type="text" placeholder="fecha">
             <button name="found" class="found">filrar</button>
        </div>
        <div class="main-container">
 
       </div>
-    </header>
     @endsection
 
     @section('js')
@@ -76,12 +73,19 @@
                             <td class="date">${book.authorId}</td>
                             <td class="">${book.quantity}</td>
                             <td class="">${book.status_id}</td>
-                        <button class="pedir" data-indice="${i}" hidden>liberar</button>
-                        </tr>
+                    </tr>
                         </table>`);
                         if(book.status == 'liberado'){
                             let tabla =$(this).parent();
-                            tabla.append(`<button class="download" data-indice="${i}" hidden>pedir</button>`)
+                            tabla.append(`<button class="download" data-indice="${i}" disabled>disponible</button>`);
+                        }else if(book.status == 'alquilado') {
+                            tabla.append(`<button class="alquilado" data-indice="${i}" disabled>alquilado</button>`);
+                        }else if(book.status == 'pedido') {
+                            tabla.append(`  <select name="status" id="">
+                                            <option value="valor 1">rechazar</option>
+                                            <option value="valor 2">aceptar</option>
+                                            <button class="respuesta" data-indice="${i}" disabled>responder</button>
+                                            </select>`);
                         }
                         i++;
                     }

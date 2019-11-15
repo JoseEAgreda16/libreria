@@ -14,27 +14,40 @@
             height:400px;
         }
     </style>
-    @endsection
-    @section('content')
+@endsection
+
+@section('content')
     <header>
         <div class="username">{{}}</div>
     </header>
     <div class="main-container">
         <h1>Pide un libro libro</h1>
         <form class="found">
-                <input name="title" class="title" type="text" placeholder="titulo">
-                <input name="gender" class="gender" type="text"placeholder="genero">
-                <input name="date" class="date" type="text" placeholder="fecha">
-                <input name="author" class="author" type="text" placeholder="autor">
-                <input name="quantity" class="quantity" type="text" placeholder="cantidad">
-                <button name="consult" class="consult">consultar</button>
-                <button name="pedir" class="pedir">pedir</button>
+            <input name="title" class="title" type="text" placeholder="titulo">
+            <input name="date" class="date" type="text" placeholder="fecha">
+
+            <select name="gender" id="options" class="gender">
+                @foreach($genders as $option)
+                    <option value="{{ $option->id }}">{{ $option->name }}</option>
+                @endforeach
+            </select>
+
+            <select name="author" id="options" class="autor">
+                @foreach($genders as $option)
+                    <option value="{{ $option->id }}">{{ $option->name }}</option>
+                @endforeach
+            </select>
+
+            <input name="quantity" class="quantity" type="text" placeholder="cantidad">
+
+            <button name="consult" class="consult">consultar</button>
+            <button name="pedir" class="pedir">pedir</button>
         </form>
     </div>
-        <div class="reply"></div>
-        @endsection
+    <div class="reply"></div>
+@endsection
 
-        @section('js')
+@section('js')
     <script>
         $(document).ready(inicio);
 
@@ -62,19 +75,19 @@
                             <td class="date">${book.datePublic}</td>
                             <td class="date">${book.author_id}</td>
                             <td class="">${book.quantity}</td>
-
                         </tr>
                         </table>`);
                         if(book.status == 'liberado'){
                             let tabla =$(this).parent();
-                            tabla.append(`<button class="download" data-indice="${i}" hidden>tomar</button>`)
-                        }else if(book.status == 'pedido'){
-
+                            tabla.append(`<button class="download" data-indice="${i}" >tomar</button>`)
+                        }else if(book.status == 'pedido') {
+                            let tabla = $(this).parent();
+                            tabla.append(`<button class="download" data-indice="${i}" disabled>alquilado</button>`)
                         }
                         i++;
                     }
                 });
         }
     </script>
-    @endsection
+@endsection
 

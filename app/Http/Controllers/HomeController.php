@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Author;
+use App\Book;
+use App\Gender;
 
 class HomeController extends Controller
 {
@@ -20,6 +23,8 @@ class HomeController extends Controller
 
     public function home()
     {
-        return view('books');
+        $genders = Gender::all();
+        $authors = Author::all();
+        return view('books', ['genders' => $genders, 'authors' => $authors]);
     }
 }

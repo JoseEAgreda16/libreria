@@ -11,33 +11,33 @@
             width:500px;
         }
     </style>
-    @endsection
-    @section('content')
+@endsection
+@section('content')
     <header>
         <div class="username"></div>
     </header>
     <div class="main-container">
         <h1>registro de libros</h1>
         <form class="found">
-                <input name="title" class="title" type="text" placeholder="titulo">
+            <input name="title" class="title" type="text" placeholder="titulo">
             <select name="generos" id="options" class="gender">
                 @foreach($genders as $option)
                     <option value="{{ $option->id }}">{{ $option->name }}</option>
                 @endforeach
             </select>
-                <input name="date" class="date" type="text" placeholder="fecha">
+            <input name="date" class="date" type="text" placeholder="fecha">
             <select name="authors" id="options" class="autor">
                 @foreach($authors as $option)
                     <option value="{{ $option->id }}">{{ $option->name }}</option>
                 @endforeach
             </select>
-                <input name="quantity" class="quantity" type="text" placeholder="cantidad">
-                <button name="register" class="register">registrar</button>
+            <input name="quantity" class="quantity" type="text" placeholder="cantidad">
+            <button name="register" class="register">registrar</button>
         </form>
         <form action=""></form>
     </div>
-    @endsection
-    @section('js')
+@endsection
+@section('js')
     <script>
         $(document).ready(inicio);
 
@@ -65,5 +65,5 @@
                 });
         }
     </script>
-    @endsection
+@endsection
 
