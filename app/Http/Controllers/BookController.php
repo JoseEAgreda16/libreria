@@ -18,11 +18,7 @@ class BookController extends Controller
     }
 
 
-    public function AddBooks(Request $request)
-    {
-        $newuser = new Book($request->all());
-        $newuser->save();
-    }
+
 
     public function AddBooksView()
     {
@@ -30,6 +26,7 @@ class BookController extends Controller
         $authors = Author::all();
         return view('book.create', ['genders' => $genders, 'authors' => $authors]);
     }
+
 
     public function UpdateBooks(Request $request, $title)
     {
