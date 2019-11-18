@@ -25,6 +25,6 @@ class HomeController extends Controller
     {
         $genders = Gender::all();
         $authors = Author::all();
-        return view('books', ['genders' => $genders, 'authors' => $authors]);
+        return view('books.index', ['genders' => $genders, 'authors' => $authors]);
     }
 }

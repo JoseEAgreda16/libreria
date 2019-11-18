@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Book;
 use App\Gender;
 use Illuminate\Http\Request;
 
@@ -21,9 +22,11 @@ class GenderController extends Controller
 
     }
 
-    public function show($name)
+    public function show()
     {
-        Gender::findOrFail($name);
+        $books = Book::all();
+
+        $books -> Gender;
 
     }
 
