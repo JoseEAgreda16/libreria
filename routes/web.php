@@ -17,7 +17,7 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/home', 'HomeController@home')->name('home');
+    Route::get('/orders', 'HomeController@home')->name('home');
 
     Route::group(['middleware' => 'rol'], function () {
 
