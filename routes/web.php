@@ -11,12 +11,13 @@
 |
 */
 
+
 Route::get('/', 'HomeController@index');
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
 
-    Route::get('/orders', 'HomeController@home')->name('home');
+    Route::get('/home', 'HomeController@home')->name('home');
 
     Route::group(['middleware' => 'rol'], function () {
 
