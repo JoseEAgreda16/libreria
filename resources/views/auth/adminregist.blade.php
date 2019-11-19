@@ -20,14 +20,14 @@
         <aside class="reply"></aside>
         @section('js')
     <script>
-    var document =$(document);
-    document.ready(inicio);
+    $(document).ready(inicio);
 
     function inicio(){
     let registraradmin = $('.submit');
     registraradmin.click(save);
     }
-    function save(){
+    function save(e){
+        e.prevenDefault();
     let nombre =$('.name').val();
     let apellido =$('.surname').val();
     let email =$('.email').val();

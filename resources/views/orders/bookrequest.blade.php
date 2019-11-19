@@ -17,9 +17,6 @@
 @endsection
 
 @section('content')
-    <header>
-        <div class="username">{{}}</div>
-    </header>
     <div class="main-container">
         <h1>Pide un libro libro</h1>
         <form class="found">
@@ -33,7 +30,7 @@
             </select>
 
             <select name="author" id="options" class="autor">
-                @foreach($genders as $option)
+                @foreach($authors as $option)
                     <option value="{{ $option->id }}">{{ $option->name }}</option>
                 @endforeach
             </select>

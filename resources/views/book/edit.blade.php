@@ -9,16 +9,15 @@
         .found{
             display:list-item;
         }
-        .replay{
-            width:400px;
-            height:400px;
+        .reply{
+            width:500px;
+
         }
     </style>
 @endsection
 
 @section('content')
     <header>
-        <div class="username">{{}}</div>
     </header>
     <div class="main-container">
         <h1>edite el campo</h1>
@@ -53,7 +52,7 @@
                 .done(function (books) {
                     let i = 0;
                     for (let book of books) {
-                        $(".main-container").append(`<table class="reply">
+                        $(".reply").append(`<table class="reply">
                     <tr class="book" Id="${i}">
                             <td class="name">${book.title}</td>
                             <td class="gender">${book.genres_id}</td>
@@ -64,7 +63,7 @@
                         </tr>
                         </table>`);
                         $('edit').click(
-                        function Edit(e) {
+                        function edit(e) {
                             $('name').val(book.title);
                             $('gender').val(book.genres_id);
                             $('date').val(data.record.unidadMedida);
