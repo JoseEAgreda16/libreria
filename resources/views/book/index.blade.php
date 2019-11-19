@@ -24,10 +24,10 @@
             <td>
                 <a href="/books/{{$book->id}}/edit"></a>
             </td>
-            <td>{{$book->title}}</td>
-            <td>{{$book->author_id}}</td>
-            <td>{{$book->date_public}}</td>
-            <td>{{$book->genres_id}}</td>
+            <td>{{$book->title}}</td><button><a href="/edit"></a></button>
+            <td>{{$book->author_id}}</td><button><a href="/edit"></a></button>
+            <td>{{$book->date_public}}</td><button><a href="/edit"></a></button>
+            <td>{{$book->genres_id}}</td><button><a href="/edit"></a></button>
         </tr>
             @endforeach
         </tbody>
@@ -39,4 +39,3 @@
 
     </script>
 @endsection
-
