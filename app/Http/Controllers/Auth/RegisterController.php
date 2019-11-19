@@ -73,5 +73,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'rol_id' => 2,
         ]);
+
+        return redirect('/');
     }
 }

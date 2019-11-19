@@ -18,10 +18,10 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
 
-  Route::get('/orders', 'HomeController@home')->name('orders');
+  Route::get('/request', 'HomeController@users');
 
   Route::group(['middleware' => 'rol'], function () {
-
+      Route::get('/orders', 'HomeController@home')->name('orders');
       Route::resources([
           'books' => 'BookController',
           'authors' => 'AuthorController',

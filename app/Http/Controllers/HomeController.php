@@ -27,4 +27,9 @@ class HomeController extends Controller
         $authors = Author::all();
         return view('orders.index', ['genders' => $genders, 'authors' => $authors]);
     }
+
+    public function users()
+    {
+        return view('orders.bookrequest');
+    }
 }

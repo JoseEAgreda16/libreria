@@ -20,7 +20,7 @@ class VerifyRol
         $user = Auth::user();
 
         if ($user->rol_id == 2) {
-            return redirect('/home');
+            return redirect('/request');
         }
 
         return $next($request);
