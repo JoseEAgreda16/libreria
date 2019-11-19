@@ -32,6 +32,6 @@ class HomeController extends Controller
     {
         $genders = Gender::all();
         $authors = Author::all();
-        return view('orders.bookrequest');
+        return view('orders.bookrequest', ['genders' => $genders, 'authors' => $authors]);
     }
 }
