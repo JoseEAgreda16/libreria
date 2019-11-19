@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/orders';
 
     /**
      * Create a new controller instance.
@@ -38,6 +38,6 @@ class LoginController extends Controller
     }
 
     public function index() {
-        return view('/home');
+        return view('/orders');
     }
 }

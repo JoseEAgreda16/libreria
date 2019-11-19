@@ -8,45 +8,85 @@ use Illuminate\Http\Request;
 
 class GenderController extends Controller
 {
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-
-
         $gender = Gender::all();
-
 
         return response()->json([
             "data" => $gender->toArray()
         ]);
-
     }
 
-    public function show()
-    {
-        $books = Book::all();
-
-        $books -> Gender;
-
-    }
-
-
-    public function  add(Request $request)
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
         $newgender = new Author($request->all());
         $newgender->save();
     }
 
-    public function update(Request $request, $name)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
-        Gender::findOrFail($name)->update($request->all());
-
+        //
     }
 
-    public function delete( $name)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
+        $books = Book::all();
+        $books -> Gender;
+    }
 
-        Gender::findOrFail($name)->delete();
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
 
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        Gender::findOrFail($id)->update($request->all());
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        Gender::findOrFail($id)->delete();
     }
 }

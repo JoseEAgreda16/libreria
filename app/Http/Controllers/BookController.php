@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Author;
-use App\Book;
-use App\Gender;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
-
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         $books = Book::all();
@@ -17,24 +18,71 @@ class BookController extends Controller
         return view('book.index', ['books' => $books]);
     }
 
-
-
-
-    public function AddBooksView()
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
         $genders = Gender::all();
         $authors = Author::all();
         return view('book.create', ['genders' => $genders, 'authors' => $authors]);
     }
 
-
-    public function UpdateBooks(Request $request, $title)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
-        Book::findOrFail($title)->update($request->all());
+        //
     }
 
-    public function DeleteBooks($title, $id_author)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
     {
-       Book::findOrFail($title, $id_author)->delete();
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        Book::findOrFail($id)->update($request->all());
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        Book::findOrFail($id)->delete();
     }
 }
