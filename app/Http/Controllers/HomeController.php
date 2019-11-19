@@ -30,6 +30,8 @@ class HomeController extends Controller
 
     public function users()
     {
+        $genders = Gender::all();
+        $authors = Author::all();
         return view('orders.bookrequest');
     }
 }
