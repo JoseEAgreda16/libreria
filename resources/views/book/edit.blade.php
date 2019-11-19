@@ -34,47 +34,17 @@
 
 @section('js')
     <script>
-        $(document).ready(inicio);
-
-        function inicio(){
-            let consultar = $('.found');
-            consultar.click(request);
-        }
-        function request(){
-            let nombre =$('.title').val();
-            let genero =$('.gender').val();
-            let autor =$('.author').val();
-            let fecha =$('.date').val();
-
-            let params = `?title=${nombre || ''}&genres_id=${genero || ''}&author_id=${autor || ''}&date_public=${fecha ||''}`;
-
-            $.get("http://librando.local/books" + params)
-                .done(function (books) {
-                    let i = 0;
-                    for (let book of books) {
-                        $(".reply").append(`<table class="reply">
-                    <tr class="book" Id="${i}">
-                            <td class="name">${book.title}</td>
-                            <td class="gender">${book.genres_id}</td>
-                            <td class="date">${book.date_public}</td>
-                            <td class="author">${book.author_id}</td>
-                            <td class="quantity">${book.quantity}</td>
-                            <button class="edit" data-indice="${i}" >editar</button>
-                        </tr>
-                        </table>`);
-                        $('edit').click(
-                        function edit(e) {
-                            $('name').val(book.title);
-                            $('gender').val(book.genres_id);
-                            $('date').val(data.record.unidadMedida);
-                            $('author').val(data.record.descripcion);
-                            $('quantity').val(data.record.condicion);
-
-                        }
-                        i++;
-                    }
-                });
-        }
+      $(document).ready(inicio);
+      function inicio(){
+          let datos = $('.found').serialize();
+          $.ajax({
+              url: "ruta",
+              method : 'PUT',
+              data: {datos},
+          })
+              .done(function( data ) {
+              });
+      }
     </script>
 @endsection
 
