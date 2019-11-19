@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Author;
+use App\Book;
+use App\Gender;
 use Illuminate\Http\Request;
 
 class BookController extends Controller

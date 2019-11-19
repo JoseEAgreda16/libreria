@@ -15,16 +15,17 @@
 Route::get('/', 'HomeController@index');
 Auth::routes();
 
+
 Route::group(['middleware' => 'auth'], function () {
 
   Route::get('/orders', 'HomeController@home')->name('orders');
 
   Route::group(['middleware' => 'rol'], function () {
 
-      Route::resource([
-          'books', 'BookController',
-          'authors', 'AuthorController',
-          'genders', 'GenderController'
+      Route::resources([
+          'books' => 'BookController',
+          'authors' => 'AuthorController',
+          'genders' => 'GenderController'
 
       ]);
 
