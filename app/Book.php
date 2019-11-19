@@ -14,11 +14,11 @@ class Book extends Model
 
     public function gender()
     {
-        return $this->hasOne(Gender::class, 'genres_id');
+        return $this->belongsTo(Gender::class, 'genres_id');
     }
 
     public function author()
     {
-        return $this->hasOne(Author::class);
+        return $this->belongsTo(Author::class);
     }
 }
