@@ -25,10 +25,9 @@ class AuthorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($request)
+    public function create()
     {
-        $newauthor = new Author($request-> all());
-        $newauthor->save();
+
     }
 
     /**
@@ -39,7 +38,8 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newauthor = new Author($request-> all());
+        $newauthor->save();
     }
 
     /**

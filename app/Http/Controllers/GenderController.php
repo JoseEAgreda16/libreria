@@ -29,8 +29,7 @@ class GenderController extends Controller
      */
     public function create()
     {
-        $newgender = new Author($request->all());
-        $newgender->save();
+
     }
 
     /**
@@ -41,7 +40,8 @@ class GenderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newgender = new Gender($request->all());
+        $newgender->save();
     }
 
     /**
@@ -52,8 +52,8 @@ class GenderController extends Controller
      */
     public function show($id)
     {
-        $books = Book::all();
-        $books -> Gender;
+        Gender::findOrFail($id);
+
     }
 
     /**

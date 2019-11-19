@@ -41,7 +41,8 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newbook = new Book($request->all());
+        $newbook->save();
     }
 
     /**
