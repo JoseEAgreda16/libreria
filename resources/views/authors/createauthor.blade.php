@@ -17,7 +17,7 @@
         <div class="username"></div>
     </header>
     <div class="main-container">
-        <h1>registra un nuevo genero</h1>
+        <h1>registra un nuevo autor</h1>
         <form class="found">
             <input name="genres" class="gender" type="text" placeholder="titulo">
             <button name="register" class="register">registrar</button>
@@ -37,7 +37,7 @@
             e.preventDefault();
             let genero =$('.gender').val();
 
-            $.post("http://librando.local/genders/create", {
+            $.post("http://librando.local/authors/create", {
                 name: genero,
             })
                 .done(function (gender) {
