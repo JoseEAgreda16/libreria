@@ -31,6 +31,7 @@ class BookController extends Controller
         $genders = Gender::all();
         $authors = Author::all();
         return view('book.create', ['genders' => $genders, 'authors' => $authors]);
+
     }
 
     /**
@@ -43,6 +44,8 @@ class BookController extends Controller
     {
         $newbook = new Book($request->all());
         $newbook->save();
+        return response('Nuevo libro guardado con exito', 200)
+            ->header('Content-Type', 'text/plain')->redirectTo('/orders');
     }
 
     /**
@@ -64,7 +67,7 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('book.edit');
     }
 
     /**

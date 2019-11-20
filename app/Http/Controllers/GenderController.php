@@ -42,6 +42,8 @@ class GenderController extends Controller
     {
         $newgender = new Gender($request->all());
         $newgender->save();
+        return response('Nuevo Genero guardado con exito', 200)
+            ->header('Content-Type', 'text/plain')->redirectTo('/orders');
     }
 
     /**
