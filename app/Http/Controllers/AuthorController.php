@@ -40,6 +40,8 @@ class AuthorController extends Controller
     {
         $newauthor = new Author($request-> all());
         $newauthor->save();
+        return response('Nuevo Autor guardado con exito', 200)
+            ->header('Content-Type', 'text/plain')->redirectTo('/orders');
     }
 
     /**
