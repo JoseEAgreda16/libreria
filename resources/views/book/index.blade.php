@@ -6,7 +6,7 @@
 
 @section('content')
 <h1>libros</h1>
-<a class='registro' href="/book/add">registro de libros </a>
+<a class='registro' href="/books/create">registrar  libros </a>
 
     <table>
         <thead>
@@ -22,12 +22,13 @@
         @foreach($books as $book)
         <tr>
             <td>
-                <a href="/books/{{$book->id}}/edit"></a>
+                <a href="/books/{{$book->id}}/edit"> editar</a>
+                <button class="delete" data-id="{{$book->id}}">borrar</button>
             </td>
-            <td>{{$book->title}}</td><button><a href="/edit"></a></button>
-            <td>{{$book->author_id}}</td><button><a href="/edit"></a></button>
-            <td>{{$book->date_public}}</td><button><a href="/edit"></a></button>
-            <td>{{$book->genres_id}}</td><button><a href="/edit"></a></button>
+            <td>{{$book->title}}</td>
+            <td>{{$book->author_id}}</td>
+            <td>{{$book->date_public}}</td>
+            <td>{{$book->genres_id}}</td>
         </tr>
             @endforeach
         </tbody>
@@ -36,6 +37,6 @@
 
 @section('js')
     <script>
-
+$('')
     </script>
 @endsection

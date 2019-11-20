@@ -42,18 +42,18 @@
 
 @section('js')
     <script>
-      $(document).ready(inicio);
-      function inicio(){
-          $('.edit').click(
-          let datos = $('.found').serialize();
-          $.ajax({
-              url: "ruta",
-              method : 'PUT',
-              data: {datos},
-          })
-              .done(function( data ) {
-              });
-      }
+        $(document).ready(inicio);
+        function inicio(){
+            $('.edit').click(
+                let datos = $('.found').serialize();
+            $.ajax({
+                url: "ruta",
+                method : 'PUT',
+                data: {datos},
+            })
+                .done(function( data ) {
+                });
+        }
     </script>
 @endsection
 

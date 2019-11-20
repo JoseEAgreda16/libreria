@@ -63,6 +63,7 @@
 
             $.get("http://librando.local/books" + params)
                 .done(function (books) {
+                    console.log(books+'este es el objeto que me estoy trayendo');
                     let i = 0;
                     for (let book of books) {
                         $(".main-container").append(`<table class="reply">
