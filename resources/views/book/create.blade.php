@@ -21,7 +21,7 @@
         <form class="found">
             <input name="title" class="title" type="text" placeholder="titulo">
             <select name="generos" id="options" class="gender">
-                @foreach($genres_id as $option)
+                @foreach($genders as $option)
                     <option value="{{ $option->id }}">{{ $option->name }}</option>
                 @endforeach
             </select>

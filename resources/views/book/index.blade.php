@@ -16,6 +16,7 @@
                 <th>author</th>
                 <th>fecha</th>
                 <th>genero</th>
+                <th>cantidad</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,7 @@
             <td>{{$book->author_id}}</td>
             <td>{{$book->date_public}}</td>
             <td>{{$book->genres_id}}</td>
+            <td>{{$book->quantity}}</td>
         </tr>
             @endforeach
         </tbody>
