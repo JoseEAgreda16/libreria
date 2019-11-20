@@ -7,6 +7,10 @@
 @section('content')
 <h1>libros</h1>
 <a class='registro' href="/books/create">registrar  libros </a>
+<a class='registro' href="/genders/create">registrar genero </a>
+<a class='registro' href="/genders/edit">editar genro </a>
+<a class='registro' href="/authors/edit">registrar autor </a>
+<a class='registro' href="/authors/edit">editar autor </a>
 
     <table>
         <thead>

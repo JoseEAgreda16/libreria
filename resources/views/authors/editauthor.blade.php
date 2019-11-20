@@ -47,7 +47,7 @@
             $('.edit').click(
                 let datos = $('.found').serialize();
             $.ajax({
-                url: "http://librando.local/authors/edit",
+                url: "http://librando.local/authors",
                 method : 'PUT',
                 data: {datos},
             })

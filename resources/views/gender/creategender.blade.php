@@ -37,7 +37,7 @@
             e.preventDefault();
             let genero =$('.gender').val();
 
-            $.post("http://librando.local/genders/create", {
+            $.post("http://librando.local/genders", {
                 name: genero,
             })
                 .done(function (gender) {

@@ -39,7 +39,7 @@
 
 
             $.ajax({
-                url: "http://librando.local/genders/edit",
+                url: "http://librando.local/genders",
                 method : 'PUT',
                 data: {genero},
             })
