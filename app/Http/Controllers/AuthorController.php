@@ -27,7 +27,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-
+        return view('authors.createauthor');
     }
 
     /**
@@ -40,8 +40,7 @@ class AuthorController extends Controller
     {
         $newauthor = new Author($request-> all());
         $newauthor->save();
-        return response('Nuevo Autor guardado con exito', 200)
-            ->header('Content-Type', 'text/plain')->redirectTo('/orders');
+        return redirect('/orders');
     }
 
     /**
@@ -63,7 +62,7 @@ class AuthorController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('authors.editauthor');
     }
 
     /**
