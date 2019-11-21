@@ -15,8 +15,9 @@ class GenderController extends Controller
      */
     public function index()
     {
-        $gender = Gender::all();
 
+
+        $gender = Gender::all();
         return response()->json([
             "data" => $gender->toArray()
         ]);
@@ -29,7 +30,7 @@ class GenderController extends Controller
      */
     public function create()
     {
-
+        return view('gender.creategender');
     }
 
     /**
@@ -42,8 +43,7 @@ class GenderController extends Controller
     {
         $newgender = new Gender($request->all());
         $newgender->save();
-        return response('Nuevo Genero guardado con exito', 200)
-            ->header('Content-Type', 'text/plain')->redirectTo('/orders');
+        return redirect('/orders');
     }
 
     /**
@@ -66,7 +66,7 @@ class GenderController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('gender.editgender');
     }
 
     /**
