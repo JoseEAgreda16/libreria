@@ -34,6 +34,7 @@
             registrar.click(save);
         }
         function save(e){
+
             e.preventDefault();
             let genero =$('.gender').val();
 
