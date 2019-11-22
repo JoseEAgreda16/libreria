@@ -38,7 +38,6 @@ class AuthorController extends Controller
     {
         $newauthor = new Author($request-> all());
         $newauthor->save();
-        return redirect('/orders');
     }
 
     /**
@@ -60,7 +59,7 @@ class AuthorController extends Controller
      */
     public function edit($id)
     {
-        return view('authors.createauthor');
+        return view('authors.');
     }
 
     /**
