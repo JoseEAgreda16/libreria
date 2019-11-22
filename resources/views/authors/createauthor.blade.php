@@ -19,10 +19,10 @@
     <div class="main-container">
         <h1>registra un nuevo autor</h1>
         <form class="found">
-            <input name="genres" class="gender" type="text" placeholder="titulo">
+            <input name="author" class="author" type="text" placeholder="npmbre">
+            <input name="author" class="author" type="text" placeholder="apellido">
             <button name="register" class="register">registrar</button>
         </form>
-        <form action=""></form>
     </div>
 @endsection
 @section('js')
@@ -35,13 +35,15 @@
         }
         function save(e){
             e.preventDefault();
-            let genero =$('.gender').val();
+            let author =$('.author').val();
+            let authorsurname =$('.gender').val();
 
             $.post("http://librando.local/authors", {
-                name: genero,
+                name: author,
+                surname: authorsurname,
             })
-                .done(function (gender) {
-                    alert(`el libro ${genero} se ha registrado con exito`);
+                .done(function (author) {
+                    alert(`el libro ${author} se ha registrado con exito`);
                 });
         }
     </script>
