@@ -44,8 +44,7 @@ class BookController extends Controller
     {
         $newbook = new Book($request->all());
         $newbook->save();
-        return response('Nuevo libro guardado con exito', 200)
-            ->header('Content-Type', 'text/plain')->redirectTo('/orders');
+
     }
 
     /**
