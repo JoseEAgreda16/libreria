@@ -18,9 +18,7 @@ class GenderController extends Controller
 
 
         $gender = Gender::all();
-        return response()->json([
-            "data" => $gender->toArray()
-        ]);
+        return view('gender.index') ;
     }
 
     /**

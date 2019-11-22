@@ -15,9 +15,7 @@ class AuthorController extends Controller
     public function index()
     {
         $author = Author::all();
-        return response()->json([
-            "data" => $author->toArray()
-        ]);
+        return view('authors.showauthors');
     }
 
     /**
@@ -62,7 +60,7 @@ class AuthorController extends Controller
      */
     public function edit($id)
     {
-        return view('authors.editauthor');
+        return view('authors.createauthor');
     }
 
     /**
