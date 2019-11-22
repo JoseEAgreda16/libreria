@@ -6,8 +6,9 @@
         <div class="username"></div>
     </header>
     <div class="main-container">
-        <h1>registro de administrador</h1>
+
         <form class="regist">
+            <h1>registro de administrador</h1>
                 <input name="name" class="name" type="text" placeholder="nombre" required>
                 <input name="surname" class="surname" type="text"placeholder="apellido" required>
                 <input name="pasword" class="password" type="text" placeholder="password" required>
@@ -18,6 +19,7 @@
         </form>
     </div>
         <aside class="reply"></aside>
+@endsection
         @section('js')
     <script>
     $(document).ready(inicio);
@@ -46,4 +48,4 @@
     }
     </script>
     @endsection
-@endsection
+

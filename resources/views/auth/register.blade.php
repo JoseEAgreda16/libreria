@@ -38,7 +38,7 @@
             })
                 .done(function (ladada) {
                     alert(`usuario ${usuario} registrado con exito ahora puede hacer login e ingresar`);
-                    window.location ='/bookrequest'
+
                 });
         });
     </script>

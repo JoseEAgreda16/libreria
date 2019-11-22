@@ -9,7 +9,7 @@
         .found{
             display:list-item;
         }
-        .replay{
+        .reply{
             width:400px;
             height:400px;
         }

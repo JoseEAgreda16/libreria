@@ -5,7 +5,7 @@ body,html{
     margin:0;
     padding:0;
 }
-.login,.regist{
+.login,.regist,.found{
     margin:auto;
     justify-content: center;
     width:400px;
@@ -15,7 +15,7 @@ body,html{
     margin-top:0;
     align-items: center;
     }
-.surname,.email,.ci,.confirm,.user,.password{
+.surname,.email,.ci,.confirm,.user,.password,.name{
     display:list-item;
     border-radius:2px;
     width:125px;
@@ -58,7 +58,7 @@ header{
 }
 .title{
     text-align: center;
-    border-bottom-color: solid rgba(82, 79, 79, 0.6)
+    border-bottom-color: solid rgba(82, 79, 79, 0.6);
 }
 .options{
     width:900px;
