@@ -15,7 +15,8 @@ class AuthorController extends Controller
     public function index()
     {
         $author = Author::all();
-        return view('authors.showauthors');
+        return view('authors.showauthors')->with([
+        'name', 'surname' => $author]);
     }
 
     /**
@@ -38,6 +39,8 @@ class AuthorController extends Controller
     {
         $newauthor = new Author($request-> all());
         $newauthor->save();
+        return redirect('/orders');
+
     }
 
     /**
@@ -57,7 +60,7 @@ class AuthorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
         return view('authors.');
     }
