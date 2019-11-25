@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Book;
-use App\Gender;
 use Illuminate\Http\Request;
 
-class GenderController extends Controller
+class RequestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +13,7 @@ class GenderController extends Controller
      */
     public function index()
     {
-
-
-        $genders = Gender::all();
-        return view('gender.index', ['genders'=>$genders]);
+        //
     }
 
     /**
@@ -28,7 +23,7 @@ class GenderController extends Controller
      */
     public function create()
     {
-        return view('gender.creategender');
+        //
     }
 
     /**
@@ -39,9 +34,7 @@ class GenderController extends Controller
      */
     public function store(Request $request)
     {
-        $newgender = new Gender($request->all());
-        $newgender->save();
-        return redirect('/orders');
+        //
     }
 
     /**
@@ -52,8 +45,7 @@ class GenderController extends Controller
      */
     public function show($id)
     {
-        Gender::findOrFail($id);
-
+        //
     }
 
     /**
@@ -64,8 +56,7 @@ class GenderController extends Controller
      */
     public function edit($id)
     {
-        $gender = Gender::findOrFail($id);
-        return view('gender.editgender',['gender' => $gender]);
+        //
     }
 
     /**
@@ -77,7 +68,7 @@ class GenderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Gender::findOrFail($id)->update($request->all());
+        //
     }
 
     /**
@@ -88,6 +79,6 @@ class GenderController extends Controller
      */
     public function destroy($id)
     {
-        Gender::findOrFail($id)->delete();
+        //
     }
 }
