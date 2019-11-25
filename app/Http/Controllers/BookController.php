@@ -67,7 +67,9 @@ class BookController extends Controller
     public function edit($id)
     {
         $book = Book::findOrFail($id);
-        return view('book.edit', ['book' => $book]);
+        $genders = Gender::all();
+        $authors = Author::all();
+        return view('book.edit', ['book' => $book ,'genders' => $genders, 'authors' => $authors]);
     }
 
     /**

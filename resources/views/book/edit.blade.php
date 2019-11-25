@@ -20,7 +20,7 @@
     <header>
     </header>
     <div class="main-container">
-        <h1>edite el campo</h1>
+        <h1>edite el libro</h1>
         <form class="found">
             <input name="title" class="title" type="text" placeholder="titulo" value="{{$book->title}}">
             <select name="gender" id="options" class="gender">
@@ -44,15 +44,19 @@
     <script>
       $(document).ready(inicio);
       function inicio(){
-          $('.edit').click(
-          let datos = $('.found').serialize();
+          $('.edit').click(function (e){
+              e.preventDefault();
+          var datos = $('.found').serialize();
+          console.log(datos);
           $.ajax({
-              url: "ruta",
-              method : 'PUT',
-              data: {datos},
+              url: "http://librando.local/books/{{$book->id}}/edit",
+              method: 'PUT',
+              data:datos,
           })
-              .done(function( data ) {
+              .done(function (data) {
+                  alert('el libro  sido modificado satisfactoriamente');
               });
+      });
       }
     </script>
 @endsection

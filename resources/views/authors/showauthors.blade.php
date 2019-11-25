@@ -14,7 +14,7 @@
         <thead>
         <tr>
             <th></th>
-            <th>atores</th>
+            <th>autores</th>
 
         </tr>
         </thead>
@@ -22,14 +22,10 @@
         @foreach($authors as $author)
             <tr>
                 <td>
-                    <form action="/authors/{{$author->id}}" method="DELETE">
-                            <a href="/authors/{{$author->id}}/edit"> editar</a>
-                            <button class="delete" data-id="{{$author->id}}">borrar</button>
-                            <td>{{$author->name}}</td>
-                    </form>
+                    <a href="/authors/{{$author->id}}/edit"> editar</a>
+                    <button class="delete" data-id="{{$author->id}}">borrar</button>
                 </td>
-
-
+                <td class="name">{{$author->name}}</td>
             </tr>
         @endforeach
         </tbody>
@@ -38,8 +34,15 @@
 
 @section('js')
     <script>
-        // $('.delete').click(function (){
-        //     $(this).parent().parent().parent().detach();
-        // })
+        $('.delete').click(function (){
+            $.ajax({
+                url: '/authors/{{$author->id}}',
+                type: 'DELETE',
+                success: (result) => {
+                  alert('autor borrado con exito');
+                    $(this).parent().parent().detach();
+                }
+            });
+        })
     </script>
 @endsection
