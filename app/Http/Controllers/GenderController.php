@@ -17,9 +17,8 @@ class GenderController extends Controller
     {
 
 
-        $gender = Gender::all();
-        return view('gender.index')->with([
-            'name'=> $gender]) ;
+        $genders = Gender::all();
+        return view('gender.index', ['genders'=>$genders]);
     }
 
     /**

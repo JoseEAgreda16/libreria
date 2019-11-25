@@ -26,7 +26,7 @@
                     <a href="/books/{{$gender->id}}/edit"> editar</a>
                     <button class="delete" data-id="{{$gender->id}}">borrar</button>
                 </td>
-                <td>{{$autor->name}}</td>
+                <td>{{$gender->name}}</td>
 
             </tr>
         @endforeach

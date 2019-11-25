@@ -26,7 +26,7 @@
                 @endforeach
             </select>
             <input name="date" class="date" type="text" placeholder="fecha">
-            <select name="authors" id="options" class="autor">
+            <select name="authors" id="options" class="author">
                 @foreach($authors as $option)
                     <option value="{{ $option->id }}">{{ $option->name }}</option>
                 @endforeach
@@ -53,7 +53,7 @@
             let fecha =$('.date').val();
             let cantidad =$('.quantity').val();
 
-            $.post("http://librando.local/book/add", {
+            $.post("http://librando.local/books", {
                 title: nombre,
                 genres_id: genero,
                 date_public: fecha,

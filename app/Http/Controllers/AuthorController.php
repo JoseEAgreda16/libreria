@@ -14,9 +14,8 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        $author = Author::all();
-        return view('authors.showauthors')->with([
-        'name', 'surname' => $author]);
+        $authors = Author::all();
+        return view('authors.showauthors', ['authors' => $authors]);
     }
 
     /**
@@ -60,9 +59,11 @@ class AuthorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit($id)
     {
-        return view('authors.');
+
+        $author = Author::findOrFail($id);
+        return view('authors.editauthor',['authors' => $author]);
     }
 
     /**
@@ -85,6 +86,8 @@ class AuthorController extends Controller
      */
     public function destroy($id)
     {
-        Author::findOrFail($id)->delete();
+         Author::findOrFail($id)->delete();
+
     }
+
 }

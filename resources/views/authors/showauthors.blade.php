@@ -22,10 +22,13 @@
         @foreach($authors as $author)
             <tr>
                 <td>
-                    <a href="/authors/{{$author->id}}/edit"> editar</a>
-                    <button class="delete" data-id="{{$author->id}}">borrar</button>
+                    <form action="/authors/{{$author->id}}" method="DELETE">
+                            <a href="/authors/{{$author->id}}/edit"> editar</a>
+                            <button class="delete" data-id="{{$author->id}}">borrar</button>
+                            <td>{{$author->name}}</td>
+                    </form>
                 </td>
-                <td>{{$autor->name}}</td>
+
 
             </tr>
         @endforeach
@@ -35,6 +38,8 @@
 
 @section('js')
     <script>
-        $('')
+        // $('.delete').click(function (){
+        //     $(this).parent().parent().parent().detach();
+        // })
     </script>
 @endsection

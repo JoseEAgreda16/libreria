@@ -20,7 +20,7 @@
         <h1>registra un nuevo autor</h1>
         <form class="found">
             <input name="author" class="author" type="text" placeholder="npmbre">
-            <input name="author" class="author" type="text" placeholder="apellido">
+            <input name="apellido" class="apellido" type="text" placeholder="apellido">
             <button name="register" class="register">registrar</button>
         </form>
     </div>
@@ -36,7 +36,7 @@
         function save(e){
             e.preventDefault();
             let author =$('.author').val();
-            let authorsurname =$('.gender').val();
+            let authorsurname =$('.apellido').val();
 
             $.post("http://librando.local/authors", {
                 name: author,
