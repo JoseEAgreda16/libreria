@@ -64,8 +64,8 @@ class GenderController extends Controller
      */
     public function edit($id)
     {
-        return view('gender.editgender');
-    }
+        $gender = Gender::findOrFail($id);
+        return view('gender.editgender',['gender' => $gender]);    }
 
     /**
      * Update the specified resource in storage.
