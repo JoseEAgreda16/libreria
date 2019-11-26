@@ -49,7 +49,7 @@
           var datos = $('.found').serialize();
           console.log(datos);
           $.ajax({
-              url: "http://librando.local/books/{{$book->id}}/edit",
+              url: "http://librando.local/books/{{$book->id}}",
               method: 'PUT',
               data:datos,
           })

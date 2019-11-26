@@ -10,7 +10,6 @@
     <a class='registro' href="/genders/create">registrar genero </a>
     <a class='registro' href="/authors/create">registrar autor </a>
 
-
     <table>
         <thead>
         <tr>
@@ -23,7 +22,7 @@
         @foreach($genders as $gender)
             <tr>
                 <td>
-                    <a href="/books/{{$gender->id}}/edit"> editar</a>
+                    <a href="/genders/{{$gender->id}}/edit"> editar</a>
                     <button class="delete" data-id="{{$gender->id}}">borrar</button>
                 </td>
                 <td>{{$gender->name}}</td>
@@ -36,6 +35,15 @@
 
 @section('js')
     <script>
-        $('')
+        $('.delete').click(function (){
+            $.ajax({
+                url: '/genders/{{$genders->id}}',
+                type: 'DELETE',
+                success: (result) => {
+                    alert('genero borrado con exito');
+                    $(this).parent().parent().detach();
+                }
+            });
+        })
     </script>
 @endsection

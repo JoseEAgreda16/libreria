@@ -19,8 +19,8 @@
     <div class="main-container">
         <h1>editar genero</h1>
         <form class="found">
-            <input name="genres" class="gender" type="text" placeholder="titulo">
-            <button name="register" class="register">registrar</button>
+            <input name="gender" class="name" type="text" placeholder="nombre" value="{{$gender->name}}">
+            <button name="edit" class="edit">editar</button>
         </form>
         <form action=""></form>
     </div>
@@ -30,21 +30,20 @@
         $(document).ready(inicio);
 
         function inicio(){
-            let registrar = $('.register');
+            let registrar = $('.edit');
             registrar.click(save);
         }
         function save(e){
             e.preventDefault();
-            let genero =$('.gender').val();
-
+            let genero =$('.name').val();
 
             $.ajax({
-                url: "http://librando.local/genders",
+                url: "http://librando.local/genders/{{$gender->id}}",
                 method : 'PUT',
-                data: {genero},
+                data: {name:genero},
             })
                 .done(function (gender) {
-                    alert(`el libro ${genero} se ha registrado con exito`);
+                    alert(`el genero ${genero} editado con exito`);
                 });
         }
     </script>

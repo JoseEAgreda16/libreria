@@ -1,7 +1,4 @@
 body,html{
-    width:100%;
-    display:inline-block;
-    align-content: center;
     margin:0;
     padding:0;
 }
@@ -16,7 +13,6 @@ body,html{
     align-items: center;
     }
 .surname,.email,.ci,.confirm,.user,.password,.name{
-    display:list-item;
     border-radius:2px;
     width:125px;
     height:35px;

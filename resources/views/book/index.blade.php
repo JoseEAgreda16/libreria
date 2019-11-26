@@ -10,7 +10,7 @@
 <a class='registro' href="/genders/create">registrar genero </a>
 <a class='registro' href="/authors/create">registrar autor </a>
 <a class='registro' href="/authors">autores </a>
-<a class='registro' href="/genders">generar </a>
+<a class='registro' href="/genders">genero </a>
     <table>
         <thead>
             <tr>
@@ -30,9 +30,9 @@
                 <button class="delete" data-id="{{$book->id}}">borrar</button>
             </td>
             <td>{{$book->title}}</td>
-            <td>{{$book->author_id}}</td>
+            <td>{{$book->author->name}}</td>
             <td>{{$book->date_public}}</td>
-            <td>{{$book->genres_id}}</td>
+            <td>{{$book->gender->name}}</td>
             <td>{{$book->quantity}}</td>
         </tr>
             @endforeach
