@@ -4,8 +4,8 @@
     <header>
          <div class="title"><h1>Librando<h1></div>
             <nav class="options">
-                <button class="loging"><a href="/login">iniciar sesion usuario</a></button>
-                <button class="regis"><a href="/register">registrar nuevo usuario</a></button>
+                <a href="/login">iniciar sesion usuario</a>
+                <a href="/register">registrar nuevo usuario</a>
             </nav>
     </header>
      <div class="main-container">

@@ -2,22 +2,37 @@ body,html{
     margin:0;
     padding:0;
 }
+ul{
+    display:flex;
+    width:100%;
+}
+li{
+    margin-left: 20px;
+    display:inline-block;
+    display:block;
+}
+a{
+    margin-left:10px;
+}
 .login,.regist,.found{
+    display:flex;
     margin:auto;
     justify-content: center;
     width:400px;
     border:none;
     border-radius: 5px;
     box-shadow: 1px 1px 1px 2px rgb(0,0,0,0.6);
-    margin-top:0;
+    margin-top:20;
     align-items: center;
     }
 .surname,.email,.ci,.confirm,.user,.password,.name{
+    display:inline-block;
+    margin:auto;
+    display:block;
     border-radius:2px;
     width:125px;
     height:35px;
-    margin-bottom:15px;
-    margin:auto;
+
 }
 .submit{
     width:125px;
@@ -30,9 +45,11 @@ body,html{
     margin: auto;
 }
 .form-content{
+    display:flex;
     margin:auto;
     align-content:center;
     list-style:none;
+    display:block;
     padding:none;
 }
 .preview-content{
@@ -50,6 +67,7 @@ body,html{
     margin:auto;
 }
 header{
+    display:flex;
     align-items: center;
 }
 .title{

@@ -1,40 +1,29 @@
 @extends('layouts.base')
 
-@section('style')
-    <style>
-        html,body{
-            margin:0;
-            padding:0;
-        }
-        .found{
-            display:list-item;
-            width:500px;
-        }
-    </style>
-@endsection
 @section('content')
     <header>
         <div class="username"></div>
     </header>
     <div class="main-container">
-        <h1>registro de libros</h1>
         <form class="found">
-            <input name="title" class="title" type="text" placeholder="titulo">
-            <select name="generos" id="options" class="gender">
-                @foreach($genders as $option)
-                    <option value="{{ $option->id }}">{{ $option->name }}</option>
-                @endforeach
-            </select>
-            <input name="date" class="date" type="text" placeholder="fecha">
-            <select name="authors" id="options" class="author">
-                @foreach($authors as $option)
-                    <option value="{{ $option->id }}">{{ $option->name }}</option>
-                @endforeach
-            </select>
-            <input name="quantity" class="quantity" type="text" placeholder="cantidad">
-            <button name="register" class="register">registrar</button>
+            <div class="form-content">
+                <h2 class="title-form">registro de libros</h2>
+                <input name="title" class="title" type="text" placeholder="titulo">
+                <select name="generos" id="options" class="gender">
+                    @foreach($genders as $option)
+                        <option value="{{ $option->id }}">{{ $option->name }}</option>
+                    @endforeach
+                </select>
+                <input name="date" class="date" type="text" placeholder="fecha">
+                <select name="authors" id="options" class="author">
+                    @foreach($authors as $option)
+                        <option value="{{ $option->id }}">{{ $option->name }}</option>
+                    @endforeach
+                </select>
+                <input name="quantity" class="quantity" type="text" placeholder="cantidad">
+                <button name="register" class="register">registrar</button>
         </form>
-        <form action=""></form>
+    </div>
     </div>
 @endsection
 @section('js')

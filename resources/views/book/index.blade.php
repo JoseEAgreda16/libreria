@@ -7,10 +7,7 @@
 @section('content')
 <h1>libros</h1>
 <a class='registro' href="/books/create">registrar  libros </a>
-<a class='registro' href="/genders/create">registrar genero </a>
-<a class='registro' href="/authors/create">registrar autor </a>
-<a class='registro' href="/authors">autores </a>
-<a class='registro' href="/genders">genero </a>
+
     <table>
         <thead>
             <tr>
@@ -42,5 +39,15 @@
 
 @section('js')
     <script>
+        $('.delete').click(function (){
+            $.ajax({
+                url: `/books/${$(this).data('id')}`,
+                type: 'DELETE',
+                success: (result) => {
+                    alert('genero borrado con exito');
+                    $(this).parent().parent().detach();
+                }
+            });
+        })
     </script>
 @endsection

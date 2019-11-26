@@ -23,7 +23,7 @@
     </style>
     @endsection
 @section('content')
-        <h2>bienvenido a la gestion de libros</h2>
+        <h2>Bienvenido a la gestion de Pedidos de libros</h2>
         <div class="filter">
             <input type="select" name="name" class="name-book" type="text" placeholder="nombre">
             <select name="generos" id="options" class="gender">

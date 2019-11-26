@@ -16,9 +16,11 @@
 <header>
     <nav>
         <ul>
-            <li><a href="/home">home</a></li>
+            <li><a href="/orders">Pedidos</a></li>
             <li><a href="/books">libros</a></li>
-            <li><a href="/registeradmin">registro de administrador</a></li>
+            <li><a href="/registeradmin">Rgistrar administrador</a></li>
+            <li><a class='registro' href="/authors">Autores </a></li>
+            <li><a class='registro' href="/genders">Genero </a></li>
         </ul>
     </nav>
 
