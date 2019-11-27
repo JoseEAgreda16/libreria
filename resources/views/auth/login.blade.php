@@ -1,13 +1,16 @@
 @extends('layouts.base')
 
 @section('content')
-<form class="login" method="POST" action="/login">
-    @csrf
-<div class="form-content">
-    <h2 class=title-form>Login</h2>
-    <input name="email" class="email" placeholder="ingrese el e-mail">
-    <input name="password" class="password" placeholder="ingrese el password">
-    <button class="submit">logear</button>
+
+    <div class="form-container">
+        <h2 class="title-form">login</h2>
+        <form class="regist-form form-wrapper" method="POST" action="/login">
+            @csrf
+            <input name="email" class="form-control email" placeholder="ingrese el e-mail">
+            <input name="password" class="form-control password" placeholder="ingrese el password">
+            <div class="button-wrapper">
+                <button class="btn btn-primary submit">registrar</button>
+            </div>
+        </form>
     </div>
-</form>
 @endsection

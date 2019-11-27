@@ -1,17 +1,13 @@
 @extends('layouts.base')
 @section('content')
-    <header>
-        <div class="username"></div>
-    </header>
     <div class="main-container">
-        <form class="found">
+        <form class="regist">
             <div class="form-content">
-                <h2 class="title-form">registrar de autor</h2>
+                <h2 class="title-form">registro de autor</h2>
             <input name="author" class="author" type="text" placeholder="npmbre">
             <input name="apellido" class="apellido" type="text" placeholder="apellido">
             <button name="register" class="register">registrar</button>
         </form>
-    </div>
     </div>
 @endsection
 @section('js')

@@ -13,17 +13,16 @@
 </head>
 <body>
 @if(Auth::check())
-<header>
-    <nav>
-        <ul>
-            <li><a href="/orders">Pedidos</a></li>
-            <li><a href="/books">libros</a></li>
-            <li><a href="/registeradmin">Rgistrar administrador</a></li>
-            <li><a class='registro' href="/authors">Autores </a></li>
-            <li><a class='registro' href="/genders">Genero </a></li>
+<header class="header">
+    <nav class="main-menu">
+        <ul class="menu">
+            <li><a class="link" href="/orders">Pedidos</a></li>
+            <li><a  class="link" href="/books">libros</a></li>
+            <li><a class="link"  href="/registeradmin">Registrar administrador</a></li>
+            <li><a  class="link"  href="/authors">Autores </a></li>
+            <li><a  class="link"  href="/genders">Genero </a></li>
         </ul>
     </nav>
-
 
         <form method="POST" action="/logout">
             @csrf
@@ -31,10 +30,20 @@
         </form>
 
 </header>
+    @else
+    <header class="header">
+        <span class="logo">LIBRANDO</span>
+        <nav class="main-menu">
+            <ul class="menu">
+                <li><a class="link" href="/login">iniciar sesion usuario</a></li>
+                <li><a class="link" href="/register">registrar nuevo usuario</a></li>
+            </ul>
+        </nav>
+    </header>
 @endif
-
-    @yield('content')
-
+    <div class="main-container">
+        @yield('content')
+    </div>
 
     @if ($errors->any())
         <div class="alert alert-danger">

@@ -1,18 +1,22 @@
 @extends('layouts.base')
 
 @section('content')
-<form class="regist">
-    <div class="form-content">
-        <h2 class="title-form">Registrar</h2>
-            <input  name="user" class="user" placeholder="ingrese el username" required>
-            <input  name="surname" class="surname" placeholder="ingrese el apellido" required>
-            <input  name="password" class="password" placeholder="ingrese el password" required>
-            <input  name="confirm" class="confirm" placeholder="confirmar contraseña" required>
-            <input  name="ci" class="ci" placeholder="ci" required>
-            <input  name="email" class="email" placeholder="email" required>
-        <button class="submit">registrar</button>
+    <div class="form-container">
+        <h1 class="title-form">Registrar</h1>
+
+        <form class="regist-form form-wrapper">
+            <input  name="user" class="form-control user" placeholder="ingrese el username" required>
+            <input  name="surname" class="form-control surname" placeholder="ingrese el apellido" required>
+            <input  name="password" class="form-control password" placeholder="ingrese el password" required>
+            <input  name="confirm" class="form-control confirm" placeholder="confirmar contraseña" required>
+            <input  name="ci" class="form-control ci" placeholder="ci" required>
+            <input  name="email" class="form-control email" placeholder="email" required>
+
+            <div class="button-wrapper">
+                <button class="btn btn-primary submit">registrar</button>
+            </div>
+        </form>
     </div>
-</form>
 @endsection
 @section('js')
     <script>

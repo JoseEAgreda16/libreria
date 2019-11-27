@@ -1,13 +1,7 @@
 @extends('layouts.base')
 
 @section('content')
-    <header>
-         <div class="title"><h1>Librando<h1></div>
-            <nav class="options">
-                <a href="/login">iniciar sesion usuario</a>
-                <a href="/register">registrar nuevo usuario</a>
-            </nav>
-    </header>
+
      <div class="main-container">
          <div class="preview-content">
              <h2 class="content-title">Librando</h2>

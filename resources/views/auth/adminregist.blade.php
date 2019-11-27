@@ -1,10 +1,6 @@
 @extends('layouts.base')
 
 @section('content')
-
-    <header>
-        <div class="username"></div>
-    </header>
     <div class="main-container">
         <form class="regist">
             <div class="form-content">
@@ -15,7 +11,9 @@
                 <input name="confirm" class="confirm" type="text" placeholder="confirmacion" required>
                 <input name="ci" class="ci" type="text" placeholder="ci" required>
                 <input name="email" class="email" type="text" placeholder="email" required>
+                <div class="button-wrapper">
                 <button name="submit" class="submit">registrar</button>
+            </div>
             </div>
         </form>
     </div>
@@ -30,21 +28,23 @@
     registraradmin.click(save);
     }
     function save(e){
-        e.prevenDefault();
+        e.preventDefault();
     let nombre =$('.name').val();
     let apellido =$('.surname').val();
     let email =$('.email').val();
+    let ci =$('.ci').val();
     let clave =$('.password').val();
     let clave2 =$('.confirm').val();
-    $.post("http://librando.local/registeradmin/", {
-    title: nombre,
+    $.post("http://librando.local/registeradmin", {
+    name: nombre,
     surname: apellido,
     email: email,
+    id_card:ci,
     password: clave,
     password_confirm: clave2,
     })
     .done(function (books) {
-    alert(`el usuario ${nombre} se ha registrado con exito`);
+    alert(`el usuario admin ${nombre} se ha registrado con exito`);
     });
     }
     </script>
