@@ -28,6 +28,10 @@ class StatusTableSeeder extends Seeder
                 [
                     'name' => 'solicitado'
                 ],
+
+                [
+                    'name' => 'Descontinuado'
+                ]
             ];
     }
 }
