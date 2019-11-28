@@ -21,20 +21,22 @@
     </header>
     <div class="main-container">
         <h1>edite el libro</h1>
-        <form class="found">
-            <input name="title" class="title" type="text" placeholder="titulo" value="{{$book->title}}">
-            <select name="gender" id="options" class="gender">
+        <form class="found form-wrapper">
+            <input name="title" class="form-control title" type="text" placeholder="titulo" value="{{$book->title}}">
+            <select name="gender" id="options" class="form-control gender">
                 @foreach($genders as $option)
                     <option value="{{ $option->id }}" @if ($option->name==$book->genres_id) selected @endif>{{ $option->name }}</option>
                 @endforeach
             </select>
-            <input name="date_public" class="date" type="text" placeholder="titulo" value="{{$book->date_public}}">
-            <select name="author_id" id="options" class="author">
+            <input name="date_public" class="form-control date" type="text" placeholder="titulo" value="{{$book->date_public}}">
+            <select name="author_id" id="options" class="form-control author">
                 @foreach($authors as $option)
                     <option value="{{ $option->id }}" @if ($option->name==$book->author_id) selected @endif>{{ $option->name }}</option>
                 @endforeach
             </select>
-            <button name="edit" class="edit">editar</button>
+            <div class="button-wrapper">
+            <button name="edit" class="edit btn btn-primary">editar</button>
+            </div>
         </form>
     </div>
     <div class="reply"></div>

@@ -13,12 +13,9 @@
     </style>
 @endsection
 @section('content')
-    <header>
-        <div class="username"></div>
-    </header>
     <div class="main-container">
-        <h1>registra un nuevo genero</h1>
-        <form class="found">
+        <h2 class="title-form">registro de administrador</h2>
+        <form class="regist form-wrapper">
             <input name="genres" class="gender" type="text" placeholder="titulo">
             <button name="register" class="register">registrar</button>
         </form>

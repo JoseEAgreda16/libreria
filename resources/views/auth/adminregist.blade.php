@@ -2,18 +2,16 @@
 
 @section('content')
     <div class="main-container">
-        <form class="regist">
-            <div class="form-content">
-                <h2 class="title-form">registro de administrador</h2>
-                <input name="name" class="name" type="text" placeholder="nombre" required>
-                <input name="surname" class="surname" type="text"placeholder="apellido" required>
-                <input name="pasword" class="password" type="text" placeholder="password" required>
-                <input name="confirm" class="confirm" type="text" placeholder="confirmacion" required>
-                <input name="ci" class="ci" type="text" placeholder="ci" required>
-                <input name="email" class="email" type="text" placeholder="email" required>
+        <h2 class="title-form">registro de administrador</h2>
+        <form class="regist form-wrapper">
+                <input name="name" class="form-control name" type="text" placeholder="nombre" required>
+                <input name="surname" class="form-control surname" type="text"placeholder="apellido" required>
+                <input name="pasword" class="form-control password" type="text" placeholder="password" required>
+                <input name="confirm" class="form-control confirm" type="text" placeholder="confirmacion" required>
+                <input name="ci" class="form-control ci" type="text" placeholder="ci" required>
+                <input name="email" class="form-control email" type="text" placeholder="email" required>
                 <div class="button-wrapper">
                 <button name="submit" class="submit">registrar</button>
-            </div>
             </div>
         </form>
     </div>

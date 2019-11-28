@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/2e5aeb2f40.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     @yield('style')
 
@@ -26,7 +29,9 @@
 
         <form method="POST" action="/logout">
             @csrf
-            <button type="submit">cerrar sesion</button>
+            <div class="button-wrapper">
+            <button type="submit" class=" submit btn btn-primary">cerrar sesion</button>
+            </div>
         </form>
 
 </header>
@@ -44,7 +49,7 @@
     <div class="main-container">
         @yield('content')
     </div>
-
+<footer></footer>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

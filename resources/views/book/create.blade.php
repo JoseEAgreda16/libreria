@@ -1,29 +1,26 @@
 @extends('layouts.base')
 
 @section('content')
-    <header>
-        <div class="username"></div>
-    </header>
     <div class="main-container">
-        <form class="found">
-            <div class="form-content">
-                <h2 class="title-form">registro de libros</h2>
-                <input name="title" class="title" type="text" placeholder="titulo">
-                <select name="generos" id="options" class="gender">
+        <h2 class="title-form">registrar libro</h2>
+        <form class="regist-form form-wrapper">
+                <input name="title" class="form-control title" type="text" placeholder="titulo">
+                <select name="generos" id="options" class="form-control gender">
                     @foreach($genders as $option)
                         <option value="{{ $option->id }}">{{ $option->name }}</option>
                     @endforeach
                 </select>
-                <input name="date" class="date" type="text" placeholder="fecha">
-                <select name="authors" id="options" class="author">
+                <input name="date" class="form-control date" type="text" placeholder="fecha">
+                <select name="authors" id="options" class="form-control author">
                     @foreach($authors as $option)
                         <option value="{{ $option->id }}">{{ $option->name }}</option>
                     @endforeach
                 </select>
-                <input name="quantity" class="quantity" type="text" placeholder="cantidad">
-                <button name="register" class="register">registrar</button>
+                <input name="quantity" class="form-control quantity" type="text" placeholder="cantidad">
+                     <div class="button-wrapper">
+                <button name="register" class=" register btn btn-primary">registrar</button>
+                     </div>
         </form>
-    </div>
     </div>
 @endsection
 @section('js')

@@ -1,16 +1,14 @@
 @extends('layouts.base')
 
-@section('style')
-@endsection
-
 @section('content')
-    <header>
-    </header>
     <div class="main-container">
-        <form class="found">
-            <input name="name" class="name" type="text" placeholder="titulo" value="{{$authors->name}}">
-            <input name="surname" class="surname" type="text" placeholder="titulo" value="{{$authors->surname}}">
-            <button name="edit" class="edit">editar</button>
+        <h2 class="title-form">Editar autor</h2>
+        <form class="edit-form form-wrapper">
+            <input name="name" class="form-control name" type="text" placeholder="titulo" value="{{$authors->name}}">
+            <input name="surname" class="form-control surname" type="text" placeholder="titulo" value="{{$authors->surname}}">
+                <div class="button-wrapper">
+            <button name="edit" class="edit btn btn-primary">editar</button>
+                </div>
         </form>
     </div>
 
@@ -22,7 +20,7 @@
         function inicio() {
             $('.edit').click(function (e) {
                 e.preventDefault();
-                let datos =$('.found').serialize();
+                let datos =$('.edit-form').serialize();
                 console.log(datos);
 
                 $.ajax({

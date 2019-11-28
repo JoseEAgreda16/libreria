@@ -9,7 +9,7 @@
             <input name="email" class="form-control email" placeholder="ingrese el e-mail">
             <input name="password" class="form-control password" placeholder="ingrese el password">
             <div class="button-wrapper">
-                <button class="btn btn-primary submit">registrar</button>
+                <button class="btn btn-primary submit">log-in</button>
             </div>
         </form>
     </div>

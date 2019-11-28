@@ -93,6 +93,7 @@ body, html{
 
 }
 .header{
+    display:flex;
     padding: 20px;
     color:burlywood;
     background-size:cover;
@@ -128,19 +129,30 @@ body, html{
     background-color: #13445e;
     color: #FFF;
 }
+.btn-icon{
+    background: none;
+    border: none;
+    box-shadow: none;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+}
 
 .form-container {
     width: 500px;
     margin: auto;
 }
 .form-wrapper {
-    width: 80%;
+    width:33.3%;
     margin: auto;
     box-shadow: 0 1px 2px 2px rgba(0,0,0,.15);
     border-radius: 5px;
     background-color: #ccb266;
     padding: 20px;
 
+}
+.form-wrapper select.form-control{
+width:100%;
 }
 .form-wrapper .form-control {
     width: calc(100% - 30px);
@@ -149,6 +161,13 @@ body, html{
     padding: 5px 15px;
     border-radius: 4px;
     box-shadow: 0 1px 2px 2px rgba(0,0,0,.15);
+    background-color: #ffff;
+}
+.regist-form{
+    width:500px;
+}
+.edit-form{
+    width:500px;
 }
 .main-container{
     display:block;
@@ -186,13 +205,23 @@ body, html{
     color:antiquewhite;
     text-decoration: none;
     margin-left:20px;
-    margin-left:20px;
     width:350px;
     height:60px;
-    margin: 0;
-    padding: 0;
+    margin:20px 15px;
+    padding: 10px;
+
 }
 .link:hover{
     background-color:#B4855B ;
 
+}
+.booklook{
+    width: 80%;
+    margin: auto;
+    box-shadow: 0 1px 2px 2px rgba(0,0,0,.15);
+    border-radius: 5px;
+    background-color: #ccb266;
+    padding: 20px;
+
+}
 }
