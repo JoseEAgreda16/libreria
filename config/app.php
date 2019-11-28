@@ -2,6 +2,8 @@
 
 return [
 
+    'cant_books_by_user' => env('CANT_BOOKS_BY_USER', '5'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Name

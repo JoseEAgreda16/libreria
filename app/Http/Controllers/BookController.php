@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Author;
 use App\Book;
 use App\Gender;
+use App\Inventory;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -43,7 +44,22 @@ class BookController extends Controller
     public function store(Request $request)
     {
         $newbook = new Book($request->all());
-        $newbook->save();
+        $quantity = $request->input('quantity');
+        if ($newbook->save())
+        {
+            $arr = [];
+
+            for($i=1;$i<=$quantity;$i++){
+                 $arr[] = [ 'book_id'=>$newbook->id, 'status_id'=>'1'];
+
+            };
+
+            Inventory::insert($arr);
+
+
+        }
+
+
 
     }
 
