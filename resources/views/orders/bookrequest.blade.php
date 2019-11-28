@@ -35,8 +35,6 @@
                 @endforeach
             </select>
 
-            <input name="quantity" class="quantity" type="text" placeholder="cantidad">
-
             <button name="consult" class="consult">consultar</button>
             <button name="pedir" class="pedir">pedir</button>
         </form>
@@ -48,26 +46,23 @@
     <script>
         $(document).ready(inicio);
 
-        function inicio(){
+        function inicio() {
             let consultar = $('.found');
-            consultar.click(request);
-        }
-        function request(){
-            let nombre =$('.title').val();
-            let genero =$('.gender').val();
-            let autor =$('.author').val();
-            let fecha =$('.date').val();
-            let cantidad =$('.quantity').val();
+            consultar.click(() => {
+                let nombre = $('.title').val();
+                let genero = $('.gender').val();
+                let autor = $('.author').val();
+                let fecha = $('.date').val();
 
-            let params = `?title=${nombre || ''}&genres_id=${genero || ''}&author_id=${autor || ''}&date_public=${fecha ||''}&quantity=${cantidad ||''}`;
+                let params = `?title=${nombre || ''}&genres_id=${genero || ''}&author_id=${autor || ''}&date_public=${fecha || ''}`;
 
-            $.get("http://librando.local/books" + params)
-                .done(function (books) {
-                    console.log(books+'este es el objeto que me estoy trayendo');
-                    let i = 0;
-                    for (let book of books) {
-                        $(".main-container").append(`<table class="reply">
-                    <tr class="book" Id="${i}">
+                $.get("http://librando.local/books" + params)
+                    .done((books) => {
+                        console.log(books + 'este es el objeto que me estoy trayendo');
+                        let i = 0;
+                        for (let book of books) {
+                            $(".main-container").append(`<table class="reply">
+                        <tr class="book" Id="${i}">
                             <td class="name">${book.title}</td>
                             <td class="gender">${book.genres_id}</td>
                             <td class="date">${book.datePublic}</td>
@@ -75,16 +70,17 @@
                             <td class="">${book.quantity}</td>
                         </tr>
                         </table>`);
-                        if(book.status == 'liberado'){
-                            let tabla =$(this).parent();
-                            tabla.append(`<button class="download" data-indice="${i}" >tomar</button>`)
-                        }else if(book.status == 'pedido') {
-                            let tabla = $(this).parent();
-                            tabla.append(`<button class="download" data-indice="${i}" disabled>alquilado</button>`)
+                            if (book.status == 'liberado') {
+                                let tabla = $(this).parent();
+                                tabla.append(`<button class="download btn btn-" data-indice="${i}" >tomar</button>`)
+                            } else if (book.status == 'pedido') {
+                                let tabla = $(this).parent();
+                                tabla.append(`<button class="download" data-indice="${i}" disabled>alquilado</button>`)
+                            }
+                            i++;
                         }
-                        i++;
-                    }
-                });
+                    });
+            })
         }
     </script>
 @endsection

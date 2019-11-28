@@ -8,7 +8,7 @@
 <h1>libros</h1>
 <a class='registro' href="/books/create">registrar  libros </a>
 
-    <table class="booklook">
+    <table class="booklook book">
         <thead>
             <tr>
                 <th></th>

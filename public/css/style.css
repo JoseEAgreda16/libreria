@@ -90,7 +90,6 @@ body, html{
     margin:0;
     padding:0;
     height:100%;
-
 }
 .header{
     display:flex;
@@ -101,7 +100,6 @@ body, html{
     background-color: #77583c;
     margin:none;
 }
-
 .button-wrapper {
     display: flex;
     width: 100%;
@@ -137,7 +135,9 @@ body, html{
     padding: 5px;
     cursor: pointer;
 }
-
+.submit.cerrar.btn.btn-primary {
+    float:right;
+}
 .form-container {
     width: 500px;
     margin: auto;
@@ -149,7 +149,6 @@ body, html{
     border-radius: 5px;
     background-color: #ccb266;
     padding: 20px;
-
 }
 .form-wrapper select.form-control{
 width:100%;
@@ -162,6 +161,23 @@ width:100%;
     border-radius: 4px;
     box-shadow: 0 1px 2px 2px rgba(0,0,0,.15);
     background-color: #ffff;
+}
+.form-wrapper.fill {
+    display: flex;
+    width: 100%;
+    margin: auto;
+    box-shadow: 0 1px 2px 2px rgba(0,0,0,.15);
+    border-radius: 5px;
+    background-color: #ccb266;
+    padding: 20px;
+    height: 30px;
+}
+.form-wrapper.fill .form-control{
+    padding:0;
+    margin-left:10px;
+}
+.form-container.fill{
+    width:800px;
 }
 .regist-form{
     width:500px;
@@ -209,11 +225,9 @@ width:100%;
     height:60px;
     margin:20px 15px;
     padding: 10px;
-
 }
 .link:hover{
     background-color:#B4855B ;
-
 }
 .booklook{
     width: 80%;
@@ -222,6 +236,4 @@ width:100%;
     border-radius: 5px;
     background-color: #ccb266;
     padding: 20px;
-
-}
 }

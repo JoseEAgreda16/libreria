@@ -1,28 +1,16 @@
 @extends('layouts.base')
-
-@section('style')
-    <style>
-        html,body{
-            margin:0;
-            padding:0;
-        }
-        .found{
-            display:list-item;
-            width:500px;
-        }
-    </style>
-@endsection
 @section('content')
     <header>
         <div class="username"></div>
     </header>
     <div class="main-container">
-        <h1>editar genero</h1>
-        <form class="found">
-            <input name="gender" class="name" type="text" placeholder="nombre" value="{{$gender->name}}">
-            <button name="edit" class="edit">editar</button>
+        <h2 class="title-form">Editar genero</h2>
+        <form class="regist form-wrapper">
+            <input name="gender" class="name form-control" type="text" placeholder="nombre" value="{{$gender->name}}">
+            <div class="button-wrapper">
+            <button name="edit" class="edit btn btn-primary">editar</button>
+            </div>
         </form>
-        <form action=""></form>
     </div>
 @endsection
 @section('js')

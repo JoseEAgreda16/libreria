@@ -14,12 +14,13 @@
 @endsection
 @section('content')
     <div class="main-container">
-        <h2 class="title-form">registro de administrador</h2>
+        <h2 class="title-form">registro de genero</h2>
         <form class="regist form-wrapper">
-            <input name="genres" class="gender" type="text" placeholder="titulo">
-            <button name="register" class="register">registrar</button>
+            <input name="genres" class=" form-control gender" type="text" placeholder="titulo">
+            <div class="button-wrapper">
+            <button name="register" class="register btn btn-primary">registrar</button>
+            </div>
         </form>
-        <form action=""></form>
     </div>
 @endsection
 @section('js')

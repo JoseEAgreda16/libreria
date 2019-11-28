@@ -8,7 +8,7 @@
     <h1>libros</h1>
     <a class='registro' href="/authors/create">registrar autor </a>
 
-    <table>
+    <table class="booklook authors">
         <thead>
         <tr>
             <th></th>
@@ -20,8 +20,8 @@
         @foreach($authors as $author)
             <tr>
                 <td>
-                    <a href="/authors/{{$author->id}}/edit"> editar</a>
-                    <button class="delete" data-id="{{$author->id}}">borrar</button>
+                    <a href="/authors/{{$author->id}}/edit"class="btn-icon"><i class="fas fa-edit"></i></a>
+                    <button class="delete tbn-icon" data-id="{{$author->id}}"><i class="fas fa-trash-alt"></i></button>
                 </td>
                 <td class="name">{{$author->name}}</td>
             </tr>

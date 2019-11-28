@@ -1,43 +1,24 @@
 @extends('layouts.base')
-
-@section('style')
-    <style>
-        .filter{
-            text-align:center;
-            display:flex;
-            height:40px;
-        }
-        .filter > input{
-            width:20%;
-            height:30px;
-            margin-right:10px;
-        }
-        .registro{
-            margin-right:15px;
-            text-decoration: none;
-        }
-        .registadmin{
-            margin-left:15px;
-            text-decoration: none;
-        }
-    </style>
-    @endsection
 @section('content')
         <h2>Bienvenido a la gestion de Pedidos de libros</h2>
-        <div class="filter">
-            <input type="select" name="name" class="name-book" type="text" placeholder="nombre">
-            <select name="generos" id="options" class="gender">
+        <div class="form-container fill">
+            <form class="form-wrapper fill">
+            <input type="select" name="name" class="form-control name-book" type="text" placeholder="nombre">
+            <select name="generos" id="options" class="gender form-control">
                 @foreach($genders as $option)
                     <option value="{{ $option->id }}">{{ $option->name }}</option>
                 @endforeach
             </select>
-            <select name="autor" id="options" class="autor">
+            <select name="autor" id="options" class="autor form-control">
                 @foreach($authors as $option)
                     <option value="{{ $option->id }}">{{ $option->name }}</option>
                 @endforeach
             </select>
-            <input name="fecha" class="fecha" type="text" placeholder="fecha">
-            <button name="found" class="found">filrar</button>
+            <input name="fecha" class="fecha form-control" type="text" placeholder="fecha">
+                <div class="button-wrapper">
+            <button name="found" class="found btn btn-primary">filrar</button>
+                </div>
+            </form>
        </div>
        <div class="main-container">
 

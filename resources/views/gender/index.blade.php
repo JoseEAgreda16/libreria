@@ -8,7 +8,7 @@
     <h1>libros</h1>
     <a class='registro' href="/genders/create">registrar genero </a>
 
-    <table>
+    <table class="booklook gender">
         <thead>
         <tr>
             <th></th>
@@ -19,8 +19,8 @@
         @foreach($genders as $gender)
             <tr>
                 <td>
-                    <a href="/genders/{{$gender->id}}/edit"> editar</a>
-                    <button class="delete" data-id="{{$gender->id}}">borrar</button>
+                    <a href="/genders/{{$gender->id}}/edit"class="btn-icon"> <i class="fas fa-edit"></i></a>
+                    <button class="delete btn-icon" data-id="{{$gender->id}}"><i class="fas fa-trash-alt"></i></button>
                 </td>
                 <td>{{$gender->name}}</td>
 
