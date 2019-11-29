@@ -73,6 +73,36 @@
                     }
                 });
         }
+        // $.get("http://librando.local/books" + params)
+        //     .done(function (books) {
+        //         console.log(books);
+        //         let i = 0;
+        //         for (let book of books) {
+        //             $(".main-container").append(`<table class="table">
+        //             <tr class="book" Id="${i}">
+        //                     <td class="name">${book.title}</td>
+        //                     <td class="gender">${book.genderId}</td>
+        //                     <td class="date">${book.datePublic}</td>
+        //                     <td class="date">${book.authorId}</td>
+        //                     <td class="">${book.quantity}</td>
+        //                     <td class="">${book.status_id}</td>
+        //             </tr>
+        //                 </table>`);
+        //             if(book.status == 'liberado'){
+        //                 let tabla =$(this).parent();
+        //                 tabla.append(`<button class="download" data-indice="${i}" disabled>disponible</button>`);
+        //             }else if(book.status == 'alquilado') {
+        //                 tabla.append(`<button class="alquilado" data-indice="${i}" disabled>alquilado</button>`);
+        //             }else if(book.status == 'pedido') {
+        //                 tabla.append(`  <select name="status" id="">
+        //                                     <option value="valor 1">rechazar</option>
+        //                                     <option value="valor 2">aceptar</option>
+        //                                     <button class="respuesta" data-indice="${i}" disabled>responder</button>
+        //                                     </select>`);
+        //             }
+        //             i++;
+        //         }
+        //     })
         </script>
     @endsection
 

@@ -98,12 +98,16 @@ body, html{
     background-size:cover;
     background-repeat:no-repeat;
     background-color: #77583c;
-    margin:none;
+    margin:0;
+    position:relative;
 }
 .button-wrapper {
     display: flex;
     width: 100%;
     justify-content: flex-end;
+    position:absolute;
+    right:100px;
+
 }
 .btn {
     border-radius: 5px;
@@ -236,4 +240,7 @@ width:100%;
     border-radius: 5px;
     background-color: #ccb266;
     padding: 20px;
+}
+found form-wrapper fill user{
+    margin:10px;
 }
