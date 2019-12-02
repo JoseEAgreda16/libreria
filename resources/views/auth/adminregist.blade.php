@@ -6,12 +6,12 @@
         <form class="regist form-wrapper">
                 <input name="name" class="form-control name" type="text" placeholder="nombre" required>
                 <input name="surname" class="form-control surname" type="text"placeholder="apellido" required>
-                <input name="pasword" class="form-control password" type="text" placeholder="password" required>
-                <input name="confirm" class="form-control confirm" type="text" placeholder="confirmacion" required>
+                <input name="pasword" class="form-control password" type="password" placeholder="password" required>
+                <input name="confirm" class="form-control confirm" type="password" placeholder="confirmacion" required>
                 <input name="ci" class="form-control ci" type="text" placeholder="ci" required>
                 <input name="email" class="form-control email" type="text" placeholder="email" required>
                 <div class="button-wrapper">
-                <button name="submit" class="submit">registrar</button>
+                <button name="submit" class="submit btn btn-primary">registrar</button>
             </div>
         </form>
     </div>

@@ -7,9 +7,9 @@
         <form class="regist-form form-wrapper" method="POST" action="/login">
             @csrf
             <input name="email" class="form-control email" placeholder="ingrese el e-mail">
-            <input name="password" class="form-control password" placeholder="ingrese el password">
+            <input name="password" class="form-control password" type="password" placeholder="ingrese el password">
             <div class="button-wrapper">
-                <button class="btn btn-primary submit">log-in</button>
+                <button class="btn btn-second submit">log-in</button>
             </div>
         </form>
     </div>

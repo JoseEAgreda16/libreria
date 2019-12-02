@@ -21,7 +21,7 @@
             <tr>
                 <td>
                     <a href="/authors/{{$author->id}}/edit"class="btn-icon"><i class="fas fa-edit"></i></a>
-                    <button class="delete tbn-icon" data-id="{{$author->id}}"><i class="fas fa-trash-alt"></i></button>
+                    <button class="delete btn-icon" data-id="{{$author->id}}"><i class="fas fa-trash-alt"></i></button>
                 </td>
                 <td class="name">{{$author->name}}</td>
             </tr>

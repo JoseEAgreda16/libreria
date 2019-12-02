@@ -7,8 +7,8 @@
         <form class="regist-form form-wrapper">
             <input  name="user" class="form-control user" placeholder="ingrese el username" required>
             <input  name="surname" class="form-control surname" placeholder="ingrese el apellido" required>
-            <input  name="password" class="form-control password" placeholder="ingrese el password" required>
-            <input  name="confirm" class="form-control confirm" placeholder="confirmar contraseña" required>
+            <input  name="password" class="form-control password" placeholder="ingrese el password" type="password" required>
+            <input  name="confirm" class="form-control confirm" placeholder="confirmar contraseña" type="password" required>
             <input  name="ci" class="form-control ci" placeholder="ci" required>
             <input  name="email" class="form-control email" placeholder="email" required>
 

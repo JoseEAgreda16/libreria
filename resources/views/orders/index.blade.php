@@ -63,7 +63,7 @@
                         }else if(book.status == 'alquilado') {
                             tabla.append(`<button class="alquilado" data-indice="${i}" disabled>alquilado</button>`);
                         }else if(book.status == 'pedido') {
-                            tabla.append(`  <select name="status" id="">
+                            tabla.append(`<select name="status" id="">
                                             <option value="valor 1">rechazar</option>
                                             <option value="valor 2">aceptar</option>
                                             <button class="respuesta" data-indice="${i}" disabled>responder</button>

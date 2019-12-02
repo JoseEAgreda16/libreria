@@ -17,6 +17,7 @@
 <body>
 @if(Auth::check())
 <header class="header">
+    <span class="logo">LIBRANDO</span>
     <nav class="main-menu">
         <ul class="menu">
             <li><a class="link" href="/orders">Pedidos</a></li>
@@ -59,6 +60,9 @@
             </ul>
         </div>
     @endif
+<footer>
+
+</footer>
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     @yield('js')
