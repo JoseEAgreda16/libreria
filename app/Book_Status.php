@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Status extends Model
+class Book_Status extends Model
 {
-    protected $table = 'status';
+    protected $table = 'book_status';
 
     protected $fillable = [
-        'name'
+      'name'
     ];
 }

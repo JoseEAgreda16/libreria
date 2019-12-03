@@ -33,5 +33,7 @@ class StatusTableSeeder extends Seeder
                     'name' => 'Descontinuado'
                 ]
             ];
+        \App\Book_Status::insert($newStatus);
+
     }
 }

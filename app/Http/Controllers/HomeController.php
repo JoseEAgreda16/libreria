@@ -33,6 +33,7 @@ class HomeController extends Controller
     {
         $genders = Gender::all();
         $authors = Author::all();
-        return view('orders.bookrequest', ['genders' => $genders, 'authors' => $authors]);
+        $books = Book::with(['gender', 'author'])->get();
+        return view('orders.bookrequest', ['books'=>$books,'genders' => $genders, 'authors' => $authors]);
     }
 }
