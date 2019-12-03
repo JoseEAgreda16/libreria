@@ -1,7 +1,8 @@
 @extends('layouts.base')
 @section('content')
-        <h2>Bienvenido a la gestion de Pedidos de libros</h2>
+
         <div class="form-container fill">
+            <h2 class="title-form">Bienvenido a la gestion de Pedidos de libros</h2>
             <form class="form-wrapper fill">
             <input type="select" name="name" class="form-control name-book" type="text" placeholder="nombre">
             <select name="generos" id="options" class="gender form-control">

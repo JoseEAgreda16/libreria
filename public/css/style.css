@@ -14,6 +14,7 @@ body, html{
     margin:0;
     position:relative;
     box-shadow: 0 1px 2px 2px rgba(0,0,0,.15);
+    background: -webkit-linear-gradient(#77583c, #5e230b);
 }
 .button-wrapper {
     display: flex;
@@ -47,6 +48,7 @@ body, html{
 .btn.btn-second {
     background-color: #13445e;
     color: #FFF;
+    text-decoration: none;
 }
 .btn-icon{
     background: #cca15d;
@@ -56,6 +58,20 @@ body, html{
     padding: 5px;
     cursor: pointer;
     color:#5e1700;
+}
+.btn-icon.solcialnetworks{
+    border: none;
+    box-shadow: 0 1px 2px 2px rgba(0,0,0,.15);
+    cursor: pointer;
+    birder-radius:none;
+    color: rgba(218, 197, 147, 0.51);
+    height:35px;
+    width:35px;
+}
+.table-wrapper {
+    padding: 0;
+    margin: auto;
+    width: 80%;
 }
 .form-container {
     width: 500px;
@@ -134,6 +150,7 @@ width:100%;
     border-radius: 5px;
     border: double 2px #ccb266;
     margin:5px;
+    border-right: none;
 }
 .main-menu{
     display:inline-flex;
@@ -144,14 +161,21 @@ width:100%;
     margin-left:20px;
     width:350px;
     height:60px;
-    margin:20px 15px;
+    margin:10px 3px;
     padding: 10px;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: #B4855B;
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: #B4855B;
 }
 .link:hover{
     background-color:#B4855B;
+    transition: color 5s;
 }
 .booklook{
-    width: 80%;
+    width: 100%;
     margin: auto;
     box-shadow: 0 1px 2px 2px rgba(0,0,0,.15);
     border-radius: 5px;
@@ -162,6 +186,7 @@ found form-wrapper fill user{
     margin:10px;
 }
 footer{
+    display:flex;
    height:50px;
     width:100%;
     background-color: #13445e;

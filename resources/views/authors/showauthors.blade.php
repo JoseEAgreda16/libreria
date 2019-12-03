@@ -5,8 +5,9 @@
 @endsection
 
 @section('content')
-    <h1>libros</h1>
-    <a class='registro' href="/authors/create">registrar autor </a>
+    <div class="table-wrapper">
+    <h1 class="title-form">autores</h1>
+    <a class='registro btn btn-second' href="/authors/create">registrar autor </a>
 
     <table class="booklook authors">
         <thead>
@@ -28,6 +29,7 @@
         @endforeach
         </tbody>
     </table>
+    </div>
 @endsection
 
 @section('js')

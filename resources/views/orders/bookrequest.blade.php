@@ -18,7 +18,7 @@
 
 @section('content')
     <div class="main-container">
-        <h1 clas="form-title">Pide un libro libro</h1>
+        <h1 clas="title-form">Pide un libro libro</h1>
         <form class="found form-wrapper fill user">
             <input name="title" class="title form-control fill" type="text" placeholder="titulo">
             <input name="date" class="date form-control fill" type="text" placeholder="fecha">
