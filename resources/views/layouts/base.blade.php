@@ -50,7 +50,6 @@
     <div class="main-container">
         @yield('content')
     </div>
-<footer></footer>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

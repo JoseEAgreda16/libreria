@@ -1,23 +1,7 @@
 @extends('layouts.base')
 
-@section('style')
-    <style>
-        html,body{
-            margin:0;
-            padding:0;
-        }
-        .found{
-            display:list-item;
-        }
-        .reply{
-            width:400px;
-            height:400px;
-        }
-    </style>
-@endsection
-
 @section('content')
-    <div class="main-container">
+    <div class="table-wrapper">
         <h1 clas="title-form">Pide un libro libro</h1>
         <form class="found form-wrapper fill user">
             <input name="title" class="title form-control fill" type="text" placeholder="titulo">
@@ -38,33 +22,22 @@
             <button name="consult" class="consult  btn btn-primary">consultar</button>
             </div>
         </form>
-    </div>
-    <div class="reply"><h1>libros</h1>
-        <a class='registro' href="/books/create">  libros </a>
 
-        <table class="booklook book">
+    <div class="reply"><h1>libros disponibles</h1>
+        <table class=" table-wrapper booklook book">
             <thead>
             <tr>
-                <th></th>
                 <th>titulo</th>
                 <th>author</th>
-                <th>fecha</th>
                 <th>genero</th>
-                <th>cantidad</th>
             </tr>
             </thead>
             <tbody>
             @foreach($books as $book)
                 <tr class="boook">
-                    <td>
-                        <a href="/books/{{$book->id}}/edit" class="btn-icon"> <i class="fas fa-edit"></i></a>
-                        <button class="btn-icon delete" data-id="{{$book->id}}"><i class="fas fa-trash-alt"></i></button>
-                    </td>
                     <td>{{$book->title}}</td>
                     <td>{{$book->author->name}}</td>
-                    <td>{{$book->date_public}}</td>
                     <td>{{$book->gender->name}}</td>
-                    <td>{{$book->quantity}}</td>
                     @if($book->status==1)
                     <td><button class="get btn btn-primary" data-indice="${i}" >pedir</button></td>
                         @elseif($book->status==5)
@@ -82,6 +55,7 @@
             @endforeach
             </tbody>
         </table>
+    </div>
     </div>
 @endsection
 
