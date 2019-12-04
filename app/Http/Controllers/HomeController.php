@@ -31,6 +31,7 @@ class HomeController extends Controller
 
     public function users()
     {
+
         $genders = Gender::all();
         $authors = Author::all();
         $books = Book::with(['gender', 'author'])->get();

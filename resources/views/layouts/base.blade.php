@@ -50,7 +50,6 @@
     <div class="main-container">
         @yield('content')
     </div>
-<footer></footer>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -61,7 +60,9 @@
         </div>
     @endif
 <footer>
-
+    <i class="fab fa-facebook-f btn-icon solcialnetworks"></i>
+    <i class="fab fa-twitter btn-icon solcialnetworks"></i>
+    <i class="fab fa-instagram btn-icon solcialnetworks"></i>
 </footer>
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/app.js') }}"></script>
