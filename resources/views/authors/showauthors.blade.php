@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="table-wrapper">
+    <div class="table-wrapper authors ">
     <h1 class="title-form">autores</h1>
     <a class='registro btn btn-second' href="/authors/create">registrar autor </a>
 

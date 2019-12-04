@@ -73,6 +73,16 @@ body, html{
     margin: auto;
     width: 80%;
 }
+.table-wrapper.authors {
+    padding: 0;
+    margin: auto;
+    width: 30%;
+}
+.table-wrapper.genders {
+    padding: 0;
+    margin: auto;
+    width: 20%;
+}
 .form-container {
     width: 500px;
     margin: auto;
@@ -99,20 +109,21 @@ width:100%;
 }
 .form-wrapper.fill {
     display: flex;
-    width: 100%;
+    width: calc(100% - 40px);
     margin: auto;
     box-shadow: 0 1px 2px 2px rgba(0,0,0,.15);
     border-radius: 5px;
     background-color: #ccb266;
     padding: 20px;
     height: 30px;
+    margin-bottom: 1px;
 }
 .form-wrapper.fill .form-control{
     padding:0;
     margin-left:10px;
 }
 .form-container.fill{
-    width:800px;
+    width: 100%;
 }
 .regist-form{
     width:500px;
@@ -122,6 +133,14 @@ width:100%;
 }
 .main-container{
     display:block;
+    overflow:hidden;
+    background-size:cover;
+    background-color: #dac593;
+    margin:0;
+    height:100%;
+}
+.main-container.index{
+    display:flex;
     overflow:hidden;
     background-size:cover;
     background-color: #dac593;
@@ -181,6 +200,7 @@ width:100%;
     border-radius: 5px;
     background-color: #ccb266;
     padding: 20px;
+    margin-top: 10px;
 }.booklook book{
     width: 100%;
     height:100%;
@@ -195,11 +215,69 @@ found form-wrapper fill user{
 }
 footer{
     display:flex;
-   height:50px;
+   height:14%;
     width:100%;
     background-color: #13445e;
 }
 .reply{
     width:100%;
     height:400px;
+}
+.image{
+    width:50%;
+    height:500px;
+    margin:auto;
+    padding:100px;
+    padding-left:800px;
+}
+.libro.a{
+    width:200px;
+    height:50px;
+    background: -webkit-linear-gradient(rgba(118, 22, 11, 0.67), #541008);
+    margin-left:23px;
+    display: flex;
+
+}
+.libro.b{
+    width:200px;
+    height:50px;
+    background: -webkit-linear-gradient(rgba(52, 94, 150, 0.72), #20395B);
+    margin-left:15px;
+    display: flex;
+}
+.libro.c{
+    width:200px;
+    height:50px;
+    background: -webkit-linear-gradient(rgba(47, 79, 79, 0.76), #1F3434);
+    margin-left:95px;
+    display: flex;
+}
+.libro.d{
+    width:200px;
+    height:50px;
+    background: -webkit-linear-gradient(rgba(123, 97, 56, 0.76), #4F3E24);
+    margin-left:50px;
+    display: flex;
+}
+.libro.e{
+    width:200px;
+    height:50px;
+    background: -webkit-linear-gradient(rgba(47, 79, 79, 0.56), #1B2D2D);
+    margin-left:50px;
+    display: flex;
+}
+.perarator{
+    width:3px;
+    height:40px;
+    background-color: black;
+    opacity:0.2;
+    margin:auto;
+ }
+.letra{
+
+    font-size: 20px;
+    color:black;
+    opacity:0.2;
+    margin:10px;
+    font-weight: bold;
 }

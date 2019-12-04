@@ -1,6 +1,6 @@
 @extends('layouts.base')
 @section('content')
-
+    <div class="table-wrapper">
         <div class="form-container fill">
             <h2 class="title-form">Bienvenido a la gestion de Pedidos de libros</h2>
             <form class="form-wrapper fill">
@@ -22,8 +22,30 @@
             </form>
        </div>
        <div class="main-container">
+           <table class=" table-wrapper booklook book">
+               <thead>
+               <tr>
+                   <th>usuario</th>
+                   <th>titulo</th>
+                   <th>author</th>
+                   <th>genero</th>
+               </tr>
+               </thead>
+               <tbody>
+               {{--@foreach($books as $book)--}}
+                   {{--<tr class="boook">--}}
+                       {{--<td>{{$book->title}}</td>--}}
+                       {{--<td>{{$book->author->name}}</td>--}}
+                       {{--<td>{{$book->gender->name}}</td>--}}
+                           {{--<td><button class="get btn btn-primary" data-indice="${i}" >aceptar</button></td>--}}
+                           {{--<td><button class="download btn btn-primary" data-indice="${i}" >rechazar</button></td>--}}
+                   {{--</tr>--}}
+               {{--@endforeach--}}
+               </tbody>
+           </table>
 
       </div>
+    </div>
     @endsection
 
     @section('js')

@@ -1,8 +1,11 @@
 @extends('layouts.base')
 
 @section('content')
+
     <div class="table-wrapper">
-        <h1 clas="title-form">Pide un libro libro</h1>
+        <div class="reply">
+            <h1 class="title-form">libros disponibles</h1>
+            <h2 class="title-form">¡Pide un libro libro!</h2>
         <form class="found form-wrapper fill user">
             <input name="title" class="title form-control fill" type="text" placeholder="titulo">
             <input name="date" class="date form-control fill" type="text" placeholder="fecha">
@@ -23,7 +26,7 @@
             </div>
         </form>
 
-    <div class="reply"><h1>libros disponibles</h1>
+
         <table class=" table-wrapper booklook book">
             <thead>
             <tr>

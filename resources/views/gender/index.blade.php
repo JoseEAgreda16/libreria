@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="table-wrapper">
+    <div class="table-wrapper genders">
     <h1 class="title-form">Generos</h1>
     <a class='registro btn btn-second' href="/genders/create">registrar genero </a>
 
