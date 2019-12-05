@@ -23,6 +23,7 @@
             </select>
             <div class="button-wrapper">
             <button name="consult" class="consult  btn btn-primary">consultar</button>
+            <a href="/mybooks" class="consult  btn btn-second">mis libros</a>
             </div>
         </form>
 
@@ -42,21 +43,7 @@
                     <td>{{$book->author->name}}</td>
                     <td>{{$book->gender->name}}</td>
                     {{--liberado--}}
-                    @if($book->status==1)
                     <td><button class="get btn btn-second" data-indice="${i}" >pedir</button></td>
-                        @elseif($book->status==5)
-                        <td><button class="download btn btn-primary" data-indice="${i}" >proceso</button></td>
-                        @elseif($book->status==2)
-                        <td><button class="download btn btn-primary" data-indice="${i}" >agotado</button></td>
-                        @elseif($book->status==3)
-                        <td><button class="read btn btn-second" data-indice="${i}" >leer</button></td>
-                        @elseif($book->status==4)
-                        <td><button class="download btn btn-primary" data-indice="${i}" disable>proceso</button></td>
-                        @elseif($book->status==6)
-                        <td><button class="download btn btn-primary" data-indice="${i}" >descontinuado</button></td>
-                        @else
-                        <td><button class="molon btn btn-primary" data-indice="${i}" >Si molara serviria</button></td>
-                        @endif
                 </tr>
             @endforeach
             </tbody>
@@ -110,11 +97,12 @@
         $('.get').click(()=>{
             let ind=$(this).data('indice');
             $.post({
-                url: "http://librando.local/books",
+                url: "http://librando.local/request",
                 book_id:ind
             })
-                .done(function (data) {
+                .done( (data)=> {
                     alert('libro pedido, espara la respuesta de nuestros administradores');
+                    $(this).prop('disabled',true);
                 });
             });
         $('.read').click(()=>{
