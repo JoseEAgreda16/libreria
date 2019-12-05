@@ -39,7 +39,7 @@ class OrdersController extends Controller
         $user = Auth::user();
         $newrequest= new Orders();
         $newrequest->inventories_id = $request->all();
-        $newrequest->user_id = $user->
+//        $newrequest->user_id = $user->
 
     }
 
