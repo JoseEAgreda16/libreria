@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Author;
 use App\Book;
 use App\Gender;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -34,7 +35,17 @@ class HomeController extends Controller
 
         $genders = Gender::all();
         $authors = Author::all();
-        $books = Book::with(['gender', 'author'])->get();
+
+        $books = Book::select('books.*')
+            ->join('inventories', 'books.id', '=', 'inventories.book_id')
+            //->join('book_status', 'inventories.status_id', '=', 'book_status.id')
+            ->where('inventories.status_id', '=', 1)
+            ->distinct()
+            ->with(['gender', 'author'])
+            ->get();
+
+
+
         return view('orders.bookrequest', ['books'=>$books,'genders' => $genders, 'authors' => $authors]);
     }
 }

@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Request extends Model
 {
-    protected $table = 'usersbook';
+    protected $table = 'request';
 
     protected $fillable = [
-        'users_id', 'book_id', 'status_id', 'date'
+        'users_id', 'inventories_id', 'status_id', 'date', 'date_init', 'date_end'
     ];
 
     public function user()
@@ -19,11 +19,11 @@ class Request extends Model
 
     public function book()
     {
-        return $this->belongsTo( Book::class,'book_id');
+        return $this->belongsTo( Inventory::class,'inventories_id');
     }
 
     public function status()
     {
-        return$this->belongsTo(Status::class,'status_id');
+        return$this->belongsTo(Book_Status::class,'status_id');
     }
 }
