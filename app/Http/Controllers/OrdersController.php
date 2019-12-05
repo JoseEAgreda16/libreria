@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Orders;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class RequestController extends Controller
+class OrdersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,7 @@ class RequestController extends Controller
      */
     public function index()
     {
-        //
+        return view('')
     }
 
     /**
@@ -34,7 +36,11 @@ class RequestController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = Auth::user();
+        $newrequest= new Orders();
+        $newrequest->inventories_id = $request->all();
+        $newrequest->user_id = $user->
+
     }
 
     /**

@@ -26,8 +26,9 @@ Route::group(['middleware' => 'auth'], function () {
           'books' => 'BookController',
           'authors' => 'AuthorController',
           'genders' => 'GenderController'
-
       ]);
+      Route::post('/request', 'RequestController@stroe');
+      Route::get('/mybooks', 'OrdersController@index');
 
       Route::get('/registeradmin', 'Auth\RegisterAdminController@index');
       Route::post('/registeradmin', 'Auth\RegisterAdminController@register');
