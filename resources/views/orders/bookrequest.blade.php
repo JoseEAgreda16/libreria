@@ -41,18 +41,21 @@
                     <td>{{$book->title}}</td>
                     <td>{{$book->author->name}}</td>
                     <td>{{$book->gender->name}}</td>
+                    {{--liberado--}}
                     @if($book->status==1)
-                    <td><button class="get btn btn-primary" data-indice="${i}" >pedir</button></td>
+                    <td><button class="get btn btn-second" data-indice="${i}" >pedir</button></td>
                         @elseif($book->status==5)
                         <td><button class="download btn btn-primary" data-indice="${i}" >proceso</button></td>
                         @elseif($book->status==2)
                         <td><button class="download btn btn-primary" data-indice="${i}" >agotado</button></td>
                         @elseif($book->status==3)
-                        <td><button class="read btn btn-primary" data-indice="${i}" >leer</button></td>
+                        <td><button class="read btn btn-second" data-indice="${i}" >leer</button></td>
                         @elseif($book->status==4)
                         <td><button class="download btn btn-primary" data-indice="${i}" disable>proceso</button></td>
                         @elseif($book->status==6)
                         <td><button class="download btn btn-primary" data-indice="${i}" >descontinuado</button></td>
+                        @else
+                        <td><button class="molon btn btn-primary" data-indice="${i}" >Si molara serviria</button></td>
                         @endif
                 </tr>
             @endforeach
@@ -91,10 +94,10 @@
                             <td class="">${book.quantity}</td>
                         </tr>
                         </table>`);
-                            if (book.status == 'liberado') {
+                            if (book.status_id == 1) {
                                 let tabla = $(this).parent();
                                 tabla.append(`<button class="download btn btn-" data-indice="${i}" >tomar</button>`)
-                            } else if (book.status == 'rechazado') {
+                            } else if (book.status_id == 3) {
                                 let tabla = $(this).parent();
                                 tabla.append(`<button class="download" data-indice="${i}" disabled>alquilado</button>`)
                             }
@@ -103,6 +106,7 @@
                     });
             })
         }
+        //funciones naturles de la pigina pedir,leer,etc
         $('.get').click(()=>{
             let ind=$(this).data('indice');
             $.post({
@@ -110,9 +114,22 @@
                 book_id:ind
             })
                 .done(function (data) {
-                    alert('libro pedido espara la respuesta de nuestros administradores');
+                    alert('libro pedido, espara la respuesta de nuestros administradores');
                 });
+            });
+        $('.read').click(()=>{
+            let ind=$(this).data('indice');
+            $.get({
+                url: "http://librando.local/books",
+                book_id:ind
             })
+                .done(function (data) {
+                    alert(`Ven a retirar tu libro! con el sigiente codigo de pedido`);
+                });
+        });
+        $('.molon').click(()=>{
+                    alert(`cuando los botones molen tendran funciones`);
+        });
 
     </script>
 @endsection

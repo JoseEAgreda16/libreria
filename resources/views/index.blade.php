@@ -21,6 +21,9 @@
              <div class="libro e"><div class="perarator"></div><div class="letra">O</div><div class="perarator"></div></div>
              <div class="libro d"><div class="perarator"></div><div class="letra">L</div><div class="perarator"></div></div>
              <div class="libro b"><div class="perarator"></div><div class="letra">L</div><div class="perarator"></div></div>
+             <div class="libro e"><div class="perarator"></div><div class="letra">O</div><div class="perarator"></div></div>
+             <div class="libro d"><div class="perarator"></div><div class="letra">L</div><div class="perarator"></div></div>
+             <div class="libro b"><div class="perarator"></div><div class="letra">L</div><div class="perarator"></div></div>
 
          </div>
      </div>

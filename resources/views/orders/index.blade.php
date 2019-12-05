@@ -80,12 +80,12 @@
                             <td class="">${book.status_id}</td>
                     </tr>
                         </table>`);
-                        if(book.status == 'liberado'){
+                        if(book.status_id == 1){
                             let tabla =$(this).parent();
                             tabla.append(`<button class="download" data-indice="${i}" disabled>disponible</button>`);
-                        }else if(book.status == 'alquilado') {
+                        }else if(book.status_id == 3) {
                             tabla.append(`<button class="alquilado" data-indice="${i}" disabled>alquilado</button>`);
-                        }else if(book.status == 'pedido') {
+                        }else if(book.status_id == 3) {
                             tabla.append(`<select name="status" id="">
                                             <option value="valor 1">rechazar</option>
                                             <option value="valor 2">aceptar</option>
