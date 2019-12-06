@@ -16,56 +16,62 @@
 </head>
 <body>
 @if(Auth::check())
-<header class="header">
-    <span class="logo">LIBRANDO</span>
-    <nav class="main-menu">
-        <ul class="menu">
-            <li><a class="link" href="/orders">Pedidos</a></li>
-            <li><a  class="link" href="/books">libros</a></li>
-            <li><a class="link"  href="/registeradmin">Registrar administrador</a></li>
-            <li><a  class="link"  href="/authors">Autores </a></li>
-            <li><a  class="link"  href="/genders">Genero </a></li>
-        </ul>
-    </nav>
-
-        <form method="POST" action="/logout">
-            @csrf
-            <div class="button-wrapper">
-            <button type="submit" class=" submit cerrar btn btn-primary">cerrar sesion</button>
-            </div>
-        </form>
-
-</header>
-    @else
     <header class="header">
         <span class="logo">LIBRANDO</span>
         <nav class="main-menu">
             <ul class="menu">
-                <li><a class="link" href="/login">iniciar sesion usuario</a></li>
-                <li><a class="link" href="/register">registrar nuevo usuario</a></li>
+
+                @if(Auth::user()->rol_id==1)
+                    <li><a class="link" href="/orders">SOLICITUDES</a></li>
+                    <li><a  class="link" href="/books">LIBROS</a></li>
+                    <li><a class="link"  href="/registeradmin">REGISTRAR ADMINISTRADOR</a></li>
+                    <li><a  class="link"  href="/authors">AUTORES </a></li>
+                    <li><a  class="link"  href="/genders">GENERO </a></li>
+                @else
+                    <li><a class="link" href="/request">SOLICITAR</a></li>
+                    <li><a href="/mybooks" class="link">MI LIBROS</a></li>
+                @endif
+            </ul>
+        </nav>
+
+        <form method="POST" action="/logout">
+            @csrf
+            <div class="button-wrapper">
+                <button type="submit" class=" submit cerrar btn btn-primary">cerrar sesion</button>
+            </div>
+        </form>
+
+    </header>
+@else
+    <header class="header">
+        <span class="logo">LIBRANDO</span>
+        <nav class="main-menu">
+            <ul class="menu">
+                <li><a class="link" href="/login">INICIAR SESION</a></li>
+                <li><a class="link" href="/register">REGISTRARME</a></li>
             </ul>
         </nav>
     </header>
 @endif
-    <div class="main-container">
-        @yield('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
     </div>
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+@endif
+<div class="main-container">
+    @yield('content')
+</div>
 <footer>
     <i class="fab fa-facebook-f btn-icon solcialnetworks"></i>
     <i class="fab fa-twitter btn-icon solcialnetworks"></i>
     <i class="fab fa-instagram btn-icon solcialnetworks"></i>
 </footer>
-    <script src="{{ asset('js/jquery.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
-    @yield('js')
+<script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
+@yield('js')
 </body>
 </html>

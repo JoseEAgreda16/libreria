@@ -42,7 +42,17 @@
             })
                 .done(function (ladada) {
                     alert(`usuario ${usuario} registrado con exito ahora puede hacer login e ingresar`);
+                    window.location="/request"
 
+                })
+                .fail(xhr => {
+                    const errors = xhr.responseJSON.errors;
+
+                    if (errors.id_card) {
+                        alert('la cedula ya fue registrada');
+                    } else if (errors.email) {
+                        alert('el email ya ha sido registrado');
+                    }
                 });
         });
     </script>

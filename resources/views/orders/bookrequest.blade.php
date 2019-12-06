@@ -23,7 +23,7 @@
             </select>
             <div class="button-wrapper">
             <button name="consult" class="consult  btn btn-primary">consultar</button>
-            <a href="/mybooks" class="consult  btn btn-second">mis libros</a>
+
             </div>
         </form>
 
@@ -43,7 +43,7 @@
                     <td>{{$book->author->name}}</td>
                     <td>{{$book->gender->name}}</td>
                     {{--liberado--}}
-                    <td><button class="get btn btn-second" data-indice="${i}" >pedir</button></td>
+                    <td><button class="get btn btn-second order" data-indice="{{$book->id}}" >pedir</button></td>
                 </tr>
             @endforeach
             </tbody>
@@ -94,25 +94,30 @@
             })
         }
         //funciones naturles de la pigina pedir,leer,etc
-        $('.get').click(()=>{
+        $('.get').click(function(){
             let ind=$(this).data('indice');
-            $.post({
-                url: "http://librando.local/request",
-                book_id:ind
-            })
+            console.log(ind);
+            $.post("http://librando.local/order",
+            {book_id:ind}
+            )
                 .done( (data)=> {
                     alert('libro pedido, espara la respuesta de nuestros administradores');
                     $(this).prop('disabled',true);
+                    $(this).css("background-color", "grey");
+                })
+                .fail(()=>{
+                    alert('hubo un error con el servidor intentelo nuevamente mas tarde');
                 });
             });
         $('.read').click(()=>{
             let ind=$(this).data('indice');
+
             $.get({
                 url: "http://librando.local/books",
                 book_id:ind
             })
                 .done(function (data) {
-                    alert(`Ven a retirar tu libro! con el sigiente codigo de pedido`);
+                    alert(`Ven a retirar tu libro! con el sigiente codigo de pedido ${data}`);
                 });
         });
         $('.molon').click(()=>{
