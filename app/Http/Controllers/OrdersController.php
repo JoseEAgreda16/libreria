@@ -21,6 +21,7 @@ class OrdersController extends Controller
     }
 
 
+
     public function store(Request $request)
     {
         $inventories = Inventory::where('book_id', '=', $request->input('book_id'))
@@ -47,4 +48,5 @@ class OrdersController extends Controller
     {
 
     }
+
 }
