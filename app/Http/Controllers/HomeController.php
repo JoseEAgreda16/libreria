@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Orders;
 use Illuminate\Http\Request;
 use App\Author;
 use App\Book;
@@ -25,9 +26,9 @@ class HomeController extends Controller
 
     public function home()
     {
-        $genders = Gender::all();
-        $authors = Author::all();
-        return view('orders.index', ['genders' => $genders, 'authors' => $authors]);
+        $orders = Orders::with(['user','inventory', 'status'])
+            ->get();
+        return view('orders.index')->with(['orders' => $orders]) ;
     }
 
     public function users()

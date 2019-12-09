@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Orders extends Model
 {
-    protected $table = 'request';
+    protected $table = 'orders';
 
     protected $fillable = [
         'users_id', 'inventories_id', 'status_id', 'date', 'date_init', 'date_end'
@@ -17,7 +17,7 @@ class Orders extends Model
         return $this->belongsTo( User::class, 'users_id');
     }
 
-    public function book()
+    public function inventory()
     {
         return $this->belongsTo( Inventory::class,'inventories_id');
     }

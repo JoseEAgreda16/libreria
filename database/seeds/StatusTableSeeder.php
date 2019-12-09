@@ -17,20 +17,10 @@ class StatusTableSeeder extends Seeder
                     'name' => 'disponible'
                 ],
                 [
-                    'name' => 'agotado'
+                    'name' => 'no disponible'
                 ],
                 [
-                    'name' => 'aprobado'
-                ],
-                [
-                    'name' => 'denegado'
-                ],
-                [
-                    'name' => 'solicitado'
-                ],
-
-                [
-                    'name' => 'Descontinuado'
+                    'name' => 'fuera de servicio'
                 ]
             ];
         \App\Book_Status::insert($newStatus);
