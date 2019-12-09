@@ -1,21 +1,5 @@
 @extends('layouts.base')
 
-@section('style')
-    <style>
-        html,body{
-            margin:0;
-            padding:0;
-        }
-        .found{
-            display:list-item;
-        }
-        .reply{
-            width:500px;
-
-        }
-    </style>
-@endsection
-
 @section('content')
     <header>
     </header>
