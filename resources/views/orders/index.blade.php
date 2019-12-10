@@ -25,8 +25,8 @@
                    <tr class="boook">
                        <td>{{$order->inventory->book->title}}</td>
                        <td>{{$order->user->name}}</td>
-                       <td>{{$order->status->name}}</td>
-                           <td><button class="acept btn btn-primary" data-indice="{{$order->id}}" >aceptar</button></td>
+                       {{--<td>{{$order->status->name}}</td>--}}
+                           <td><button class="acept btn btn-second" data-indice="{{$order->id}}" >aceptar</button></td>
                            <td><button class="reject btn btn-primary" data-indice="{{$order->id}}">rechazar</button></td>
                    </tr>
                @endforeach

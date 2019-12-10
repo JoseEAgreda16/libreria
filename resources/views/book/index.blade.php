@@ -9,7 +9,6 @@
         <h1 class="title-form">Libros</h1>
         <a class='registro btn btn-second' href="/books/create">registrar  libros </a>
     <table class="booklook book">
-
         <thead>
             <tr>
                 <th></th>
@@ -25,6 +24,7 @@
         <tr>
             <td>
                 <a href="/books/{{$book->id}}/edit" class="btn-icon"> <i class="fas fa-edit"></i></a>
+                <a href="/books/{{$book->id}}/inventory" class="btn-icon"> <i class="fas fa-eye"></i></a>
                 <button class="btn-icon delete" data-id="{{$book->id}}"><i class="fas fa-trash-alt"></i></button>
             </td>
             <td>{{$book->title}}</td>
