@@ -18,8 +18,8 @@
                 @foreach ($orders as $order)
                     <tr class="boook">
                         <td>{{$order->inventory->book->title}}</td>
-                        <td>{{$order->status}}</td>
-                        <td>{{$order->date}}</td>
+                        <td>{{$order->status->name}}</td>
+                        <td>{{date('d/m/Y', strtotime($order->date))}}</td>
                             <td><button class="cancel btn btn-primary" data-indice="{{$order->id}}" >cancelar</button></td>
                             <td><button class="read btn btn-primary" data-indice="{{$order->id}}" disabled>leer</button></td>
                     </tr>

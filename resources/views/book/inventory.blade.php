@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <ul class="table-wrapper libro">
+    <ul class="table-wrapper lib">
         <li class="characterist"><strong>titulo:</strong> {{$currentBook->title}}</li>
         <li class="characterist"><strong>autor:</strong> {{$currentBook->author->name}}</li>
         <li class="characterist"><strong>genero:</strong> {{$currentBook->gender->name}}</li>
