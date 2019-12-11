@@ -29,8 +29,7 @@ class OrdersController extends Controller
 
 
     public function store(Request $request)
-    {$user = Auth::user();
-
+    {
         $user = Auth::user();
         $orders = Orders::where('users_id', $user->id);
 
@@ -45,8 +44,9 @@ class OrdersController extends Controller
            $newrequest = new Orders();
            $newrequest->users_id = $user->id;
            $newrequest->inventories_id = $inventories->id ;
-           $newrequest->status_id = '5';
+           $newrequest->status_id = '1';
            $newrequest->date = Carbon::now();
+           $newrequest->book_id = $inventories->book_id;
            $newrequest->save();
 
            return response('Molo');
