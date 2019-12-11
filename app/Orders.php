@@ -24,6 +24,6 @@ class Orders extends Model
 
     public function status()
     {
-        return$this->belongsTo(Book_Status::class,'status_id');
+        return$this->belongsTo(Order_Status::class,'status_id');
     }
 }
