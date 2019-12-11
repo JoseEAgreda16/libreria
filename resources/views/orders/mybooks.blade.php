@@ -18,9 +18,10 @@
                 @foreach ($orders as $order)
                     <tr class="boook">
                         <td>{{$order->inventory->book->title}}</td>
-                        <td>{{$order->status->name}}</td>
+                        <td>{{$order->status}}</td>
                         <td>{{$order->date}}</td>
                             <td><button class="cancel btn btn-primary" data-indice="{{$order->id}}" >cancelar</button></td>
+                            <td><button class="read btn btn-primary" data-indice="{{$order->id}}" disabled>leer</button></td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -33,7 +34,7 @@
     <script>
 
         //funciones naturles de la pigina pedir,leer,etc
-        $('.get').click(()=>{
+        $('.cancel').click(()=>{
             let ind=$(this).data('indice');
             $.post( "http://librando.local/request",
                 {book_id:ind
@@ -46,11 +47,12 @@
         $('.read').click(()=>{
             let ind=$(this).data('indice');
             $.get({
-                url: "http://librando.local/books",
+                url:"http://librando.local/books",
                 book_id:ind
             })
                 .done(function (data) {
-                    alert(`Ven a retirar tu libro! con el sigiente codigo de pedido`);
+                    alert(`Ven a retirar tu libro! con el sigiente codigo de pedido${data}`);
+                    // $()
                 });
         });
         $('.molon').click(()=>{

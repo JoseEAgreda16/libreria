@@ -110,4 +110,13 @@ class BookController extends Controller
     {
         Book::findOrFail($id)->delete();
     }
+
+    public function getInventory($id)
+    {
+        $books = Inventory::where('book_id', $id)->get();
+        $book = Book::where('id', $id)->with(['gender','author'])->first();
+        $book = Book::where('id', $id)->with(['gender','author'])->first();
+
+        return view('book.inventory', ['books' => $books, 'currentBook' => $book]);
+    }
 }
