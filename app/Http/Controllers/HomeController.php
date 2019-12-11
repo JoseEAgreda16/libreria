@@ -38,9 +38,9 @@ class HomeController extends Controller
         $authors = Author::all();
 
         $books = Book::select('books.*')
-            ->join('inventories', 'books.id', '=', 'inventories.book_id')
+            ->leftJoin('orders', 'books.id', 'orders.book_id')
             //->join('book_status', 'inventories.status_id', '=', 'book_status.id')
-            ->where('inventories.status_id', '=', 1)
+            ->whereNull('orders.id')
             ->distinct()
             ->with(['gender', 'author'])
             ->get();
