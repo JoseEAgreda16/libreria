@@ -5,12 +5,15 @@
 @endsection
 
 @section('content')
-    <ul>
-        <li><strong>titulo:</strong> {{$currentBook->title}}</li>
-        <li><strong>autor:</strong> {{$currentBook->author->name}}</li>
-        <li><strong>genero:</strong> {{$currentBook->gender->name}}</li>
-        <li><strong>fecha:</strong> {{$currentBook->date_public}}</li>
+
+    <ul class="table-wrapper libro">
+        <li class="characterist"><strong>titulo:</strong> {{$currentBook->title}}</li>
+        <li class="characterist"><strong>autor:</strong> {{$currentBook->author->name}}</li>
+        <li class="characterist"><strong>genero:</strong> {{$currentBook->gender->name}}</li>
+        <li class="characterist"><strong>fecha:</strong> {{$currentBook->date_public}}</li>
     </ul>
+
+
    <table class=" table-wrapper booklook book">
       <thead>
       <tr>

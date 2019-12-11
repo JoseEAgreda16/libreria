@@ -81,6 +81,11 @@ body, html{
     margin: auto;
     width: 20%;
 }
+.characterist{
+    margin:10px;
+    list-style: none;
+}
+
 .form-container {
     width: 500px;
     margin: auto;
@@ -201,9 +206,20 @@ alert.alert-danger {
     background-color: #ccb266;
     padding: 20px;
     margin-top: 10px;
-}.booklook book{
+}
+.booklook book{
     width: 100%;
     height:100%;
+    margin: auto;
+    box-shadow: 0 1px 2px 2px rgba(0,0,0,.15);
+    border-radius: 5px;
+    background-color: #ccb266;
+    padding:0;
+}
+.libro{
+    display:flex;
+    width: 100%;
+    height:100px;
     margin: auto;
     box-shadow: 0 1px 2px 2px rgba(0,0,0,.15);
     border-radius: 5px;
@@ -280,4 +296,15 @@ footer{
     opacity:0.2;
     margin:10px;
     font-weight: bold;
+}
+.shadow {
+    width: 150px;
+    height: 100px;
+    border: 3px solid #555;
+    background: #428bca;
+    -webkit-transform: skew(20deg);
+    -moz-transform: skew(20deg);
+    -ms-transform: skew(20deg);
+    -o-transform: skew(20deg);
+    transform: skew(20deg);
 }
