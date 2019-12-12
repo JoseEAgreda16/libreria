@@ -30,9 +30,8 @@ class OrdersController extends Controller
 
     public function store(Request $request)
     {
-        $user = Auth::user();
-        $orders = Orders::where('users_id', $user->id);
-
+        //$user = Auth::user();
+        //$orders = Orders::where('users_id', $user->id);
 
         $inventories = Inventory::where('book_id', '=', $request->input('book_id'))
             ->where('status_id',1)
@@ -40,31 +39,57 @@ class OrdersController extends Controller
 
        if ($inventories) {
 
-           $user = Auth::user();
-           $newrequest = new Orders();
-           $newrequest->users_id = $user->id;
-           $newrequest->inventories_id = $inventories->id ;
-           $newrequest->status_id = '1';
-           $newrequest->date = Carbon::now();
-           $newrequest->book_id = $inventories->book_id;
-           $newrequest->save();
 
-           return response('Molo');
+           $user = Auth::user();
+           $newRequest = new Orders();
+           $newRequest->users_id = $user->id;
+           $newRequest->inventories_id = $inventories->id ;
+           $newRequest->status_id = '1';
+           $newRequest->date = Carbon::now();
+           $newRequest->book_id = $inventories->book_id;
+
+           $inventories->status_id = '2';
+
+           $inventories->save();
+           $newRequest->save();
+
+           return response('ok');
 
        }
-        return response('se dio',400);
+        return response('se d                                                                                                                                                                                           io',400);
     }
 
     public function change(Request $request, $id)
     {
         $now = Carbon::now();
-        Orders::findOrFail($id)
-            ->update([
-                'status_id' => $request->input('status_id'),
-                'date_init' => $now,
-                'date_end' => $now->addMonth()
+        $order = Orders::findOrFail($id);
 
-            ]);
+
+        if ($request == 2) {
+
+            $order-> status_id = $request->input('status_id');
+            $order-> date_init = $now;
+            $order-> date_end = $now->addMonth();
+
+            $order-> save();
+
+            return response('ok');
+        }
+
+        if ($request == 3) {
+
+        $order-> status_id = $request->input('status_id');
+
+        $order-> save();
+
+        Inventory::findOrFail($order->inventories_id)
+             ->update(['status_id' => 1]);
+
+         return response('ok');
+        }
+
+        return response('fail', 400);
+
     }
 
 }
