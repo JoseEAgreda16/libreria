@@ -65,7 +65,7 @@ class OrdersController extends Controller
         $order = Orders::findOrFail($id);
 
 
-        if ($request == 2) {
+        if ($request->input('status_id') == 2) {
 
             $order-> status_id = $request->input('status_id');
             $order-> date_init = $now;
@@ -76,7 +76,7 @@ class OrdersController extends Controller
             return response('ok');
         }
 
-        if ($request == 3) {
+        if ($request->input('status_id') == 3) {
 
         $order-> status_id = $request->input('status_id');
 
