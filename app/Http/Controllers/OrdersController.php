@@ -56,7 +56,7 @@ class OrdersController extends Controller
            return response('ok');
 
        }
-        return response('se d                                                                                                                                                                                           io',400);
+        return response('se dio);                                                                                                                                                                                           io',400);
     }
 
     public function change(Request $request, $id)

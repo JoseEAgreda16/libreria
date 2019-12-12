@@ -39,12 +39,13 @@
 
     @section('js')
         <script>
-        $('.acept').click(function (){
-            data=$(this).data('indice');
+        $('.acept').click(function (e){
+            e.preventDefault();
+            let data=$(this).data('indice');
             $.ajax({
                 url: `http://librando.local/orders/${data}`,
                 method: 'PUT',
-                data:{state:3},
+                data:{state_id : 2},
             })
                 .done(()=>{
                     alert('has aceptado solicitud');
@@ -53,12 +54,13 @@
                     }
                 );
         });
-        $('.reject').click(function (){
-            data=$(this).data('indice');
+        $('.reject').click(function (e){
+            e.preventDefault();
+            let data=$(this).data('indice');
             $.ajax({
                 url: `http://librando.local/orders/${data}`,
                 method: 'PUT',
-                data:{state:4},
+                data:{state_id : 3},
             })
                 .done(()=>{
                         alert('has aceptado solicitud');
