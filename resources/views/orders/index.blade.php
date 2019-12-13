@@ -26,8 +26,14 @@
                        <td>{{$order->inventory->book->title}}</td>
                        <td>{{$order->user->name}}</td>
                        {{--<td>{{$order->status->name}}</td>--}}
+                       @if($order->status->id==1)
                            <td><button class="acept btn btn-second" data-indice="{{$order->id}}" >aceptar</button></td>
                            <td><button class="reject btn btn-primary" data-indice="{{$order->id}}">rechazar</button></td>
+                       @elseif($order->status->id==2)
+                           <td><button class="give btn btn-primary" data-indice="{{$order->id}}" >entregar</button></td>
+                       @elseif($order->status->id==4)
+                           <td><button class="receive btn btn-primary" data-indice="{{$order->id}}" >recibir</button></td>
+                           @endif
                    </tr>
                @endforeach
                </tbody>
@@ -41,26 +47,60 @@
         <script>
         $('.acept').click(function (e){
             e.preventDefault();
-            let data=$(this).data('indice');
+            let idx=$(this).data('indice');
             $.ajax({
-                url: `http://librando.local/orders/${data}`,
+                url: `http://librando.local/orders/${idx}`,
                 method: 'PUT',
-                data:{state_id : 2},
+                data:{status_id : 2},
             })
                 .done(()=>{
                     alert('has aceptado solicitud');
                     $(this).prop('disabled',true);
                     $(this).css("background-color", "grey");
+                    $(this).siblings().prop('disabled',true);
+                    $(this).siblings().css("background-color", "grey");
+                    }
+                );
+        });
+        $('.give').click(function (e){
+            e.preventDefault();
+            let idx=$(this).data('indice');
+            $.ajax({
+                url: `http://librando.local/orders/${idx}`,
+                method: 'PUT',
+                data:{status_id :4},
+            })
+                .done(()=>{
+                    alert('has aceptado solicitud');
+                    $(this).prop('disabled',true);
+                    $(this).css("background-color", "grey");
+                    $(this).siblings().prop('disabled',true);
+                    }
+                );
+        });
+        $('.receive').click(function (e){
+            e.preventDefault();
+            let idx=$(this).data('indice');
+            $.ajax({
+                url: `http://librando.local/orders/${idx}`,
+                method: 'PUT',
+                data:{status_id :5},
+            })
+                .done(()=>{
+                    alert('libro recibido');
+                    $(this).prop('disabled',true);
+                    $(this).css("background-color", "grey");
+                    $(this).siblings().prop('disabled',true);
                     }
                 );
         });
         $('.reject').click(function (e){
             e.preventDefault();
-            let data=$(this).data('indice');
+            let idx=$(this).data('indice');
             $.ajax({
-                url: `http://librando.local/orders/${data}`,
+                url: `http://librando.local/orders/${idx}`,
                 method: 'PUT',
-                data:{state_id : 3},
+                data:{status_id : 3},
             })
                 .done(()=>{
                         alert('has aceptado solicitud');

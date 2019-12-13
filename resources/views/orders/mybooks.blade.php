@@ -20,8 +20,11 @@
                         <td>{{$order->inventory->book->title}}</td>
                         <td>{{$order->status->name}}</td>
                         <td>{{date('d/m/Y', strtotime($order->date))}}</td>
+                        @if($order->status->id==1 || $order->status->id==2)
                             <td><button class="cancel btn btn-primary" data-indice="{{$order->id}}" >cancelar</button></td>
-                            <td><button class="read btn btn-primary" data-indice="{{$order->id}}" disabled>leer</button></td>
+                        @elseif($order->status->id==2)
+                            <td><button class="read btn btn-primary" data-indice="{{$order->id}}" >leer</button></td>
+                            @endif
                     </tr>
                 @endforeach
                 </tbody>
@@ -34,15 +37,19 @@
     <script>
 
         //funciones naturles de la pigina pedir,leer,etc
-        $('.cancel').click(()=>{
-            let ind=$(this).data('indice');
-            $.post( "http://librando.local/request",
-                {book_id:ind
-                })
-                .done( (data)=> {
-                    alert('libro pedido, espara la respuesta de nuestros administradores');
-                    $(this).prop('disabled',true);
-                });
+        $('.cancel').click(function (e){
+            e.preventDefault();
+            let idx=$(this).data('indice');
+            $.ajax({
+                url: `http://librando.local/mybooks/${idx}`,
+                method: 'PUT',
+            })
+                .done(()=>{
+                        alert('has cancelado la solicitud');
+                        $(this).prop('disabled',true);
+                        $(this).css("background-color", "grey");
+                    }
+                );
         });
         $('.read').click(()=>{
             let ind=$(this).data('indice');

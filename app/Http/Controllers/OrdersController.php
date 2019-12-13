@@ -29,41 +29,40 @@ class OrdersController extends Controller
     }
 
 
-
     public function store(Request $request)
     {
         //$user = Auth::user();
         //$orders = Orders::where('users_id', $user->id);
 
         $inventories = Inventory::where('book_id', '=', $request->input('book_id'))
-            ->where('status_id',1)
+            ->where('status_id', 1)
             ->first();
 
-       if ($inventories) {
+        if ($inventories) {
 
 
-           $user = Auth::user();
-           $newRequest = new Orders();
-           $newRequest->users_id = $user->id;
-           $newRequest->inventories_id = $inventories->id ;
-           $newRequest->status_id = '1';
-           $newRequest->date = Carbon::now();
-           $newRequest->book_id = $inventories->book_id;
+            $user = Auth::user();
+            $newRequest = new Orders();
+            $newRequest->users_id = $user->id;
+            $newRequest->inventories_id = $inventories->id;
+            $newRequest->status_id = '1';
+            $newRequest->date = Carbon::now();
+            $newRequest->book_id = $inventories->book_id;
 
-           $inventories->status_id = '2';
+            $inventories->status_id = '2';
 
-           $inventories->save();
-           $newRequest->save();
+            $inventories->save();
+            $newRequest->save();
 
-           return response('ok');
+            return response('ok');
 
-       }
-        return response('se dio);                                                                                                                                                                                           io',400);
+        }
+        return response('se dio);                                                                                                                                                                                           io', 400);
     }
 
 
+//gestion de administrador (rechazar o aceptar ordernes)
 
-//gestion de administrador (ordernes)
     public function changeStatus(Request $request, $id)
     {
         $now = Carbon::now();
@@ -72,34 +71,33 @@ class OrdersController extends Controller
 
         if ($request->input('status_id') == 2) {
 
-            $order-> status_id = $request->input('status_id');
-            $order-> date = $now;
+            $order->status_id = $request->input('status_id');
+            $order->date = $now;
 
-            $order-> save();
+            $order->save();
 
             return response('ok, aprobado');
         }
 
         if ($request->input('status_id') == 3) {
 
-        $order-> status_id = $request->input('status_id');
-        $order-> date = $now;
+            $order->status_id = $request->input('status_id');
+            $order->date = $now;
 
-        $order-> save();
+            $order->save();
 
-        Inventory::findOrFail($order->inventories_id)
-             ->update(['status_id' => 1]);
+            Inventory::findOrFail($order->inventories_id)
+                ->update(['status_id' => 1]);
 
-         return response('ok, denegado ');
+            return response('ok, denegado ');
         }
-
 
         if ($request->input('status_id') == 4) {
 
-            $order-> status_id = $request->input('status_id');
-            $order-> date_init = $now;
+            $order->status_id = $request->input('status_id');
+            $order->date_init = $now;
 
-            $order-> save();
+            $order->save();
 
             return response('ok, en uso');
         }
@@ -119,22 +117,18 @@ class OrdersController extends Controller
         }
 
 
-            return response('fail', 400);
+        return response('fail', 400);
 
     }
-
-
 
 
     public function home()
     {
-        $orders = Orders::with(['user','inventory', 'status'])
+        $orders = Orders::with(['user', 'inventory', 'status'])
             ->whereIn('status_id', [1, 2, 4])
             ->get();
-        return view('orders.index')->with(['orders' => $orders]) ;
+        return view('orders.index')->with(['orders' => $orders]);
     }
-
-
 
 
     public function users()
@@ -157,9 +151,8 @@ class OrdersController extends Controller
             ->distinct()
             ->get();
 
-        return view('orders.bookrequest', ['books'=>$books,'genders' => $genders, 'authors' => $authors]);
+        return view('orders.bookrequest', ['books' => $books, 'genders' => $genders, 'authors' => $authors]);
     }
-
 
 
     public function cancelOrders($id)
@@ -167,20 +160,13 @@ class OrdersController extends Controller
         $order = Orders::findOrFail($id);
 
 
-        $order-> status_id = 6;
+        $order->status_id = 6;
 
-        $order-> save();
+        $order->save();
 
         Inventory::findOrFail($order->inventories_id)
             ->update(['status_id' => 1]);
 
         return response('ok');
     }
-
-    public function filterOrders()
-    {
-
-
-    }
-
 }
