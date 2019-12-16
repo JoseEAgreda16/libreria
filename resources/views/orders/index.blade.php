@@ -4,8 +4,10 @@
         <div class="form-container fill">
             <h2 class="title-form">Bienvenido a la gestion de Pedidos de libros</h2>
             <form class="form-wrapper fill">
-            <input type="select" name="name" class="form-control name-book" type="text" placeholder="nombre">
-            <input name="fecha" class="fecha form-control" type="text" placeholder="fecha">
+            <input type="select" name="name" class="name form-control name-book" type="text" placeholder="nombre">
+            <input type="select" name="user" class="user form-control name-book" type="text" placeholder="nombre">
+            <input name="fecha" class="card form-control" type="text" placeholder="fecha">
+            <input name="fecha" class="date form-control" type="text" placeholder="fecha">
                 <div class="button-wrapper">
             <button name="found" class="found btn btn-primary">filrar</button>
                 </div>
