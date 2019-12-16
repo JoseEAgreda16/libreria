@@ -12,6 +12,8 @@ class Orders extends Model
         'users_id', 'inventories_id', 'status_id', 'date', 'date_init', 'date_end'
     ];
 
+    //Relacion
+
     public function user()
     {
         return $this->belongsTo( User::class, 'users_id');
@@ -26,4 +28,5 @@ class Orders extends Model
     {
         return$this->belongsTo(Order_Status::class,'status_id');
     }
+
 }

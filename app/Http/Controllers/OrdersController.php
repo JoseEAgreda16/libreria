@@ -7,6 +7,7 @@ use App\Book;
 use App\Gender;
 use App\Inventory;
 use App\Orders;
+use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,6 +28,46 @@ class OrdersController extends Controller
             ->get();
         return view('orders.mybooks')->with(['orders' => $orders]);
     }
+
+    public function home()
+    {
+        $orders = Orders::with(['user', 'inventory', 'status'])
+            ->whereIn('status_id', [1, 2, 4])
+            ->get();
+        return view('orders.index')->with(['orders' => $orders]);
+
+
+    }
+    public function users(Request $request)
+    {
+        $scopeGender = $request->get('gender');
+        $scopeTitle = $request->get('tittle');
+        $scopeAuthor = $request->get('author');
+
+        $genders     = Gender::all();
+        $authors     = Author::all();
+
+        $user = Auth::user();
+
+        $orders = Orders::select('book_id')
+            ->where('users_id', $user->id)
+            ->whereNotIn('status_id', [5, 3, 6])
+            ->pluck('book_id')->toArray();
+
+        $books = Book::select('books.*')
+            ->join('inventories', 'books.id', 'inventories.book_id')
+            ->where('inventories.status_id', 1)
+            ->whereNotIn('books.id', $orders)
+            ->distinct()
+            ->orderBy('books.tittle', 'DESC')
+            ->Gender($scopeGender)
+            ->Tittle($scopeTitle)
+            ->paginate(5)
+            ->get();
+
+        return view('orders.bookrequest', ['books' => $books, 'genders' => $genders, 'authors' => $authors]);
+    }
+
 
 
     public function store(Request $request)
@@ -122,39 +163,6 @@ class OrdersController extends Controller
     }
 
 
-    public function home()
-    {
-        $orders = Orders::with(['user', 'inventory', 'status'])
-            ->whereIn('status_id', [1, 2, 4])
-            ->get();
-        return view('orders.index')->with(['orders' => $orders]);
-    }
-
-
-    public function users()
-    {
-
-        $genders = Gender::all();
-        $authors = Author::all();
-
-        $user = Auth::user();
-
-        $orders = Orders::select('book_id')
-            ->where('users_id', $user->id)
-            ->whereNotIn('status_id', [5, 3, 6])
-            ->pluck('book_id')->toArray();
-
-        $books = Book::select('books.*')
-            ->join('inventories', 'books.id', 'inventories.book_id')
-            ->where('inventories.status_id', 1)
-            ->whereNotIn('books.id', $orders)
-            ->distinct()
-            ->get();
-
-        return view('orders.bookrequest', ['books' => $books, 'genders' => $genders, 'authors' => $authors]);
-    }
-
-
     public function cancelOrders($id)
     {
         $order = Orders::findOrFail($id);
@@ -169,4 +177,6 @@ class OrdersController extends Controller
 
         return response('ok');
     }
+
+
 }
