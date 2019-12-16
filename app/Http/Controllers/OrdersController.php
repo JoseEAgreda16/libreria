@@ -40,9 +40,9 @@ class OrdersController extends Controller
     }
     public function users(Request $request)
     {
-        $scopeGender = $request->get('gender');
-        $scopeTitle = $request->get('tittle');
-        $scopeAuthor = $request->get('author');
+        $scopeGender = $request->input('gender');
+        $scopeTitle = $request->input('title');
+//        $scopeAuthor = $request->input('author');
 
         $genders     = Gender::all();
         $authors     = Author::all();
@@ -59,11 +59,10 @@ class OrdersController extends Controller
             ->where('inventories.status_id', 1)
             ->whereNotIn('books.id', $orders)
             ->distinct()
-            ->orderBy('books.tittle', 'DESC')
-            ->Gender($scopeGender)
-            ->Tittle($scopeTitle)
-            ->paginate(5)
-            ->get();
+            ->orderBy('books.title', 'DESC')
+            ->gender($scopeGender)
+            ->title($scopeTitle)
+            ->paginate(5);
 
         return view('orders.bookrequest', ['books' => $books, 'genders' => $genders, 'authors' => $authors]);
     }
