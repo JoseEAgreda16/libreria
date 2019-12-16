@@ -19,6 +19,7 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
 
   Route::get('/request', 'OrdersController@users');
+  Route::post('/request', 'OrdersController@users');
   Route::get('/mybooks', 'OrdersController@index');
   Route::post('/order', 'OrdersController@store');
   Route::put('/mybooks/{order}', 'OrdersController@cancelOrders');
