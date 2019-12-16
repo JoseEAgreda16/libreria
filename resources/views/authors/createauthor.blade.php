@@ -28,8 +28,8 @@
                 name: author,
                 surname: authorsurname,
             })
-                .done(function (author) {
-                    alert(`el libro ${author} se ha registrado con exito`);
+                .done(function (name) {
+                    alert(`el autor ${author} se ha registrado con exito`);
                 });
         }
     </script>

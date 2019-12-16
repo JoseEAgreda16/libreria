@@ -16,7 +16,7 @@
                 @endforeach
             </select>
 
-            <select name="author" id="options" class="autor form-control fill">
+            <select name="author" id="options" class="author form-control fill">
                 @foreach($authors as $option)
                     <option value="{{ $option->id }}">{{ $option->name }}</option>
                 @endforeach
