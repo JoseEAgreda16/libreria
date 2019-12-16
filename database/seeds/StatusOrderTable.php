@@ -28,6 +28,9 @@ class StatusOrderTable extends Seeder
                 ],
                 [
                     'name' => 'devuelto'
+                ],
+                [
+                    'name' => 'cancelado'
                 ]
             ];
         \App\Order_Status::insert($newStatus);
