@@ -3,18 +3,19 @@
     <div class="table-wrapper">
         <div class="form-container fill">
             <h2 class="title-form">Bienvenido a la gestion de Pedidos de libros</h2>
-            <form class="form-wrapper fill">
+            <form class="form-wrapper fill" method="get">
             <input type="select" name="title" class="title form-control name-book" type="text" placeholder="titulo">
             <input type="select" name="name" class="name form-control name-book" type="text" placeholder="nombre">
             <input type="select" name="card" class="card form-control" type="text" placeholder="ci">
                 <select name="status" id="options" class="status form-control" placeholder="status">
+                    <option value="" selected>Todos</option>
                     @foreach($orders_status as $option)
                         <option value="{{ $option->id }}">{{ $option->name }}</option>
                     @endforeach
                 </select>
 
                 <div class="button-wrapper">
-            <button name="found" class="found btn btn-primary">filrar</button>
+            <button name="found" class="found btn btn-primary" type="submit">filrar</button>
                 </div>
             </form>
        </div>
@@ -117,51 +118,54 @@
                 );
         });
 
-        $(document).ready(inicio);
+        // $(document).ready(inicio);
 
-        function inicio(){
-            let consultar = $('.found');
-            consultar.click(request);
-        }
-        function request(){
-            let nombre = $('.title').val();
-            let user = $('.name').val();
-            let estatus = $('.status').val();
-            let ci = $('.card').val();
-
-            let params = `?title=${nombre || ''}&name=${user || ''}&order_status=${estatus ||''}&card=${ci ||''}`;
-
-            $.get("http://librando.local/books" + params)
-                .done(function (books) {
-                    console.log(books);
-                    let i = 0;
-                    for (let book of books) {
-                        $(".main-container").append(`<table class="table">
-                    <tr class="book" Id="${i}">
-                            <td class="name">${book.title}</td>
-                            <td class="gender">${book.genderId}</td>
-                            <td class="date">${book.datePublic}</td>
-                            <td class="date">${book.authorId}</td>
-                            <td class="">${book.quantity}</td>
-                            <td class="">${book.status_id}</td>
-                    </tr>
-                        </table>`);
-                        if(book.status_id == 1){
-                            let tabla =$(this).parent();
-                            tabla.append(`<button class="download" data-indice="${i}" disabled>disponible</button>`);
-                        }else if(book.status_id == 3) {
-                            tabla.append(`<button class="alquilado" data-indice="${i}" disabled>alquilado</button>`);
-                        }else if(book.status_id == 3) {
-                            tabla.append(`<select name="status" id="">
-                                            <option value="valor 1">rechazar</option>
-                                            <option value="valor 2">aceptar</option>
-                                            <button class="respuesta" data-indice="${i}" disabled>responder</button>
-                                            </select>`);
-                        }
-                        i++;
-                    }
-                });
-        }
+        // function inicio(){
+        //     let consultar = $('.found');
+        //     consultar.click(request);
+        // }
+        // function request(e){
+        //     e.preventDefault();
+        //     let nombre = $('.title').val();
+        //     let user = $('.name').val();
+        //     let estatus = $('.status').val();
+        //     let ci = $('.card').val();
+        //
+        //     let params = `?title=${nombre || ''}&name=${user || ''}&order_status=${estatus ||''}&card=${ci ||''}`;
+        //
+        //     $.get("http://librando.local/books" + params)
+        //         .done(function (books) {
+        //             console.log(books);
+        //             return books;
+        //             let i = 0;
+        //             for (let book of books) {
+        //                     $(".main-container").append(`<table class="table">
+        //                 <tr class="book" Id="${i}">
+        //                         <td class="name">${book.title}</td>
+        //                         <td class="gender">${book.genderId}</td>
+        //                         <td class="date">${book.datePublic}</td>
+        //                         <td class="date">${book.authorId}</td>
+        //                         <td class="">${book.quantity}</td>
+        //                         <td class="">${book.status_id}</td>
+        //                 </tr>
+        //                     </table>`);
+        //                     if(book.status_id == 1){
+        //                         let tabla =$(this).parent();
+        //                         tabla.append(`<button class="download" data-indice="${i}" disabled>disponible</button>`);
+        //                     }else if(book.status_id == 3) {
+        //                         tabla.append(`<button class="alquilado" data-indice="${i}" disabled>alquilado</button>`);
+        //                     }else if(book.status_id == 3) {
+        //                         tabla.append(`<select name="status" id="">
+        //                                         <option value="valor 1">rechazar</option>
+        //                                         <option value="valor 2">aceptar</option>
+        //                                         <button class="respuesta" data-indice="${i}" disabled>responder</button>
+        //                                         </select>`);
+        //                     }
+        //                     i++;
+        //                 }
+        //
+        //         });
+        // }
         </script>
     @endsection
 

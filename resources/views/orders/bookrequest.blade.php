@@ -6,7 +6,7 @@
         <div class="reply">
             <h1 class="title-form">libros disponibles</h1>
             <h2 class="title-form">¡Pide un libro libro!</h2>
-        <form class="found form-wrapper fill user">
+        <form class="found form-wrapper fill user" method="get">
             <input name="title" class="title form-control fill" type="text" placeholder="titulo">
             <input name="date" class="date form-control fill" type="text" placeholder="fecha">
 
@@ -58,7 +58,8 @@
 
         function inicio() {
             let consultar = $('.consult');
-            consultar.click(() => {
+            consultar.click((e) => {
+                e.preventDefault();
 
                 let nombre = $('.title').val();
                 let genero = $('.gender').val();
