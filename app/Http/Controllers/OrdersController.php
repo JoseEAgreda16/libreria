@@ -6,6 +6,7 @@ use App\Author;
 use App\Book;
 use App\Gender;
 use App\Inventory;
+use App\Order_Status;
 use App\Orders;
 use App\User;
 use Carbon\Carbon;
@@ -29,12 +30,55 @@ class OrdersController extends Controller
         return view('orders.mybooks')->with(['orders' => $orders]);
     }
 
-    public function home()
+    public function home(Request $request)
     {
+        $name   = $request->input(('name'));
+        $card   = $request->input('card');
+        $title  = $request->input('title');
+        $status = $request->input('status');
+
+        $status_Orders = Order_Status::all();
+
         $orders = Orders::with(['user', 'inventory', 'status'])
-            ->whereIn('status_id', [1, 2, 4])
-            ->get();
-        return view('orders.index')->with(['orders' => $orders]);
+            ->whereIn('status_id', [1, 2, 4]);
+
+        if ($name)
+        {
+            $users = User::select('id')
+                ->where('name', 'like', "%$name%")
+                ->pluck('id')->toArray();
+
+            $orders->where('users_id', $users);
+
+        }
+
+        if ($card)
+        {
+            $cards = User::select('id')
+                ->where('card_id', 'like', "%$card%")
+                ->pluck('id')->toArray();
+
+            $orders->where('users_id', $cards);
+
+        }
+
+        if ($title)
+        {
+            $titles = Book::select('id')
+                ->where('title', 'LIKE', "%$title%")
+                ->pluck('id')->toArray();
+
+            $inventory = Inventory::select('id')
+                ->where('book_id', $titles)
+                ->pluck('id')->toArray();
+
+            $orders->where('inventories_id', $inventory);
+        }
+
+        $orders = $orders->get();
+
+      return view('orders.index')->with(['orders_status' => $status_Orders, 'orders' => $orders]);
+
 
 
     }
@@ -44,8 +88,8 @@ class OrdersController extends Controller
         $scopeTitle = $request->input('title');
 //        $scopeAuthor = $request->input('author');
 
-        $genders     = Gender::all();
-        $authors     = Author::all();
+        $genders = Gender::all();
+        $authors = Author::all();
 
         $user = Auth::user();
 
