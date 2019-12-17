@@ -20,6 +20,8 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+// My Books
     public function index()
     {
         $user = Auth::user();
@@ -30,6 +32,7 @@ class OrdersController extends Controller
         return view('orders.mybooks')->with(['orders' => $orders]);
     }
 
+//Home de Admin
     public function home(Request $request)
     {
         $name = $request->input(('name'));
@@ -40,46 +43,46 @@ class OrdersController extends Controller
         $status_Orders = Order_Status::all();
 
         $orders = Orders::with(['user', 'inventory', 'status'])
-            ->whereIn('status_id', [1, 2, 4]);
+            ->whereIn('orders.status_id', [1, 2, 4])
+            ->status($status);
 
-        if ($name) {
+        if ($name)
+        {
             $users = User::select('id')
                 ->where('name', 'like', "%$name%")
                 ->pluck('id')->toArray();
 
-            $orders->where('users_id', $users);
-
+            $orders->whereIn('users_id', $users);
         }
 
-        if ($card) {
+        if ($card)
+        {
             $cards = User::select('id')
-                ->where('card_id', 'like', "%$card%")
+                ->whereIn('card_id', 'like', "%$card%")
                 ->pluck('id')->toArray();
 
             $orders->where('users_id', $cards);
-
         }
 
-        if ($title) {
+        if ($title)
+        {
             $titles = Book::select('id')
                 ->where('title', 'LIKE', "%$title%")
                 ->pluck('id')->toArray();
 
             $inventory = Inventory::select('id')
-                ->where('book_id', $titles)
+                ->whereIn('book_id', $titles)
                 ->pluck('id')->toArray();
 
-            $orders->where('inventories_id', $inventory);
+            $orders->whereIn('inventories_id', $inventory);
         }
 
-        $orders = $orders->get();
+            $orders = $orders->get();
 
         return view('orders.index')->with(['orders_status' => $status_Orders, 'orders' => $orders]);
-
-
     }
 
-
+// Home de Usuarios
     public function users(Request $request)
     {
         $scopeGender = $request->input('gender');
@@ -110,7 +113,7 @@ class OrdersController extends Controller
     }
 
 
-
+// Crea ordeners por usuario
     public function store(Request $request)
     {
         //$user = Auth::user();
