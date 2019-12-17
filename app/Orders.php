@@ -29,4 +29,14 @@ class Orders extends Model
         return$this->belongsTo(Order_Status::class,'status_id');
     }
 
+    //Scope
+
+    public function scopeStatus($query, $status)
+    {
+        if($status)
+        {
+            return $query->where('status_id', $status);
+        }
+    }
+
 }

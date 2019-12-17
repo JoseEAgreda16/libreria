@@ -29,13 +29,17 @@ class Book extends Model
     public function scopeTitle($query, $title )
     {
         if($title)
+        {
             return $query->where('title', 'LIKE', "%$title%");
+        }
     }
 
     public function scopeGender($query, $gender )
     {
         if($gender)
+        {
             return $query->where('genres_id', $gender);
+        }
     }
 
 

@@ -67,7 +67,7 @@
 
                 let params = `?title=${nombre || ''}&genres_id=${genero || ''}&author_id=${autor || ''}&date_public=${fecha || ''}`;
 
-                $.get("http://librando.local/books" + params)
+                $.get("http://librando.local/orders" + params)
                     .done((books) => {
                         console.log(books + 'este es el objeto que me estoy trayendo');
                         let i = 0;
