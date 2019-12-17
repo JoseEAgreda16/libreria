@@ -32,30 +32,29 @@ class OrdersController extends Controller
 
     public function home(Request $request)
     {
-        $name   = $request->input(('name'));
-        $card   = $request->input('card');
-        $title  = $request->input('title');
+        $name = $request->input(('name'));
+        $card = $request->input('card');
+        $title = $request->input('title');
         $status = $request->input('status');
 
         $status_Orders = Order_Status::all();
 
         $orders = Orders::with(['user', 'inventory', 'status'])
-            ->whereIn('status_id', [1, 2, 4]);
+            ->whereIn('orders.status_id', [1, 2, 4])
+            ->status($status);
 
-        if ($name)
-        {
+        if ($name) {
             $users = User::select('id')
                 ->where('name', 'like', "%$name%")
                 ->pluck('id')->toArray();
 
-            $orders->where('users_id', $users);
+            $orders->whereIn('users_id', $users);
 
         }
 
-        if ($card)
-        {
+        if ($card) {
             $cards = User::select('id')
-                ->where('card_id', 'like', "%$card%")
+                ->whereIn('card_id', 'like', "%$card%")
                 ->pluck('id')->toArray();
 
             $orders->where('users_id', $cards);
@@ -69,15 +68,20 @@ class OrdersController extends Controller
                 ->pluck('id')->toArray();
 
             $inventory = Inventory::select('id')
-                ->where('book_id', $titles)
+                ->whereIn('book_id', $titles)
                 ->pluck('id')->toArray();
 
-            $orders->where('inventories_id', $inventory);
+            $orders->whereIn('inventories_id', $inventory);
+
         }
 
-        $orders->get();
 
-        return view('orders.index', ['orders_status' => $status_Orders, 'orders' => $orders]);
+
+            $orders = $orders->get();
+
+        return view('orders.index')->with(['orders_status' => $status_Orders, 'orders' => $orders]);
+
+
     }
 
 
