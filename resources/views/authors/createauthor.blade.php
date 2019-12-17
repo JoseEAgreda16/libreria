@@ -31,7 +31,7 @@
                 .done(function (name) {
                     alert(`el autor ${author} se ha registrado con exito`);
                 });
-        }
+        }b
     </script>
 @endsection
 

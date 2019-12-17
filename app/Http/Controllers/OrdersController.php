@@ -32,9 +32,9 @@ class OrdersController extends Controller
 
     public function home(Request $request)
     {
-        $name   = $request->input(('name'));
-        $card   = $request->input('card');
-        $title  = $request->input('title');
+        $name = $request->input(('name'));
+        $card = $request->input('card');
+        $title = $request->input('title');
         $status = $request->input('status');
 
         $status_Orders = Order_Status::all();
@@ -42,8 +42,7 @@ class OrdersController extends Controller
         $orders = Orders::with(['user', 'inventory', 'status'])
             ->whereIn('status_id', [1, 2, 4]);
 
-        if ($name)
-        {
+        if ($name) {
             $users = User::select('id')
                 ->where('name', 'like', "%$name%")
                 ->pluck('id')->toArray();
@@ -52,8 +51,7 @@ class OrdersController extends Controller
 
         }
 
-        if ($card)
-        {
+        if ($card) {
             $cards = User::select('id')
                 ->where('card_id', 'like', "%$card%")
                 ->pluck('id')->toArray();
@@ -62,8 +60,7 @@ class OrdersController extends Controller
 
         }
 
-        if ($title)
-        {
+        if ($title) {
             $titles = Book::select('id')
                 ->where('title', 'LIKE', "%$title%")
                 ->pluck('id')->toArray();
@@ -77,11 +74,12 @@ class OrdersController extends Controller
 
         $orders = $orders->get();
 
-      return view('orders.index')->with(['orders_status' => $status_Orders, 'orders' => $orders]);
-
+        return view('orders.index')->with(['orders_status' => $status_Orders, 'orders' => $orders]);
 
 
     }
+
+
     public function users(Request $request)
     {
         $scopeGender = $request->input('gender');

@@ -4,10 +4,11 @@
         <div class="form-container fill">
             <h2 class="title-form">Bienvenido a la gestion de Pedidos de libros</h2>
             <form class="form-wrapper fill">
-            <input type="select" name="name" class="name form-control name-book" type="text" placeholder="nombre">
-            <input type="select" name="user" class="user form-control name-book" type="text" placeholder="nombre">
+            <input type="select" name="title" class="title form-control name-book" type="text" placeholder="titulo">
+            <input type="select" name="name" class="user form-control name-book" type="text" placeholder="nombre">
             <input name="fecha" class="card form-control" type="text" placeholder="fecha">
-            <input name="fecha" class="date form-control" type="text" placeholder="fecha">
+            <input name="status" class="status form-control" type="text" placeholder="estatus">
+
                 <div class="button-wrapper">
             <button name="found" class="found btn btn-primary">filrar</button>
                 </div>
@@ -119,13 +120,12 @@
             consultar.click(request);
         }
         function request(){
-            let nombre =$('.title').val();
-            let genero =$('.gender').val();
-            let autor =$('.author').val();
-            let fecha =$('.date').val();
-            let cantidad =$('.quantity').val();
+            let nombre = $('.title').val();
+            let user = $('.name').val();
+            let fecha = $('.date').val();
+            let ci = $('.card').val();
 
-            let params = `?title=${nombre || ''}&genres_id=${genero || ''}&author_id=${autor || ''}&date_public=${fecha ||''}&quantity=${cantidad ||''}`;
+            let params = `?title=${nombre || ''}&name=${user || ''}&date_public=${fecha ||''}&card=${ci ||''}`;
 
             $.get("http://librando.local/books" + params)
                 .done(function (books) {
@@ -158,7 +158,6 @@
                     }
                 });
         }
-        $('')
         </script>
     @endsection
 
