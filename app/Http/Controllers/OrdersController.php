@@ -33,7 +33,7 @@ class OrdersController extends Controller
     }
 
 //Home de Admin
-    public function home(Request $request)
+public function home(Request $request)
     {
         $name = $request->input(('name'));
         $card = $request->input('card');
@@ -46,8 +46,7 @@ class OrdersController extends Controller
             ->whereIn('orders.status_id', [1, 2, 4])
             ->status($status);
 
-        if ($name)
-        {
+        if ($name) {
             $users = User::select('id')
                 ->where('name', 'like', "%$name%")
                 ->pluck('id')->toArray();
@@ -55,8 +54,7 @@ class OrdersController extends Controller
             $orders->whereIn('users_id', $users);
         }
 
-        if ($card)
-        {
+        if ($card) {
             $cards = User::select('id')
                 ->whereIn('card_id', 'like', "%$card%")
                 ->pluck('id')->toArray();
@@ -77,9 +75,10 @@ class OrdersController extends Controller
             $orders->whereIn('inventories_id', $inventory);
         }
 
-            $orders = $orders->get();
+        $orders = $orders->get();
 
         return view('orders.index')->with(['orders_status' => $status_Orders, 'orders' => $orders]);
+
     }
 
 // Home de Usuarios

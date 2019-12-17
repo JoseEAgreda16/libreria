@@ -5,9 +5,13 @@
             <h2 class="title-form">Bienvenido a la gestion de Pedidos de libros</h2>
             <form class="form-wrapper fill">
             <input type="select" name="title" class="title form-control name-book" type="text" placeholder="titulo">
-            <input type="select" name="name" class="user form-control name-book" type="text" placeholder="nombre">
-            <input name="fecha" class="card form-control" type="text" placeholder="fecha">
-            <input name="status" class="status form-control" type="text" placeholder="estatus">
+            <input type="select" name="name" class="name form-control name-book" type="text" placeholder="nombre">
+            <input type="select" name="card" class="card form-control" type="text" placeholder="ci">
+                <select name="status" id="options" class="status form-control" placeholder="status">
+                    @foreach($orders_status as $option)
+                        <option value="{{ $option->id }}">{{ $option->name }}</option>
+                    @endforeach
+                </select>
 
                 <div class="button-wrapper">
             <button name="found" class="found btn btn-primary">filrar</button>
@@ -122,10 +126,10 @@
         function request(){
             let nombre = $('.title').val();
             let user = $('.name').val();
-            let fecha = $('.date').val();
+            let estatus = $('.status').val();
             let ci = $('.card').val();
 
-            let params = `?title=${nombre || ''}&name=${user || ''}&date_public=${fecha ||''}&card=${ci ||''}`;
+            let params = `?title=${nombre || ''}&name=${user || ''}&order_status=${estatus ||''}&card=${ci ||''}`;
 
             $.get("http://librando.local/books" + params)
                 .done(function (books) {
