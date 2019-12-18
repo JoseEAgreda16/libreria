@@ -111,6 +111,8 @@ class OrdersController extends Controller
             ->title($scopeTitle)
             ->paginate(5);
 
+        return $books;
+
         return view('orders.bookrequest', ['books' => $books, 'genders' => $genders, 'authors' => $authors]);
     }
 

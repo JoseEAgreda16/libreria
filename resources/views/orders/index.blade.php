@@ -46,7 +46,6 @@
                @endforeach
                </tbody>
            </table>
-           <div>{{ $orders->links() }}</div>
       </div>
     </div>
     @endsection
@@ -118,54 +117,6 @@
                 );
         });
 
-        // $(document).ready(inicio);
-
-        // function inicio(){
-        //     let consultar = $('.found');
-        //     consultar.click(request);
-        // }
-        // function request(e){
-        //     e.preventDefault();
-        //     let nombre = $('.title').val();
-        //     let user = $('.name').val();
-        //     let estatus = $('.status').val();
-        //     let ci = $('.card').val();
-        //
-        //     let params = `?title=${nombre || ''}&name=${user || ''}&order_status=${estatus ||''}&card=${ci ||''}`;
-        //
-        //     $.get("http://librando.local/books" + params)
-        //         .done(function (books) {
-        //             console.log(books);
-        //             return books;
-        //             let i = 0;
-        //             for (let book of books) {
-        //                     $(".main-container").append(`<table class="table">
-        //                 <tr class="book" Id="${i}">
-        //                         <td class="name">${book.title}</td>
-        //                         <td class="gender">${book.genderId}</td>
-        //                         <td class="date">${book.datePublic}</td>
-        //                         <td class="date">${book.authorId}</td>
-        //                         <td class="">${book.quantity}</td>
-        //                         <td class="">${book.status_id}</td>
-        //                 </tr>
-        //                     </table>`);
-        //                     if(book.status_id == 1){
-        //                         let tabla =$(this).parent();
-        //                         tabla.append(`<button class="download" data-indice="${i}" disabled>disponible</button>`);
-        //                     }else if(book.status_id == 3) {
-        //                         tabla.append(`<button class="alquilado" data-indice="${i}" disabled>alquilado</button>`);
-        //                     }else if(book.status_id == 3) {
-        //                         tabla.append(`<select name="status" id="">
-        //                                         <option value="valor 1">rechazar</option>
-        //                                         <option value="valor 2">aceptar</option>
-        //                                         <button class="respuesta" data-indice="${i}" disabled>responder</button>
-        //                                         </select>`);
-        //                     }
-        //                     i++;
-        //                 }
-        //
-        //         });
-        // }
         </script>
     @endsection
 

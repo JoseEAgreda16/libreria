@@ -53,6 +53,8 @@
 
     </div>
     </div>
+    <div class="page">{{ $books->links() }}</div>
+
 @endsection
 
 @section('js')
