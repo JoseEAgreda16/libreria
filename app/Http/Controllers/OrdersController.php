@@ -75,7 +75,7 @@ public function home(Request $request)
             $orders->whereIn('inventories_id', $inventory);
         }
 
-        $orders = $orders->get();
+        $orders = $orders->paginate(5);
 
         return view('orders.index')->with(['orders_status' => $status_Orders, 'orders' => $orders]);
 
@@ -86,7 +86,7 @@ public function home(Request $request)
     {
         $scopeGender = $request->input('gender');
         $scopeTitle = $request->input('title');
-//        $scopeAuthor = $request->input('author');
+
 
         $genders = Gender::all();
         $authors = Author::all();
@@ -98,11 +98,11 @@ public function home(Request $request)
             ->whereNotIn('status_id', [5, 3, 6])
             ->pluck('book_id')->toArray();
 
-        $books = Book::select('books.*')
+        $books = Book::select('books.id, books.title, books.genres_id, books.author_id')
             ->join('inventories', 'books.id', 'inventories.book_id')
             ->where('inventories.status_id', 1)
             ->whereNotIn('books.id', $orders)
-            ->distinct()
+            ->groupBy('books.id, books.title, books.genres_id, books.author_id')
             ->orderBy('books.title', 'DESC')
             ->gender($scopeGender)
             ->title($scopeTitle)
