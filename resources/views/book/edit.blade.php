@@ -1,8 +1,6 @@
 @extends('layouts.base')
 
 @section('content')
-    <header>
-    </header>
     <div class="main-container">
         <h1>edite el libro</h1>
         <form class="found form-wrapper">

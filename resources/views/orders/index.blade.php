@@ -33,6 +33,11 @@
                    <tr class="boook">
                        <td>{{$order->inventory->book->title}}</td>
                        <td>{{$order->user->name}}</td>
+                       <td>{{$order->date_give}}</td>
+                       <td>{{$order->date_recive}}</td>
+                       <td>{{$order->date_denied}}</td>
+                       <td>{{$order->date_acept}}</td>
+                       <td>{{$order->date_limit}}</td>
                        {{--<td>{{$order->status->name}}</td>--}}
                        @if($order->status->id==1)
                            <td><button class="acept btn btn-second" data-indice="{{$order->id}}" >aceptar</button></td>
