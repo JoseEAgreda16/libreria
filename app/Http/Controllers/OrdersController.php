@@ -20,6 +20,8 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+// My Books
     public function index()
     {
         $user = Auth::user();
@@ -30,7 +32,8 @@ class OrdersController extends Controller
         return view('orders.mybooks')->with(['orders' => $orders]);
     }
 
-    public function home(Request $request)
+//Home de Admin
+public function home(Request $request)
     {
         $name = $request->input(('name'));
         $card = $request->input('card');
@@ -49,7 +52,6 @@ class OrdersController extends Controller
                 ->pluck('id')->toArray();
 
             $orders->whereIn('users_id', $users);
-
         }
 
         if ($card) {
@@ -58,7 +60,6 @@ class OrdersController extends Controller
                 ->pluck('id')->toArray();
 
             $orders->where('users_id', $cards);
-
         }
 
         if ($title)
@@ -72,24 +73,20 @@ class OrdersController extends Controller
                 ->pluck('id')->toArray();
 
             $orders->whereIn('inventories_id', $inventory);
-
         }
 
-
-
-            $orders = $orders->get();
+        $orders = $orders->paginate(5);
 
         return view('orders.index')->with(['orders_status' => $status_Orders, 'orders' => $orders]);
 
-
     }
 
-
+// Home de Usuarios
     public function users(Request $request)
     {
         $scopeGender = $request->input('gender');
         $scopeTitle = $request->input('title');
-//        $scopeAuthor = $request->input('author');
+
 
         $genders = Gender::all();
         $authors = Author::all();
@@ -101,11 +98,11 @@ class OrdersController extends Controller
             ->whereNotIn('status_id', [5, 3, 6])
             ->pluck('book_id')->toArray();
 
-        $books = Book::select('books.*')
+        $books = Book::select('books.id, books.title, books.genres_id, books.author_id')
             ->join('inventories', 'books.id', 'inventories.book_id')
             ->where('inventories.status_id', 1)
             ->whereNotIn('books.id', $orders)
-            ->distinct()
+            ->groupBy('books.id, books.title, books.genres_id, books.author_id')
             ->orderBy('books.title', 'DESC')
             ->gender($scopeGender)
             ->title($scopeTitle)
@@ -117,7 +114,7 @@ class OrdersController extends Controller
     }
 
 
-
+// Crea ordeners por usuario
     public function store(Request $request)
     {
         //$user = Auth::user();
