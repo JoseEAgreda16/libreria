@@ -22,7 +22,7 @@
                 @endforeach
             </select>
             <div class="button-wrapper">
-            <button name="consult" class="consult  btn btn-primary">consultar</button>
+            <button type="submit" name="consult" class="consult  btn btn-primary">consultar</button>
 
             </div>
         </form>
@@ -54,46 +54,6 @@
 
 @section('js')
     <script>
-        $(document).ready(inicio);
-
-        function inicio() {
-            let consultar = $('.consult');
-            consultar.click((e) => {
-                e.preventDefault();
-
-                let nombre = $('.title').val();
-                let genero = $('.gender').val();
-                let autor = $('.author').val();
-                let fecha = $('.date').val();
-
-                let params = `?title=${nombre || ''}&genres_id=${genero || ''}&author_id=${autor || ''}&date_public=${fecha || ''}`;
-
-                $.get("http://librando.local/orders" + params)
-                    .done((books) => {
-                        console.log(books + 'este es el objeto que me estoy trayendo');
-                        let i = 0;
-                        for (let book of books) {
-                            $(".main-container").append(`<table class="reply">
-                        <tr class="boook" Id="${i}">
-                            <td class="name">${book.title}</td>
-                            <td class="gender">${book.genres_id}</td>
-                            <td class="date">${book.datePublic}</td>
-                            <td class="date">${book.author_id}</td>
-                            <td class="">${book.quantity}</td>
-                        </tr>
-                        </table>`);
-                            if (book.status_id == 1) {
-                                let tabla = $(this).parent();
-                                tabla.append(`<button class="download btn btn-" data-indice="${i}" >tomar</button>`)
-                            } else if (book.status_id == 3) {
-                                let tabla = $(this).parent();
-                                tabla.append(`<button class="download" data-indice="${i}" disabled>alquilado</button>`)
-                            }
-                            i++;
-                        }
-                    });
-            })
-        }
         //funciones naturles de la pigina pedir,leer,etc
         $('.get').click(function(){
             let ind=$(this).data('indice');
