@@ -19,14 +19,14 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
 
   Route::get('/request', 'OrdersController@users');
-  //Route::post('/request', 'OrdersController@users');
+  Route::post('/request', 'OrdersController@store');
   Route::get('/mybooks', 'OrdersController@index');
   Route::put('/mybooks/{order}', 'OrdersController@cancelOrders');
 
 
     Route::group(['middleware' => 'rol'], function () {
       Route::get('/orders', 'OrdersController@home')->name('orders');
-      Route::post('/order', 'OrdersController@store');
+      Route::put('/orders/{order}', 'OrdersController@changeStatus');
 
         Route::resources([
           'books' => 'BookController',
@@ -35,8 +35,6 @@ Route::group(['middleware' => 'auth'], function () {
       ]);
       Route::get('/registeradmin', 'Auth\RegisterAdminController@index');
       Route::post('/registeradmin', 'Auth\RegisterAdminController@register');
-      Route::put('/orders/{order}', 'OrdersController@changeStatus');
-
       Route::get('/books/{id}/inventory', 'BookController@getInventory')->name('books_inventory');
   });
 });
