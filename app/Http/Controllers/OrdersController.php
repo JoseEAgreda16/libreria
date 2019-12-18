@@ -28,7 +28,7 @@ class OrdersController extends Controller
 
         $orders = Orders::where('users_id', $user->id)
             ->with(['inventory', 'status'])
-            ->get();
+            ->paginate(10);
         return view('orders.mybooks')->with(['orders' => $orders]);
     }
 
@@ -75,7 +75,7 @@ public function home(Request $request)
             $orders->whereIn('inventories_id', $inventory);
         }
 
-        $orders = $orders->paginate(5);
+        $orders = $orders->paginate(10);
 
         return view('orders.index')->with(['orders_status' => $status_Orders, 'orders' => $orders]);
 
@@ -98,17 +98,16 @@ public function home(Request $request)
             ->whereNotIn('status_id', [5, 3, 6])
             ->pluck('book_id')->toArray();
 
-        $books = Book::select('books.id, books.title, books.genres_id, books.author_id')
-            ->join('inventories', 'books.id', 'inventories.book_id')
+        $books = Book::select('books.*')
+//        select('books.id', 'books.title', 'books.genres_id', 'books.author_id')
+            ->join('inventories', ' books.id', 'inventories.book_id')
             ->where('inventories.status_id', 1)
             ->whereNotIn('books.id', $orders)
-            ->groupBy('books.id, books.title, books.genres_id, books.author_id')
+            ->groupBy('books.id')
             ->orderBy('books.title', 'DESC')
             ->gender($scopeGender)
             ->title($scopeTitle)
             ->paginate(5);
-
-        return $books;
 
         return view('orders.bookrequest', ['books' => $books, 'genders' => $genders, 'authors' => $authors]);
     }
@@ -117,7 +116,7 @@ public function home(Request $request)
 // Crea ordeners por usuario
     public function store(Request $request)
     {
-        //$user = Auth::user();
+        $user = Auth::user();
         //$orders = Orders::where('users_id', $user->id);
 
         $inventories = Inventory::where('book_id', '=', $request->input('book_id'))
@@ -126,8 +125,6 @@ public function home(Request $request)
 
         if ($inventories) {
 
-
-            $user = Auth::user();
             $newRequest = new Orders();
             $newRequest->users_id = $user->id;
             $newRequest->inventories_id = $inventories->id;

@@ -63,7 +63,7 @@
         $('.get').click(function(){
             let ind=$(this).data('indice');
             console.log(ind);
-            $.post("http://librando.local/order",
+            $.post("http://librando.local/request",
             {book_id:ind}
             )
                 .done( (data)=> {

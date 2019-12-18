@@ -31,6 +31,7 @@
             </table>
         </div>
     </div>
+    <div class="page">{{ $orders->links() }}</div>
 @endsection
 
 @section('js')
