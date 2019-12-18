@@ -98,11 +98,13 @@ public function home(Request $request)
             ->whereNotIn('status_id', [5, 3, 6])
             ->pluck('book_id')->toArray();
 
+
         $books = Book::select('books.id', 'books.title', 'books.genres_id', 'books.author_id')
             ->join('inventories', ' books.id', 'inventories.book_id')
             ->where('inventories.status_id', 1)
             ->whereNotIn('books.id', $orders)
             ->groupBy('books.id', 'books.title', 'books.genres_id', 'books.author_id')
+
             ->orderBy('books.title', 'DESC')
             ->gender($scopeGender)
             ->title($scopeTitle)

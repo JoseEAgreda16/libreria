@@ -307,3 +307,23 @@ footer{
     -o-transform: skew(20deg);
     transform: skew(20deg);
 }
+.page{
+    display:flex;
+    list-style: none;
+    text-decoration: none;
+    color: #4F3E24;
+}
+.page > nav{
+    display:flex;
+    width:100%;
+}
+.page > nav > ul{
+    display:flex;
+    width:100%;
+    list-style: none;
+    text-decoration: none;
+    color: #4F3E24;
+}
+.page > nav > ul> li{
+    margin:5px;
+}

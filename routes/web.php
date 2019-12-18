@@ -26,7 +26,11 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['middleware' => 'rol'], function () {
       Route::get('/orders', 'OrdersController@home')->name('orders');
+<<<<<<< HEAD
       Route::put('/orders/{order}', 'OrdersController@changeStatus');
+=======
+      //::post('/order', 'OrdersController@store');
+>>>>>>> e86f4ffa7bb6d5245ea11103e7491480e89937e8
 
         Route::resources([
           'books' => 'BookController',
