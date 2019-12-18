@@ -11,12 +11,14 @@
             <input name="date" class="date form-control fill" type="text" placeholder="fecha">
 
             <select name="gender" id="options" class="gender form-control fill">
+                <option value="">Todos</option>
                 @foreach($genders as $option)
                     <option value="{{ $option->id }}">{{ $option->name }}</option>
                 @endforeach
             </select>
 
             <select name="author" id="options" class="author form-control fill">
+                <option value="">Todos</option>
                 @foreach($authors as $option)
                     <option value="{{ $option->id }}">{{ $option->name }}</option>
                 @endforeach
@@ -48,6 +50,7 @@
             @endforeach
             </tbody>
         </table>
+
     </div>
     </div>
 @endsection
