@@ -226,6 +226,15 @@ alert.alert-danger {
     background-color: #ccb266;
     padding:0;
 }
+.leb{
+    display:block;
+    width:550px;
+    padding:0;
+    margin:auto;
+    align-content: center;
+}.leb > a {
+    margin: 20px;
+}
 found form-wrapper fill user{
     margin:10px;
 }

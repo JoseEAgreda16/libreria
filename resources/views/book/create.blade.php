@@ -1,9 +1,13 @@
 @extends('layouts.base')
 
 @section('content')
-    <div class="main-container">
+
+    <div class="leb main-container">
         <h2 class="title-form">registrar libro</h2>
+        <a class='registro btn btn-second' href="/authors/create">registrar autor </a>
+        <a class='registro btn btn-second' href="/genders/create">registrar genero </a>
         <form class="regist-form form-wrapper">
+
                 <input name="title" class="form-control title" type="text" placeholder="titulo">
                 <select name="generos" id="options" class="form-control gender">
                     @foreach($genders as $option)
