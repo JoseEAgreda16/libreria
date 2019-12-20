@@ -11,7 +11,7 @@ class ReportController extends Controller
     {
         $products = Orders::all();
 
-        return view('products', compact('products'));
+        return view('report.contract', compact('products'));
     }
 
     public function pdf()

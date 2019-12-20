@@ -36,8 +36,8 @@ Route::group(['middleware' => 'auth'], function () {
       Route::get('/registeradmin', 'Auth\RegisterAdminController@index');
       Route::post('/registeradmin', 'Auth\RegisterAdminController@register');
       Route::get('/books/{id}/inventory', 'BookController@getInventory')->name('books_inventory');
-      Route::get('/down-order', 'ReportController@pdf');
-      Route::get('list-order', 'ReportController@index');
+      Route::get('/list-order', 'ReportController@pdf');
+      Route::get('down-order', 'ReportController@index');
     });
 });
 
