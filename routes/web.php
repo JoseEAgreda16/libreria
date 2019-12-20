@@ -26,11 +26,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['middleware' => 'rol'], function () {
       Route::get('/orders', 'OrdersController@home')->name('orders');
-<<<<<<< HEAD
       Route::put('/orders/{order}', 'OrdersController@changeStatus');
-=======
-      //::post('/order', 'OrdersController@store');
->>>>>>> e86f4ffa7bb6d5245ea11103e7491480e89937e8
 
         Route::resources([
           'books' => 'BookController',
@@ -40,6 +36,8 @@ Route::group(['middleware' => 'auth'], function () {
       Route::get('/registeradmin', 'Auth\RegisterAdminController@index');
       Route::post('/registeradmin', 'Auth\RegisterAdminController@register');
       Route::get('/books/{id}/inventory', 'BookController@getInventory')->name('books_inventory');
-  });
+      Route::get('/down-order', 'ReportController@pdf');
+      Route::get('list-order', 'ReportController@index');
+    });
 });
 

@@ -98,13 +98,11 @@ public function home(Request $request)
             ->whereNotIn('status_id', [5, 3, 6])
             ->pluck('book_id')->toArray();
 
-
         $books = Book::select('books.id', 'books.title', 'books.genres_id', 'books.author_id')
-            ->join('inventories', ' books.id', 'inventories.book_id')
+            ->join('inventories', 'books.id', 'inventories.book_id')
             ->where('inventories.status_id', 1)
             ->whereNotIn('books.id', $orders)
             ->groupBy('books.id', 'books.title', 'books.genres_id', 'books.author_id')
-
             ->orderBy('books.title', 'DESC')
             ->gender($scopeGender)
             ->title($scopeTitle)
@@ -152,21 +150,22 @@ public function home(Request $request)
         $now = Carbon::now();
         $order = Orders::findOrFail($id);
 
-
+        //Aprobado
         if ($request->input('status_id') == 2) {
 
             $order->status_id = $request->input('status_id');
-            $order->date = $now;
+            $order->date_attention = $now;
 
             $order->save();
 
             return response('ok, aprobado');
         }
 
+        //denegado
         if ($request->input('status_id') == 3) {
 
             $order->status_id = $request->input('status_id');
-            $order->date = $now;
+            $order->date_attation = $now;
 
             $order->save();
 
@@ -175,22 +174,23 @@ public function home(Request $request)
 
             return response('ok, denegado ');
         }
-
+        //en uso
         if ($request->input('status_id') == 4) {
 
             $order->status_id = $request->input('status_id');
-            $order->date_init = $now;
+            $order->date_give = $now;
+            $order->date_limit = $now;
 
             $order->save();
 
             return response('ok, en uso');
         }
 
-
+        //Devuelto
         if ($request->input('status_id') == 5) {
 
             $order->status_id = $request->input('status_id');
-            $order->date_end = $now;
+            $order->date_receive = $now;
 
             $order->save();
 
@@ -220,6 +220,9 @@ public function home(Request $request)
 
         return response('ok');
     }
+
+
+
 
 
 }
