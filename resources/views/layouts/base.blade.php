@@ -27,9 +27,11 @@
                     <li><a class="link"  href="/registeradmin">REGISTRAR ADMINISTRADOR</a></li>
                     <li><a  class="link"  href="/authors">AUTORES </a></li>
                     <li><a  class="link"  href="/genders">GENERO </a></li>
+
                 @else
                     <li><a class="link" href="/request">SOLICITAR</a></li>
                     <li><a href="/mybooks" class="link">MI LIBROS</a></li>
+
                 @endif
             </ul>
         </nav>

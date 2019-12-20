@@ -33,12 +33,18 @@
                    <tr class="boook">
                        <td>{{$order->inventory->book->title}}</td>
                        <td>{{$order->user->name}}</td>
+                       {{--<td>{{$order->date_give}}</td>--}}
+                       {{--<td>{{$order->date_recive}}</td>--}}
+                       {{--<td>{{$order->date_denied}}</td>--}}
+                       {{--<td>{{$order->date_acept}}</td>--}}
+                       {{--<td>{{$order->date_limit}}</td>--}}
                        {{--<td>{{$order->status->name}}</td>--}}
                        @if($order->status->id==1)
                            <td><button class="acept btn btn-second" data-indice="{{$order->id}}" >aceptar</button></td>
                            <td><button class="reject btn btn-primary" data-indice="{{$order->id}}">rechazar</button></td>
                        @elseif($order->status->id==2)
                            <td><button class="give btn btn-primary" data-indice="{{$order->id}}" >entregar</button></td>
+                           <td><button class="contract btn btn-primary" data-indice="{{$order->id}}" >descargar contrato</button></td>
                        @elseif($order->status->id==4)
                            <td><button class="receive btn btn-primary" data-indice="{{$order->id}}" >recibir</button></td>
                            @endif
@@ -117,7 +123,20 @@
                     }
                 );
         });
-
+        $('.contract').click(function (e){
+            e.preventDefault();
+            let idx=$(this).data('indice');
+            $.get({`http://librando.local/orders/${idx}`,
+                method: 'PUT',
+                data:{status_id : 3},
+            })
+                .done(()=>{
+                        alert('has aceptado solicitud');
+                        $(this).prop('disabled',true);
+                        $(this).css("background-color", "grey");
+                    }
+                );
+        });
         </script>
     @endsection
 
