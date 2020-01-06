@@ -13,6 +13,8 @@
 
 
 Route::get('/', 'HomeController@index');
+Route::get('/down-contract/{order}', 'ReportController@pdf');
+
 Auth::routes();
 
 
@@ -37,7 +39,6 @@ Route::group(['middleware' => 'auth'], function () {
       Route::post('/registeradmin', 'Auth\RegisterAdminController@register');
       Route::get('/books/{id}/inventory', 'BookController@getInventory')->name('books_inventory');
       Route::get('/contract', 'ReportController@index');
-      Route::get('/down-contract', 'ReportController@pdf');
     });
 });
 
