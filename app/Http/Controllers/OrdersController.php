@@ -179,7 +179,7 @@ public function home(Request $request)
 
             $order->status_id = $request->input('status_id');
             $order->date_give = $now;
-            $order->date_limit = $now;
+            $order->date_limit = $now->addDays(15);
 
             $order->save();
 
@@ -220,9 +220,6 @@ public function home(Request $request)
 
         return response('ok');
     }
-
-
-
 
 
 }

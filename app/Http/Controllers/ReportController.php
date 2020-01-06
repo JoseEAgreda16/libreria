@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Orders;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ReportController extends Controller
 {
     public function index()
     {
-        $products = Orders::all();
+        $user = Auth::user();
 
-        return view('report.contract', compact('products'));
+        return view('', compact('user'));
     }
 
     public function pdf()
@@ -22,7 +23,7 @@ class ReportController extends Controller
          **/
         $products = Orders::all();
 
-        $pdf = PDF::loadView('pdf.products', compact('products'));
+        $pdf = \PDFlib::loadView('pdf.products', compact('products'));
 
         return $pdf->download('listado.pdf');
     }
