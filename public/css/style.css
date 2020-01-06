@@ -336,3 +336,14 @@ footer{
 .page > nav > ul> li{
     margin:5px;
 }
+.contract{
+    width:80px;
+    height:116px;
+    display:block;
+    padding:12px;
+}
+.title-contract{
+    padding:0;
+    margin:auto;
+
+}

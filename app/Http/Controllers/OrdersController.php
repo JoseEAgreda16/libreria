@@ -128,7 +128,7 @@ public function home(Request $request)
             $newRequest->users_id = $user->id;
             $newRequest->inventories_id = $inventories->id;
             $newRequest->status_id = '1';
-            $newRequest->date = Carbon::now();
+            $newRequest->date_attention = Carbon::now();
             $newRequest->book_id = $inventories->book_id;
 
             $inventories->status_id = '2';

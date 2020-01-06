@@ -9,15 +9,18 @@
 </head>
 <body>
 <div class="contract">
-<h1 class="title-contract">Contrato de prestamo</h1>
-<div class="content-contract">
-El siguiente documento compromete al usuario del libro de nombre {{$user->name}}
-y cedula de identidad {{$user->card_id}} a la entrega del material de titulo {{$book->name}} el dia {{$order->date_limit}} de lo contrario sera sancionado
-con la cantidad de 3$ por semana de retraso.
-</div>
-----------
-    {{$user->name}}
-firma de usuario
+    <h1 class="title-contract">Contrato de prestamo</h1>
+    <div class="content-contract">
+        El siguiente documento compromete al usuario del libro de nombre {{$user->name}}
+        y cedula de identidad {{$user->card_id}} a la entrega del material de titulo {{$book->name}} el dia {{$order->date_limit}} de lo contrario sera sancionado
+        con la cantidad de 3$ por semana de retraso.
+    </div>
+    <div class="firma">
+        ----------<br>
+        firma de usuario<br>
+        {{$user->name}}
+    </div>
+
 </div>
 </body>
 </html>
