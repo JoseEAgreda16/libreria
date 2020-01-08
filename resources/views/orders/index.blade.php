@@ -43,8 +43,8 @@
                            <td><button class="reject btn btn-primary" data-indice="{{$order->id}}">rechazar</button></td>
                        @elseif($order->status->id==2)
                            <td><button class="give btn btn-primary" data-indice="{{$order->id}}" >entregar</button></td>
-                           <td><a href="/down-order" class="contrato btn btn-primary" data-indice="{{$order->id}}" >descargar lista</a></td>
-                           <td><a href="/list-order" class="contrato btn btn-primary" data-indice="{{$order->id}}" >descargar contrato</a></td>
+                           <td><a href="/contract/{{$order->id}}" class="contrato btn btn-primary" data-indice="{{$order->id}}" target="_blank">descargar lista</a></td>
+                           <td><a href="/down-contract/{{$order->id}}" class="contrato btn btn-primary" data-indice="{{$order->id}}" download="contrato">descargar contrato</a></td>
                        @elseif($order->status->id==4)
                            <td><button class="receive btn btn-primary" data-indice="{{$order->id}}" >recibir</button></td>
                            @endif

@@ -3,37 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Orders;
+use Barryvdh\DomPDF\Facade;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ReportController extends Controller
 {
-    public function index()
+    public function index($id)
     {
         $user = Auth::user();
 
-        $orders = Orders::where('users_id', $user->id)
-                        ->where('status_id', 2)
-                        ->with('inventory');
-
+        $orders =  Orders::findOrFail($id);
 
         return view('reports.contract')->with(['orders' => $orders, 'user' => $user]);
     }
 
-    public function pdf()
+    public function pdf($id)
     {
-        /**
-         * toma en cuenta que para ver los mismos
-         * datos debemos hacer la misma consulta
-         **/
         $user = Auth::user();
 
-        $orders = Orders::where('users_id', $user->id)
-            ->where('status_id', 2)
-            ->with('inventory');
+        $orders =  Orders::findOrFail($id);
 
-
-        $pdf = \PDFlib::loadView('reports.contract')->with(['orders' => $orders, 'user' => $user]);
+        $pdf = Facade::loadView('reports.contract', ['orders' => $orders, 'user' => $user]);
 
         return $pdf->download('contract.pdf');
     }
