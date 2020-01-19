@@ -15,6 +15,7 @@
 Route::get('/', 'HomeController@index');
 Route::get('/down-contract/{order}', 'ReportController@pdf');
 
+
 Auth::routes();
 
 

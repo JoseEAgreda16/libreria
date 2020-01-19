@@ -6,12 +6,15 @@ use App\Author;
 use App\Book;
 use App\Gender;
 use App\Inventory;
+use App\Mail\aprobado;
 use App\Order_Status;
 use App\Orders;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Mail\Message;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class OrdersController extends Controller
 {
@@ -150,8 +153,16 @@ public function home(Request $request)
         $now = Carbon::now();
         $order = Orders::findOrFail($id);
 
+
         //Aprobado
         if ($request->input('status_id') == 2) {
+
+            $inventory = Inventory::findOrFail($order->inventories_id);
+            $book = Book::findOrFail($inventory->book_id);
+            $user = User::findOrfail($order->users_id);
+
+            Mail::to($user->email)->send(new aprobado($user,$book,$order));
+
 
             $order->status_id = $request->input('status_id');
             $order->date_attention = $now;
